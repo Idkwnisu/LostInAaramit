@@ -302,6 +302,8 @@
   <ItemGroup>
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection.cs" />
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection1.cs" />
+    <Compile Include="Assets\JumpingPlatform.cs" />
+    <Compile Include="Assets\LowPolyNature\Scripts\ParablePlayer.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
