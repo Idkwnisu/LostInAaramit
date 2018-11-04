@@ -306,6 +306,7 @@
     <Compile Include="Assets\LowPolyNature\Scripts\ParablePlayer.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
+    <Compile Include="Assets\RotateThis.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
@@ -324,6 +325,7 @@
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />
     <Compile Include="Assets\Scripts\WinterFrostPickable.cs" />
+    <Compile Include="Assets\TurnRemoteObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ICE_sushishop\Shader\Glass.shader" />
