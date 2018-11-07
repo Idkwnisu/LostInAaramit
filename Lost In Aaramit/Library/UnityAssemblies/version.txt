@@ -1,5 +1,5 @@
 2018.2.14f1:3.3.0.2
-StandaloneWindows64
+StandaloneWindows
 C:\Program Files\Unity\Hub\Editor\2018.2.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll
 C:\Program Files\Unity\Hub\Editor\2018.2.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll
 C:\Program Files\Unity\Hub\Editor\2018.2.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll
