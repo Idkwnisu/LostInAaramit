@@ -306,6 +306,7 @@
     <Compile Include="Assets\LowPolyNature\Scripts\ParablePlayer.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
+    <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\RotateThis.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
