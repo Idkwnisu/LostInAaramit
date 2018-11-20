@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/LevelDesignTestNabla.unity
+- path: Assets/Scenes/CavernScene.unity
   isLoaded: 1
   isActive: 1
