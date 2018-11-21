@@ -1,8 +1,12 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayWhistle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DialogueSystem.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayWhistle.cs" Line="16" Column="37" />
+      <File FileName="Assets/Scripts/BossFight.cs" Line="115" Column="35" />
+      <File FileName="Assets/Scripts/TriggerNote.cs" Line="20" Column="40" />
+      <File FileName="Assets/Scripts/PlayerDie.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/NPC.cs" Line="41" Column="32" />
+      <File FileName="Assets/Scripts/DialogueSystem.cs" Line="109" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -67,10 +67,12 @@
     <Compile Include="Assets\LowPolyNature\Scripts\ParablePlayer.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
+    <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\RotateThis.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\AnotherRay.cs" />
+    <Compile Include="Assets\Scripts\BossFight.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DroppableItem.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
@@ -84,11 +86,13 @@
     <Compile Include="Assets\Scripts\PickableItem.cs" />
     <Compile Include="Assets\Scripts\PickupThings.cs" />
     <Compile Include="Assets\Scripts\PlacebleItem.cs" />
+    <Compile Include="Assets\Scripts\PlayerDie.cs" />
     <Compile Include="Assets\Scripts\PlayWhistle.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SeasonalChange.cs" />
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
+    <Compile Include="Assets\Scripts\TriggerNote.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />
     <Compile Include="Assets\Scripts\WinterFrostPickable.cs" />
     <Compile Include="Assets\TurnRemoteObject.cs" />

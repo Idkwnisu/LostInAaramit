@@ -53,12 +53,12 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    public void NPCName()
+    public void NPCName(bool trig)
     {
         outOfRange = false;
         dialogueBoxGUI.gameObject.SetActive(true);
         nameText.text = Names;
-        if (Input.GetKeyDown(KeyCode.F))
+        if ((Input.GetKeyDown(KeyCode.F) && !trig) || trig)
         {
             if (!dialogueActive)
             {

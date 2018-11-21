@@ -22,10 +22,6 @@ public class NPC : MonoBehaviour {
     }
     
     void Update () {
-        //Pos è la posizione dell'NPC se voglio mettere la chatBackground sopra
-        Vector3 Pos = Camera.main.WorldToScreenPoint(NPCCharacter.position);
-        Pos.y -= 50;
-        //ChatBackGround.position = newPos;
         ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
     }
 
@@ -38,8 +34,14 @@ public class NPC : MonoBehaviour {
             this.gameObject.GetComponent<NPC>().enabled = true;
             dialogueSystem.Names = Name;
             dialogueSystem.dialogueLines = sentences;
-            FindObjectOfType<DialogueSystem>().NPCName();
+            FindObjectOfType<DialogueSystem>().NPCName(false);
         }
+    }
+
+    public void triggerDialogue(){
+        dialogueSystem.Names = Name;
+        dialogueSystem.dialogueLines = sentences;
+        FindObjectOfType<DialogueSystem>().NPCName(true);
     }
 
     public void OnTriggerExit()
