@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\AnotherRay.cs" />
     <Compile Include="Assets\Scripts\BossFight.cs" />
+    <Compile Include="Assets\Scripts\BossMovement.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DroppableItem.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />

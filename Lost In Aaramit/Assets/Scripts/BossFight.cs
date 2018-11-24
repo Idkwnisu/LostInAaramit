@@ -6,6 +6,7 @@ public class BossFight : MonoBehaviour
 {
 
     public GameObject boss;
+    public GameObject bossDialogue1;
     public GameObject bossDialogue2;
     public GameObject bossDialogue3;
     public GameObject bossDialogue4;
@@ -60,7 +61,7 @@ public class BossFight : MonoBehaviour
         level3[4] = note5;
         level3[5] = note6;
 
-        boss.GetComponent<NPC>().triggerDialogue();
+        bossDialogue1.GetComponent<NPC>().triggerDialogue();
         StartCoroutine(startNewLevel(level1));
     }
 
@@ -98,6 +99,7 @@ public class BossFight : MonoBehaviour
                         cNote = 0;
                         bossDialogue3.GetComponent<NPC>().triggerDialogue();
                         StartCoroutine(startNewLevel(level3));
+                        startBossMove();
                     }
                 }
                 else
@@ -147,5 +149,9 @@ public class BossFight : MonoBehaviour
         note.GetComponent<Renderer>().material = mat;
         yield return new WaitForSeconds(2f);
         note.GetComponent<Renderer>().material = default_mat;
+    }
+
+    private void startBossMove(){
+        boss.GetComponent<BossMovement>().setActive();
     }
 }
