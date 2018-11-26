@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BossFight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PickupThings.cs">
     <Files>
-      <File FileName="Assets/Scripts/BossFight.cs" Line="102" Column="41" />
+      <File FileName="Assets/Scripts/BossFight.cs" Line="8" Column="4" />
       <File FileName="Assets/Scripts/BossMovement.cs" Line="30" Column="25" />
+      <File FileName="Assets/Scripts/NPC.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/PickupThings.cs" Line="24" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

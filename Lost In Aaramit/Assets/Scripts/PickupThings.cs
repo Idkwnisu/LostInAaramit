@@ -20,8 +20,8 @@ public class PickupThings : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _animator = GetComponent<Animator>();
-        pickupText.enabled = false;
-        placeText.enabled = false;
+        //pickupText.enabled = false;
+        //placeText.enabled = false;
 
     }
 
