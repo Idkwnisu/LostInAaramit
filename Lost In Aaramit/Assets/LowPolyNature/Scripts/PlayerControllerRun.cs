@@ -74,8 +74,9 @@ public class PlayerControllerRun : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
- 
-            if(Input.GetButton("Run"))
+        if (mIsControlEnabled)
+        {
+            if (Input.GetButton("Run"))
             {
                 isRunning = true;
             }
@@ -84,7 +85,7 @@ public class PlayerControllerRun : MonoBehaviour
                 isRunning = false;
                 _animator.SetBool("run", false);
             }
-            
+
             // Get Input for axis
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
@@ -105,8 +106,9 @@ public class PlayerControllerRun : MonoBehaviour
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (_characterController.velocity.y <= 0)
+            if (_characterController.velocity.y < 0.2)
             {
+                Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down), Color.yellow, 0.0f, true);
                 if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
                 {
                     _isGrounded = true;
@@ -126,21 +128,21 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 _isGrounded = false;
             }
-
+            Debug.Log(_isGrounded);
             if (_isGrounded)
             {
                 _moveDirection = transform.forward * move.magnitude;
 
-            if (isRunning)
-                _moveDirection *= RunningForce;
-            else
-                _moveDirection *= WalkingForce;
+                if (isRunning)
+                    _moveDirection *= RunningForce;
+                else
+                    _moveDirection *= WalkingForce;
 
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("is_in_air", true);
                     _characterController.AddForce(Vector3.up * JumpSpeed);
-                  
+
                 }
                 else
                 {
@@ -154,14 +156,12 @@ public class PlayerControllerRun : MonoBehaviour
                         _animator.SetBool("walk", move.magnitude > 0);
                     }
                 }
-              }
+            }
             else
             {
-                if (mIsControlEnabled)
-                {
-                    _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
-                }
+                _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
             }
+        }
 
             if (_characterController.velocity.y < -.5f)
             {
