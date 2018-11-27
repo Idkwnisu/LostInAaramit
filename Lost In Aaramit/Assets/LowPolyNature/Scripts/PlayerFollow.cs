@@ -15,17 +15,7 @@ public class PlayerFollow : MonoBehaviour
     [Range(0.01f, 1.0f)]
     public float SmoothFactor = 0.5f;
 
-    public bool LookAtPlayer = false;
-
-    public bool RotateAroundPlayer = true;
-
-    public bool RotateMiddleMouseButton = true;
-
     public float RotationsSpeed = 5.0f;
-
-    public float CameraPitchMin = 1.5f;
-
-    public float CameraPitchMax = 6.5f;
 
     public float minDistance = 0.3f;
     public float approachingSpeed = 0.4f;
@@ -48,22 +38,8 @@ public class PlayerFollow : MonoBehaviour
             float h = Input.GetAxis("Mouse X") * RotationsSpeed;
             float v = Input.GetAxis("Mouse Y") * RotationsSpeed * -1;
 
-            Quaternion camTurnAngle = Quaternion.AngleAxis(h, Vector3.up);
-
-            Quaternion camTurnAngleY = Quaternion.AngleAxis(v, transform.right);
-
-            Vector3 newCameraOffset = camTurnAngle * camTurnAngleY * _cameraOffset;
-
-            // Limit camera pitch
-            if (newCameraOffset.y < CameraPitchMin || newCameraOffset.y > CameraPitchMax)
-            {
-                newCameraOffset = camTurnAngle * _cameraOffset;
-            }
-
-            _cameraOffset = newCameraOffset;
-
-            if(!_isColliding && _cameraProximity < 1.0f)
-            {
+        if (!_isColliding && _cameraProximity < 1.0f)
+        {
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
             Vector3 direction = _cameraOffset.normalized;
@@ -77,20 +53,29 @@ public class PlayerFollow : MonoBehaviour
 
         Vector3 newPos = PlayerTransform.position + _cameraOffset * _cameraProximity;
 
-        transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
+        transform.position = newPos;
 
-        if (LookAtPlayer || RotateAroundPlayer)
+        if (h != 0 || v != 0)
+        {
+            transform.position = newPos;
+            transform.RotateAround(PlayerTransform.position, transform.right, v);
+            transform.RotateAround(PlayerTransform.position, Vector3.up, h);
             transform.LookAt(PlayerTransform);
+            _cameraOffset = (transform.position - PlayerTransform.position)/_cameraProximity;
+        }
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _isColliding = true;
+        if(!other.CompareTag("Player"))
+             _isColliding = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _isColliding = false;
+        if (!other.CompareTag("Player"))
+            _isColliding = false;
     }
 
     private void OnTriggerStay(Collider other)

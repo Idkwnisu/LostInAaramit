@@ -23,9 +23,8 @@ public class JumpingPlatform : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Spiew");
             audioSource.Play();
-            other.GetComponent<PlayerControllerRun>().DisableControl();
+            other.GetComponent<PlayerControllerRun>().ControlDisabling();
             other.GetComponent<PlayerControllerRun>().resetSpeed();
             other.GetComponent<PlayerControllerRun>().applyForce(target.position-transform.position, VerticalSpeed);
         }

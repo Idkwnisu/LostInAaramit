@@ -61,19 +61,20 @@ public class PlayerControllerRun : MonoBehaviour
 
     private bool mIsControlEnabled = true;
 
-    public void EnableControl()
+    public void ControlEnabling()
     {
         mIsControlEnabled = true;
     }
 
-    public void DisableControl()
+    public void ControlDisabling()
     {
         mIsControlEnabled = false;
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
+
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         if (_characterController.velocity.y < 0.2)
@@ -82,15 +83,21 @@ public class PlayerControllerRun : MonoBehaviour
             if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
             {
                 _isGrounded = true;
-                if (!mIsControlEnabled)
-                {
-                    EnableControl();
-                    resetSpeed();
-                }
+                
                 if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
                 {
                     currentPlatform = hit.transform.gameObject;
                     _initialPlatformPosition = realPosition(hit.transform);
+                }
+
+
+                if (_characterController.velocity.y < 0) //is descending
+                {
+                    if (!mIsControlEnabled)
+                    {
+                        ControlEnabling();
+                        resetSpeed();
+                    }
                 }
             }
             else
@@ -102,6 +109,7 @@ public class PlayerControllerRun : MonoBehaviour
         {
             _isGrounded = false;
         }
+
 
         if (mIsControlEnabled)
         {
@@ -121,8 +129,8 @@ public class PlayerControllerRun : MonoBehaviour
 
             // Calculate the forward vector
             Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+            
             Vector3 move = v * camForward_Dir + h * Camera.main.transform.right;
-            //Debug.Log(move);
 
             if (move.magnitude > 1f) move.Normalize();
 
@@ -134,8 +142,6 @@ public class PlayerControllerRun : MonoBehaviour
 
             transform.Rotate(0, turnAmount * RotationSpeed * Time.deltaTime, 0);
 
-           
-            //Debug.Log(_isGrounded);
             if (_isGrounded)
             {
                 _moveDirection = transform.forward * move.magnitude;
@@ -144,7 +150,7 @@ public class PlayerControllerRun : MonoBehaviour
                     _moveDirection *= RunningForce;
                 else
                     _moveDirection *= WalkingForce;
-
+                
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("is_in_air", true);
@@ -168,22 +174,28 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
             }
-        }
 
-            if (_characterController.velocity.y < -.5f)
+            Vector2 horizontalSpeed = new Vector2(_characterController.velocity.x, _characterController.velocity.z);
+            if (isRunning == false)
             {
-                Gravity = FallingGravity;
+                if (horizontalSpeed.magnitude > maxWalkingSpeed)
+                {
+                    horizontalSpeed = horizontalSpeed.normalized * maxWalkingSpeed;
+                }
+
             }
             else
             {
-                Gravity = 1f;
-            }
-            _characterController.AddForce(Physics.gravity * Gravity * (_characterController.mass * _characterController.mass));
+                if (horizontalSpeed.magnitude > maxRunningSpeed)
+                {
+                    horizontalSpeed = horizontalSpeed.normalized * maxRunningSpeed;
+                }
 
-            if (_characterController.velocity.magnitude < maxWalkingSpeed || (_characterController.velocity.magnitude < maxRunningSpeed && isRunning))
-            {
-                _characterController.AddForce(_moveDirection * Time.deltaTime);
             }
+            _characterController.velocity = new Vector3(horizontalSpeed.x, _characterController.velocity.y, horizontalSpeed.y);
+
+            _characterController.AddForce(_moveDirection * Time.deltaTime);
+
 
             if (_isGrounded)
             {
@@ -193,7 +205,18 @@ public class PlayerControllerRun : MonoBehaviour
                     _initialPlatformPosition = realPosition(currentPlatform.transform);
                 }
             }
-        
+        }
+
+        if (_characterController.velocity.y < -.5f)
+            {
+                Gravity = FallingGravity;
+            }
+            else
+            {
+                Gravity = 1f;
+            }
+             _characterController.AddForce(Physics.gravity * Gravity * (_characterController.mass * _characterController.mass));
+           
         
      /*   Debug.Log("W:" + _animator.GetBool("walk"));
 
@@ -202,6 +225,7 @@ public class PlayerControllerRun : MonoBehaviour
         Debug.Log("IsRunning:" + isRunning);*/
 
     }
+
 
 
     Vector3 realPosition(Transform transform)

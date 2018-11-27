@@ -303,7 +303,6 @@
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection.cs" />
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection1.cs" />
     <Compile Include="Assets\JumpingPlatform.cs" />
-    <Compile Include="Assets\LowPolyNature\Scripts\ParablePlayer.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\MasterRotator.cs" />
@@ -317,6 +316,7 @@
     <Compile Include="Assets\Scripts\DroppableItem.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\ForestSpawner.cs" />
+    <Compile Include="Assets\Scripts\GravityFall.cs" />
     <Compile Include="Assets\Scripts\LightRayCaster.cs" />
     <Compile Include="Assets\Scripts\LightTouch.cs" />
     <Compile Include="Assets\Scripts\MaterialSeasonalChange.cs" />

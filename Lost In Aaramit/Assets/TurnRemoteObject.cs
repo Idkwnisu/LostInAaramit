@@ -45,7 +45,7 @@ public class TurnRemoteObject : MonoBehaviour {
                     objectCamera.enabled = false;
                     InteractText.enabled = true;
                     rotatorLayout.SetActive(false);
-                    Player.GetComponent<PlayerControllerRun>().EnableControl();
+                    Player.GetComponent<PlayerControllerRun>().ControlEnabling();
 
                 }
                 else
@@ -55,7 +55,7 @@ public class TurnRemoteObject : MonoBehaviour {
                     objectCamera.enabled = true;
                     InteractText.enabled = false;
                     rotatorLayout.SetActive(true);
-                    Player.GetComponent<PlayerControllerRun>().DisableControl();
+                    Player.GetComponent<PlayerControllerRun>().ControlDisabling();
                 }
             }
             if (interacting)
