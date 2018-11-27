@@ -9,29 +9,44 @@ public class PlayerControllerRun : MonoBehaviour
 
     private Animator _animator;
 
-    private CharacterController _characterController;
+    private Rigidbody _characterController;
 
-    private float Gravity = 20.0f;
+    private float Gravity = 1.0f;
 
     private Vector3 _moveDirection = Vector3.zero;
 
     private float Speed;
+
+    private bool _isGrounded;
 
     private bool isRunning;
     #endregion
 
     #region Public Members
 
-    public float WalkingSpeed = 5.0f;
+    public Transform feet;
 
-    public float RunningSpeed = 7.0f;
+    public float RayLenght = 0.5f;
 
-    [Range(0.1f, 1.0f)]
-    public float SpeedSmooth = 0.3f;
+    public float WalkingForce = 500f;
+
+    public float RunningForce = 700f;
+
+    public float maxWalkingSpeed = 5.0f;
+
+    public float maxRunningSpeed = 7.0f;
 
     public float RotationSpeed = 240.0f;
 
     public float JumpSpeed = 7.0f;
+
+    public float FallingGravity = 4.0f;
+
+    [Range(0.01f,0.99f)]
+    public float fallingMovement = 0.2f;
+
+    private GameObject currentPlatform;
+    private Vector3 _initialPlatformPosition;
 
     #endregion
 
@@ -40,13 +55,9 @@ public class PlayerControllerRun : MonoBehaviour
     {
         Cursor.visible = false;
         _animator = GetComponent<Animator>();
-        _characterController = GetComponent<CharacterController>();
-        Speed = WalkingSpeed;
+        _characterController = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
-    {
-    }
 
     private bool mIsControlEnabled = true;
 
@@ -61,10 +72,9 @@ public class PlayerControllerRun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if (mIsControlEnabled)
-        {
+ 
             if(Input.GetButton("Run"))
             {
                 isRunning = true;
@@ -74,21 +84,7 @@ public class PlayerControllerRun : MonoBehaviour
                 isRunning = false;
                 _animator.SetBool("run", false);
             }
-
-            if(isRunning)
-            {
-                if(Speed < RunningSpeed)
-                {
-                    Speed = Mathf.Lerp(Speed, RunningSpeed, SpeedSmooth);
-                }
-            }
-            else
-            {
-                if(Speed > WalkingSpeed)
-                {
-                    Speed = Mathf.Lerp(Speed, WalkingSpeed, SpeedSmooth);
-                }
-            }
+            
             // Get Input for axis
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
@@ -107,17 +103,44 @@ public class PlayerControllerRun : MonoBehaviour
 
             transform.Rotate(0, turnAmount * RotationSpeed * Time.deltaTime, 0);
 
-            if (_characterController.isGrounded)
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (_characterController.velocity.y <= 0)
+            {
+                if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+                {
+                    _isGrounded = true;
+                    EnableControl();
+                    if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
+                    {
+                        currentPlatform = hit.transform.gameObject;
+                        _initialPlatformPosition = realPosition(hit.transform);
+                    }
+                }
+                else
+                {
+                    _isGrounded = false;
+                }
+            }
+            else
+            {
+                _isGrounded = false;
+            }
+
+            if (_isGrounded)
             {
                 _moveDirection = transform.forward * move.magnitude;
 
-                _moveDirection *= Speed;
+            if (isRunning)
+                _moveDirection *= RunningForce;
+            else
+                _moveDirection *= WalkingForce;
 
-                if (Input.GetButton("Jump"))
+                if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("is_in_air", true);
-                    _moveDirection.y = JumpSpeed;
-
+                    _characterController.AddForce(Vector3.up * JumpSpeed);
+                  
                 }
                 else
                 {
@@ -131,12 +154,42 @@ public class PlayerControllerRun : MonoBehaviour
                         _animator.SetBool("walk", move.magnitude > 0);
                     }
                 }
+              }
+            else
+            {
+                if (mIsControlEnabled)
+                {
+                    Debug.Log("aaaaahh");
+                    _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
+                }
             }
 
-            _moveDirection.y -= Gravity * Time.deltaTime;
+            if (_characterController.velocity.y < -.5f)
+            {
+                Gravity = FallingGravity;
+            }
+            else
+            {
+                Gravity = 1f;
+            }
+            Debug.Log("Gravity is working");
+            _characterController.AddForce(Physics.gravity * Gravity * (_characterController.mass * _characterController.mass));
 
-            _characterController.Move(_moveDirection * Time.deltaTime);
-        }
+            if (_characterController.velocity.magnitude < maxWalkingSpeed || (_characterController.velocity.magnitude < maxRunningSpeed && isRunning))
+            {
+                _characterController.AddForce(_moveDirection * Time.deltaTime);
+            }
+
+            if (_isGrounded)
+            {
+                if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
+                {
+                    transform.position += (realPosition(currentPlatform.transform) - _initialPlatformPosition);
+                    _initialPlatformPosition = realPosition(currentPlatform.transform);
+                }
+            }
+        
+        
      /*   Debug.Log("W:" + _animator.GetBool("walk"));
 
         Debug.Log("R:"+_animator.GetBool("run"));
@@ -144,6 +197,23 @@ public class PlayerControllerRun : MonoBehaviour
         Debug.Log("IsRunning:" + isRunning);*/
 
     }
+
+
+    Vector3 realPosition(Transform transform)
+    {
+        return transform.position;
+    }
     
+    public void applyForce(Vector3 direction, float force)
+    {
+        Vector3 versor = direction.normalized;
+        _characterController.AddForce(versor * force);
+    }
+
+    public void resetSpeed()
+    {
+        _characterController.velocity = Vector3.zero;
+        
+    }
   
 }

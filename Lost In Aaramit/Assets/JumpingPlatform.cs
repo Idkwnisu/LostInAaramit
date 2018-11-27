@@ -5,8 +5,6 @@ using UnityEngine;
 public class JumpingPlatform : MonoBehaviour {
     public Transform target;
     public float VerticalSpeed;
-    [Range(0.01f,1)]
-    public float JumpSpeed;
 
     private AudioSource audioSource;
 
@@ -25,8 +23,11 @@ public class JumpingPlatform : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
+            Debug.Log("Spiew");
             audioSource.Play();
-            other.GetComponent<ParablePlayer>().Jump(target, VerticalSpeed,JumpSpeed);
+            other.GetComponent<PlayerControllerRun>().DisableControl();
+            other.GetComponent<PlayerControllerRun>().resetSpeed();
+            other.GetComponent<PlayerControllerRun>().applyForce(target.position-transform.position, VerticalSpeed);
         }
     }
 }
