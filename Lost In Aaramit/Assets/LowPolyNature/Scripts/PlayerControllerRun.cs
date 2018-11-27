@@ -74,6 +74,35 @@ public class PlayerControllerRun : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (_characterController.velocity.y < 0.2)
+        {
+            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down), Color.yellow, 0.0f, true);
+            if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+            {
+                _isGrounded = true;
+                if (!mIsControlEnabled)
+                {
+                    EnableControl();
+                    resetSpeed();
+                }
+                if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
+                {
+                    currentPlatform = hit.transform.gameObject;
+                    _initialPlatformPosition = realPosition(hit.transform);
+                }
+            }
+            else
+            {
+                _isGrounded = false;
+            }
+        }
+        else
+        {
+            _isGrounded = false;
+        }
+
         if (mIsControlEnabled)
         {
             if (Input.GetButton("Run"))
@@ -93,6 +122,7 @@ public class PlayerControllerRun : MonoBehaviour
             // Calculate the forward vector
             Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 move = v * camForward_Dir + h * Camera.main.transform.right;
+            Debug.Log(move);
 
             if (move.magnitude > 1f) move.Normalize();
 
@@ -104,30 +134,7 @@ public class PlayerControllerRun : MonoBehaviour
 
             transform.Rotate(0, turnAmount * RotationSpeed * Time.deltaTime, 0);
 
-            RaycastHit hit;
-            // Does the ray intersect any objects excluding the player layer
-            if (_characterController.velocity.y < 0.2)
-            {
-                Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down), Color.yellow, 0.0f, true);
-                if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
-                {
-                    _isGrounded = true;
-                    EnableControl();
-                    if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
-                    {
-                        currentPlatform = hit.transform.gameObject;
-                        _initialPlatformPosition = realPosition(hit.transform);
-                    }
-                }
-                else
-                {
-                    _isGrounded = false;
-                }
-            }
-            else
-            {
-                _isGrounded = false;
-            }
+           
             Debug.Log(_isGrounded);
             if (_isGrounded)
             {
@@ -210,8 +217,7 @@ public class PlayerControllerRun : MonoBehaviour
 
     public void resetSpeed()
     {
-        _characterController.velocity = Vector3.zero;
-        
+        _characterController.velocity = Vector3.zero;   
     }
   
 }
