@@ -159,7 +159,6 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 if (mIsControlEnabled)
                 {
-                    Debug.Log("aaaaahh");
                     _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
                 }
             }
@@ -172,7 +171,6 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 Gravity = 1f;
             }
-            Debug.Log("Gravity is working");
             _characterController.AddForce(Physics.gravity * Gravity * (_characterController.mass * _characterController.mass));
 
             if (_characterController.velocity.magnitude < maxWalkingSpeed || (_characterController.velocity.magnitude < maxRunningSpeed && isRunning))

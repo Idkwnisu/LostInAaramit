@@ -133,7 +133,7 @@ public class BossFight : MonoBehaviour
     IEnumerator startNewLevel(GameObject[] lev)
     {
         yield return new WaitForSeconds(1f);
-        Player.GetComponent<PlayerControllerRun>().DisableControl();
+        //Player.GetComponent<PlayerControllerRun>().DisableControl();
         yield return new WaitForSeconds(5f);
         for (int i = 0; i < lev.Length; i++)
         {
@@ -141,7 +141,7 @@ public class BossFight : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             lev[i].GetComponent<Renderer>().material = default_mat;
         }
-        Player.GetComponent<PlayerControllerRun>().EnableControl();
+        //Player.GetComponent<PlayerControllerRun>().EnableControl();
     }
 
     IEnumerator LightNote(GameObject note, Material mat)
