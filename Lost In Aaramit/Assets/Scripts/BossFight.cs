@@ -61,7 +61,6 @@ public class BossFight : MonoBehaviour
         level3[4] = note5;
         level3[5] = note6;
 
-        bossDialogue1.GetComponent<NPC>().triggerDialogue();
         StartCoroutine(startNewLevel(level1));
     }
 
@@ -78,7 +77,6 @@ public class BossFight : MonoBehaviour
                     {
                         cLev++;
                         cNote = 0;
-                        bossDialogue2.GetComponent<NPC>().triggerDialogue();
                         StartCoroutine(startNewLevel(level2));
                     }
                 }
@@ -97,7 +95,6 @@ public class BossFight : MonoBehaviour
                     {
                         cLev++;
                         cNote = 0;
-                        bossDialogue3.GetComponent<NPC>().triggerDialogue();
                         StartCoroutine(startNewLevel(level3));
                         startBossMove();
                     }
@@ -134,6 +131,18 @@ public class BossFight : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         //Player.GetComponent<PlayerControllerRun>().DisableControl();
+        switch (cLev){
+            case 0:
+                bossDialogue1.GetComponent<NPC>().triggerDialogue();
+                break;
+            case 1:
+                bossDialogue2.GetComponent<NPC>().triggerDialogue();
+                break;
+            case 2:
+                bossDialogue3.GetComponent<NPC>().triggerDialogue();
+                break;
+
+        }
         yield return new WaitForSeconds(5f);
         for (int i = 0; i < lev.Length; i++)
         {

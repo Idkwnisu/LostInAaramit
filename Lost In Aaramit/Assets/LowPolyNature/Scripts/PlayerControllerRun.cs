@@ -122,7 +122,7 @@ public class PlayerControllerRun : MonoBehaviour
             // Calculate the forward vector
             Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 move = v * camForward_Dir + h * Camera.main.transform.right;
-            Debug.Log(move);
+            //Debug.Log(move);
 
             if (move.magnitude > 1f) move.Normalize();
 
@@ -135,7 +135,7 @@ public class PlayerControllerRun : MonoBehaviour
             transform.Rotate(0, turnAmount * RotationSpeed * Time.deltaTime, 0);
 
            
-            Debug.Log(_isGrounded);
+            //Debug.Log(_isGrounded);
             if (_isGrounded)
             {
                 _moveDirection = transform.forward * move.magnitude;
