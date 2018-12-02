@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateThis : MonoBehaviour {
 
     public bool keepObjectsRotation = true;
+    public Transform point;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,14 @@ public class RotateThis : MonoBehaviour {
     public void Rotate(Vector3 rotation)
     {
         Vector3 counterRotation = rotation * (-1);
-        transform.Rotate(rotation, Space.World);
+        if(point == null)
+            transform.Rotate(rotation, Space.World);
+        else
+        {
+            transform.RotateAround(point.position,Vector3.right,rotation.x);
+            transform.RotateAround(point.position, Vector3.up, rotation.y);
+            transform.RotateAround(point.position, Vector3.forward, rotation.z);
+        }
         if(keepObjectsRotation)
         for (int i = 0; i < transform.childCount; i++)
         {
