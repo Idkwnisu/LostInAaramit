@@ -13,6 +13,9 @@ public class FoxFollow : MonoBehaviour {
     public float lateralSpeedDecrease;
     public float lateralOffset = 0.3f;
 
+    public float stuckRecoveringSpeed = 150; //to check in different ambients, works in maze
+
+    public bool flying = false;
 
     private Vector3 lastKnownPosition;
     private Rigidbody _rb;
@@ -32,13 +35,12 @@ public class FoxFollow : MonoBehaviour {
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity))
         {
-
-            if (hit.transform.gameObject.CompareTag("Player"))
-            {
-                Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.yellow);
-                lastKnownPosition = player.position;
-            }
-        }
+            Debug.Log(hit.transform.gameObject.tag);
+         if (hit.transform.gameObject.CompareTag("Player"))
+         {
+             Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.yellow);
+             lastKnownPosition = player.position;
+         }
         else
         {
             direction = player.position - transform.position - offset;
@@ -63,10 +65,60 @@ public class FoxFollow : MonoBehaviour {
                     lastKnownPosition = player.position;
                 }
             }
-            Debug.Log(offsetToApply);
-            GoForTarget(offsetToApply, lateralSpeedDecrease);
+            if (flying)
+            {
+                Vector3 verticalOffset = Vector3.Cross(direction.normalized, Vector3.right) * lateralOffset;
+                direction = player.position - transform.position - verticalOffset;
+                if (Physics.Raycast(transform.position + verticalOffset, direction, out hit, Mathf.Infinity))
+                {
+
+                    if (hit.transform.gameObject.CompareTag("Player"))
+                    {
+                        Debug.DrawRay(transform.position + verticalOffset, direction.normalized * hit.distance, Color.yellow);
+
+                        offsetToApply = offsetToApply + verticalOffset;
+                        lastKnownPosition = player.position;
+                    }
+                }
+                direction = player.position - transform.position + verticalOffset;
+                if (Physics.Raycast(transform.position - verticalOffset, direction, out hit, Mathf.Infinity))
+                {
+                    if (hit.transform.gameObject.CompareTag("Player"))
+                    {
+                        Debug.DrawRay(transform.position - verticalOffset, direction.normalized * hit.distance, Color.yellow);
+                        if(offsetToApply.y == 0) //checking if a vertical offset is already there or not
+                            offsetToApply = offsetToApply - verticalOffset;
+                        lastKnownPosition = player.position;
+                    }
+                }
+
+                GoForTargetInAir(offsetToApply, lateralSpeedDecrease);
+            }
+            else
+            {
+                    
+                    GoForTarget(offsetToApply, lateralSpeedDecrease);
+            }
+                if (offsetToApply == Vector3.zero)
+                {
+                    Debug.Log("STUCK");
+                    if(!flying)
+                    {
+                        switchMovement();
+                    }
+                    _rb.AddForce(Vector3.up * stuckRecoveringSpeed);
+                }
+
+            }
         }
-        GoForTarget(lastKnownPosition,1);
+        if (flying)
+        {
+            GoForTargetInAir(lastKnownPosition, 1);
+        }
+        else
+        {
+            GoForTarget(lastKnownPosition, 1);
+        }
         Vector3 LookAtPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
         transform.LookAt(LookAtPosition);
     }
@@ -87,6 +139,36 @@ public class FoxFollow : MonoBehaviour {
             Vector3 directionF = (planeTarget - planePosition).normalized * (-1);
             if (_rb.velocity.magnitude < maxSpeed)
                 _rb.AddForce(directionF * speed * speedMultiplier);
+        }
+    }
+
+    public void GoForTargetInAir(Vector3 target, float speedMultiplier)
+    {
+        float distance = Vector3.Distance(target, transform.position);
+        if (distance > chaseDistance)
+        {
+            Vector3 direction = (target - transform.position).normalized;
+            if (_rb.velocity.magnitude < maxSpeed)
+                _rb.AddForce(direction * speed * speedMultiplier);
+        }
+        else if (distance < minDistance)
+        {
+            Vector3 directionF = (target - transform.position).normalized * (-1);
+            if (_rb.velocity.magnitude < maxSpeed)
+                _rb.AddForce(directionF * speed * speedMultiplier);
+        }
+    }
+
+    public void switchMovement()
+    {
+        flying = !flying;
+        if(flying)
+        {
+            _rb.useGravity = false;
+        }
+        else
+        {
+            _rb.useGravity = true;
         }
     }
 }
