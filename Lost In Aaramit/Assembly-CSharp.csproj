@@ -69,6 +69,7 @@
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\RotateThis.cs" />
+    <Compile Include="Assets\Scripts\AdjustTrackPitch.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\AnotherRay.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Scripts\MaterialSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\MixedSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\ModelSeasonalChange.cs" />
+    <Compile Include="Assets\Scripts\MusicController.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\PickableItem.cs" />
     <Compile Include="Assets\Scripts\PickupThings.cs" />
