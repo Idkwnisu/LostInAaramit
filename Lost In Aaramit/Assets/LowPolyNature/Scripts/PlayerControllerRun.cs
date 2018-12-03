@@ -91,7 +91,7 @@ public class PlayerControllerRun : MonoBehaviour
                 }
 
 
-                if (_characterController.velocity.y < 0) //is descending
+                if (_characterController.velocity.y < -0.05) //is descending
                 {
                     if (!mIsControlEnabled)
                     {
