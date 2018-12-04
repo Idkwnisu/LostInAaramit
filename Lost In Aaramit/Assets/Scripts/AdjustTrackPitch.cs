@@ -84,6 +84,8 @@ public class AdjustTrackPitch : MonoBehaviour
                     InteractText.enabled = true;
                     rotatorLayout.SetActive(false);
                     Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+
+                    musicController.PlayerIsInteracting(this, false);
                 }
                 else
                 {
@@ -98,6 +100,8 @@ public class AdjustTrackPitch : MonoBehaviour
                     Song.pitch = pitch;
                     Song.clip = clip;
                     Song.Play();
+
+                    musicController.PlayerIsInteracting(this, true);
                 }
             }
             if (interacting)
