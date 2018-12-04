@@ -74,10 +74,6 @@ public class AdjustTrackPitch : MonoBehaviour
 
                 if (interacting)
                 {
-                    musicController.segment = 5;
-                    Song.Stop();
-                    musicController.SelectSegment();
-                    musicController.returnToFullTrack = true;
                     interacting = false;
                     mainCamera.enabled = true;
                     objectCamera.enabled = false;
@@ -95,11 +91,6 @@ public class AdjustTrackPitch : MonoBehaviour
                     InteractText.enabled = false;
                     rotatorLayout.SetActive(true);
                     Player.GetComponent<PlayerControllerRun>().ControlDisabling();
-
-                    musicController.returnToFullTrack = false;
-                    Song.pitch = pitch;
-                    Song.clip = clip;
-                    Song.Play();
 
                     musicController.PlayerIsInteracting(this, true);
                 }

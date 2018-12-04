@@ -44,8 +44,6 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg2;
                 Song.pitch = Seg2_pitch;
                 segment = 2;
-                //controller2.GetComponent<Renderer>().material = controller1.GetComponent<Renderer>().material;
-                //controller1.GetComponent<Renderer>().material = controller3.GetComponent<Renderer>().material;
                 controller2.GetComponent<Renderer>().material = lumen;
                 controller1.GetComponent<Renderer>().material = normal;
                 Song.Play();
@@ -54,8 +52,6 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg3;
                 Song.pitch = Seg3_pitch;
                 segment = 3;
-                //controller3.GetComponent<Renderer>().material = controller2.GetComponent<Renderer>().material;
-               //controller2.GetComponent<Renderer>().material = controller4.GetComponent<Renderer>().material;
                 controller3.GetComponent<Renderer>().material = lumen;
                 controller2.GetComponent<Renderer>().material = normal;
                 Song.Play();
@@ -64,8 +60,6 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg4;
                 Song.pitch = Seg4_pitch;
                 segment = 4;
-                //controller4.GetComponent<Renderer>().material = controller3.GetComponent<Renderer>().material;
-                //controller3.GetComponent<Renderer>().material = controller5.GetComponent<Renderer>().material;
                 controller4.GetComponent<Renderer>().material = lumen;
                 controller3.GetComponent<Renderer>().material = normal;
                 Song.Play();
@@ -74,8 +68,6 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg5;
                 Song.pitch = Seg5_pitch;
                 segment = 5;
-                //controller5.GetComponent<Renderer>().material = controller4.GetComponent<Renderer>().material;
-                //controller4.GetComponent<Renderer>().material = controller1.GetComponent<Renderer>().material;
                 controller5.GetComponent<Renderer>().material = lumen;
                 controller4.GetComponent<Renderer>().material = normal;
                 Song.Play();
@@ -84,8 +76,6 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg1;
                 Song.pitch = Seg1_pitch;
                 segment = 1;
-               //controller1.GetComponent<Renderer>().material = controller5.GetComponent<Renderer>().material;
-                //controller5.GetComponent<Renderer>().material = controller2.GetComponent<Renderer>().material;
                 controller1.GetComponent<Renderer>().material = lumen;
                 controller5.GetComponent<Renderer>().material = normal;
                 Song.Play();
@@ -144,13 +134,22 @@ public class MusicController : MonoBehaviour
             controller3.GetComponent<Renderer>().material = normal;
             controller4.GetComponent<Renderer>().material = normal;
             controller5.GetComponent<Renderer>().material = normal;
-
             cube.GetComponent<Renderer>().material = lumen;
+
+            returnToFullTrack = false;
+            Song.pitch = cube.pitch;
+            Song.clip = cube.clip;
+            Song.Play();
         }
         else
         {
             cube.GetComponent<Renderer>().material = normal;
             controller1.GetComponent<Renderer>().material = lumen;
+
+            segment = 5;
+            Song.Stop();
+            SelectSegment();
+            returnToFullTrack = true;
         }
 
     }
