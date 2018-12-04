@@ -30,6 +30,8 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip audioClip;
     AudioSource audioSource;
 
+    private bool automaticContinue = false;
+
     void Start()
     {
         pressChatText.enabled = false;
@@ -93,7 +95,7 @@ public class DialogueSystem : MonoBehaviour
 
             while (true)
             {
-                if (Input.GetKeyDown(DialogueInput) && dialogueEnded == false)
+                if (Input.GetKeyDown(DialogueInput) || automaticContinue && dialogueEnded == false)
                 {
                     break;
                 }
@@ -121,8 +123,12 @@ public class DialogueSystem : MonoBehaviour
 
                 if (currentCharacterIndex < stringLength)
                 {
-                    if (Input.GetKey(DialogueInput))
+                    Debug.Log(automaticContinue);
+
+                    if (Input.GetKey(DialogueInput) || automaticContinue)
                     {
+                        automaticContinue = false;
+
                         yield return new WaitForSeconds(letterDelay * letterMultiplier);
 
                         if (audioClip) audioSource.PlayOneShot(audioClip, 0.5F);
@@ -142,7 +148,7 @@ public class DialogueSystem : MonoBehaviour
             }
             while (true)
             {
-                if (Input.GetKeyDown(DialogueInput))
+                if (Input.GetKeyDown(DialogueInput) || automaticContinue)
                 {
                     break;
                 }
@@ -152,6 +158,11 @@ public class DialogueSystem : MonoBehaviour
             letterIsMultiplied = false;
             dialogueText.text = "";
         }
+    }
+
+    public void continueDialogue()
+    {
+        automaticContinue = true;
     }
 
     public void DropDialogue()
