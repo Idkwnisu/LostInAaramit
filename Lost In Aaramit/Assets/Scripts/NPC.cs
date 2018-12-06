@@ -8,10 +8,13 @@ public class NPC : MonoBehaviour {
 
     public Transform ChatBackGround;
     public Transform NPCCharacter;
+    public bool talkable = true;
 
     private DialogueSystem dialogueSystem;
 
     public string Name;
+
+    private DialogueSystem dialogue;
 
     [TextArea(5, 10)]
     public string[] sentences;
@@ -25,28 +28,38 @@ public class NPC : MonoBehaviour {
         ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<NPC>().enabled = true;
-        FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
-        if ((other.CompareTag("Player")) && Input.GetKeyDown(KeyCode.F))
+        if (talkable)
         {
             this.gameObject.GetComponent<NPC>().enabled = true;
-            dialogueSystem.Names = Name;
-            dialogueSystem.dialogueLines = sentences;
-            FindObjectOfType<DialogueSystem>().NPCName(false);
+            dialogueSystem.EnterRangeOfNPC();
+        }
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (talkable)
+        {
+            if ((other.CompareTag("Player")) && Input.GetKeyDown(KeyCode.F))
+            {
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.Names = Name;
+                dialogueSystem.dialogueLines = sentences;
+                dialogueSystem.NPCName(false);
+            }
         }
     }
 
     public void triggerDialogue(){
         dialogueSystem.Names = Name;
         dialogueSystem.dialogueLines = sentences;
-        FindObjectOfType<DialogueSystem>().NPCName(true);
+        dialogueSystem.NPCName(true);
     }
 
     public void OnTriggerExit()
     {
-        FindObjectOfType<DialogueSystem>().OutOfRange();
+        dialogueSystem.OutOfRange();
         this.gameObject.GetComponent<NPC>().enabled = false;
     }
 }

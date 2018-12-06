@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GravityFall.unity
+- path: Assets/Scenes/MusicPuzzleTest.unity
   isLoaded: 1
   isActive: 1
