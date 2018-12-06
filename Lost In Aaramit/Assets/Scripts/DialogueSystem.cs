@@ -123,7 +123,7 @@ public class DialogueSystem : MonoBehaviour
 
                 if (currentCharacterIndex < stringLength)
                 {
-                    Debug.Log(automaticContinue);
+                    //Debug.Log(automaticContinue);
 
                     if (Input.GetKey(DialogueInput) || automaticContinue)
                     {
