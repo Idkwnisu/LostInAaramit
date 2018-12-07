@@ -146,18 +146,18 @@ public class BossFight : MonoBehaviour
         yield return new WaitForSeconds(5f);
         for (int i = 0; i < lev.Length; i++)
         {
-            lev[i].GetComponent<Renderer>().material = right;
+            lev[i].transform.GetChild(0).GetComponent<Renderer>().material = right;
             yield return new WaitForSeconds(1.5f);
-            lev[i].GetComponent<Renderer>().material = default_mat;
+            lev[i].transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
         }
         //Player.GetComponent<PlayerControllerRun>().EnableControl();
     }
 
     IEnumerator LightNote(GameObject note, Material mat)
     {
-        note.GetComponent<Renderer>().material = mat;
+        note.transform.GetChild(0).GetComponent<Renderer>().material = mat;
         yield return new WaitForSeconds(2f);
-        note.GetComponent<Renderer>().material = default_mat;
+        note.transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
     }
 
     private void startBossMove(){
