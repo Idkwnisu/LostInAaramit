@@ -352,6 +352,8 @@
     <Compile Include="Packages\com.unity.standardevents\Editor\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
+    <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <None Include="Assets\ICE_sushishop\Shader\Glass.shader" />
     <None Include="Assets\ICE_sushishop\Shader\Ice(break).shader" />
     <None Include="Assets\Shaders\LightShader.shader" />

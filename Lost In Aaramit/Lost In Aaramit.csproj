@@ -300,6 +300,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ColorSkies\Demo\Scripts\LookCamera.cs" />
+    <Compile Include="Assets\ColorSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\FoxFollow.cs" />
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection.cs" />
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection1.cs" />
@@ -308,7 +310,6 @@
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\RotateThis.cs" />
-    <Compile Include="Assets\Scripts\AdjustTrackPitch.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\AnotherRay.cs" />
@@ -335,6 +336,7 @@
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SeasonalChange.cs" />
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
+    <Compile Include="Assets\Scripts\SongPlayer.cs" />
     <Compile Include="Assets\Scripts\TriggerNote.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />
     <Compile Include="Assets\Scripts\WinterFrostPickable.cs" />
@@ -342,6 +344,8 @@
     <Compile Include="Assets\TurnRemoteObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
+    <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <None Include="Assets\ICE_sushishop\Shader\Glass.shader" />
     <None Include="Assets\ICE_sushishop\Shader\Ice(break).shader" />
     <None Include="Assets\Shaders\LightShader.shader" />

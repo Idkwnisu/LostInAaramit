@@ -1,0 +1,482 @@
+fileFormatVersion: 2
+guid: 40fbb5ae19eb3ba488dfa4b38924be0e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Allen.Body
+    100002: //RootNode
+    100004: Arm1.L
+    100006: Arm1.R
+    100008: Arm2.L
+    100010: Arm2.R
+    100012: Armature.Allen
+    100014: Collarbone.L
+    100016: Collarbone.R
+    100018: Foot1.L
+    100020: Foot1.R
+    100022: Foot2.L
+    100024: Foot2.R
+    100026: FootControl.L
+    100028: FootControl.R
+    100030: Hand1.L
+    100032: Hand1.R
+    100034: Hand2.L
+    100036: Hand2.L_end
+    100038: Hand2.R
+    100040: Hand2.R_end
+    100042: Head
+    100044: Head_end
+    100046: ik.poleArm.L
+    100048: ik.poleArm.L_end
+    100050: ik.poleArm.R
+    100052: ik.poleArm.R_end
+    100054: ik.poleLeg.L
+    100056: ik.poleLeg.L_end
+    100058: ik.poleLeg.R
+    100060: ik.poleLeg.R_end
+    100062: ik.targetArm.L
+    100064: ik.targetArm.L_end
+    100066: ik.targetArm.R
+    100068: ik.targetArm.R_end
+    100070: ik.targetFoot1.L
+    100072: ik.targetFoot1.L_end
+    100074: ik.targetFoot1.R
+    100076: ik.targetFoot1.R_end
+    100078: ik.targetLeg.L
+    100080: ik.targetLeg.L_end
+    100082: ik.targetLeg.R
+    100084: ik.targetLeg.R_end
+    100086: ik.targetToes.L
+    100088: ik.targetToes.L_end
+    100090: ik.targetToes.R
+    100092: ik.targetToes.R_end
+    100094: Leg1.L
+    100096: Leg1.R
+    100098: Leg2.L
+    100100: Leg2.R
+    100102: Neck
+    100104: Root
+    100106: Spine1
+    100108: Spine2
+    100110: Thumb1.L
+    100112: Thumb1.R
+    100114: Thumb2.L
+    100116: Thumb2.L_end
+    100118: Thumb2.R
+    100120: Thumb2.R_end
+    100122: Toes.L
+    100124: Toes.L_end
+    100126: Toes.R
+    100128: Toes.R_end
+    400000: Allen.Body
+    400002: //RootNode
+    400004: Arm1.L
+    400006: Arm1.R
+    400008: Arm2.L
+    400010: Arm2.R
+    400012: Armature.Allen
+    400014: Collarbone.L
+    400016: Collarbone.R
+    400018: Foot1.L
+    400020: Foot1.R
+    400022: Foot2.L
+    400024: Foot2.R
+    400026: FootControl.L
+    400028: FootControl.R
+    400030: Hand1.L
+    400032: Hand1.R
+    400034: Hand2.L
+    400036: Hand2.L_end
+    400038: Hand2.R
+    400040: Hand2.R_end
+    400042: Head
+    400044: Head_end
+    400046: ik.poleArm.L
+    400048: ik.poleArm.L_end
+    400050: ik.poleArm.R
+    400052: ik.poleArm.R_end
+    400054: ik.poleLeg.L
+    400056: ik.poleLeg.L_end
+    400058: ik.poleLeg.R
+    400060: ik.poleLeg.R_end
+    400062: ik.targetArm.L
+    400064: ik.targetArm.L_end
+    400066: ik.targetArm.R
+    400068: ik.targetArm.R_end
+    400070: ik.targetFoot1.L
+    400072: ik.targetFoot1.L_end
+    400074: ik.targetFoot1.R
+    400076: ik.targetFoot1.R_end
+    400078: ik.targetLeg.L
+    400080: ik.targetLeg.L_end
+    400082: ik.targetLeg.R
+    400084: ik.targetLeg.R_end
+    400086: ik.targetToes.L
+    400088: ik.targetToes.L_end
+    400090: ik.targetToes.R
+    400092: ik.targetToes.R_end
+    400094: Leg1.L
+    400096: Leg1.R
+    400098: Leg2.L
+    400100: Leg2.R
+    400102: Neck
+    400104: Root
+    400106: Spine1
+    400108: Spine2
+    400110: Thumb1.L
+    400112: Thumb1.R
+    400114: Thumb2.L
+    400116: Thumb2.L_end
+    400118: Thumb2.R
+    400120: Thumb2.R_end
+    400122: Toes.L
+    400124: Toes.L_end
+    400126: Toes.R
+    400128: Toes.R_end
+    2100000: No Name
+    4300000: Allen.Body
+    7400000: Run
+    7400002: Jump End
+    7400004: Posa da fermo
+    7400006: Armature.Allen|Jump
+    7400008: Armature.Allen|Jump End
+    7400010: Armature.Allen|Posa da fermo
+    7400012: Armature.Allen|Run
+    7400014: Armature.Allen|Walk
+    7400016: Armature.Allen|Walk.001
+    9500000: //RootNode
+    13700000: Allen.Body
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: Run
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jump End
+      takeName: Jump End
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Posa da fermo
+      takeName: Posa da fermo
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Jump
+      takeName: Armature.Allen|Jump
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Jump End
+      takeName: Armature.Allen|Jump End
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Posa da fermo
+      takeName: Armature.Allen|Posa da fermo
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Run
+      takeName: Armature.Allen|Run
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Walk
+      takeName: Armature.Allen|Walk
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature.Allen|Walk.001
+      takeName: Armature.Allen|Walk.001
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

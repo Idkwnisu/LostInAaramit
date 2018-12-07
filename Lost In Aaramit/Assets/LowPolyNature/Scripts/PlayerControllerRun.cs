@@ -83,7 +83,8 @@ public class PlayerControllerRun : MonoBehaviour
             if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
             {
                 _isGrounded = true;
-                
+                _animator.SetBool("isJumping", false);
+
                 if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
                 {
                     currentPlatform = hit.transform.gameObject;
@@ -103,25 +104,23 @@ public class PlayerControllerRun : MonoBehaviour
             else
             {
                 _isGrounded = false;
+
             }
         }
         else
         {
+
+        }
+        if(_characterController.velocity.y > 0.05)
+        {
             _isGrounded = false;
+            _animator.SetBool("isJumping", true);
         }
 
 
         if (mIsControlEnabled)
         {
-            if (Input.GetButton("Run"))
-            {
-                isRunning = true;
-            }
-            else
-            {
-                isRunning = false;
-                _animator.SetBool("run", false);
-            }
+           
 
             // Get Input for axis
             float h = Input.GetAxis("Horizontal");
@@ -136,6 +135,26 @@ public class PlayerControllerRun : MonoBehaviour
 
             // Calculate the rotation for the player
             move = transform.InverseTransformDirection(move);
+            if(move.magnitude > 0.01)
+            {
+                if (Input.GetButton("Run"))
+                {
+                    isRunning = true;
+                    _animator.SetBool("isRunning", true);
+                    _animator.SetBool("isWalking", false);
+                }
+                else
+                {
+                    isRunning = false;
+                    _animator.SetBool("isRunning", false);
+                    _animator.SetBool("isWalking", true);
+                }
+            }
+            else
+            {
+                _animator.SetBool("isRunning", false);
+                _animator.SetBool("isWalking", false);
+            }
 
             // Get Euler angles
             float turnAmount = Mathf.Atan2(move.x, move.z);
@@ -153,20 +172,19 @@ public class PlayerControllerRun : MonoBehaviour
                 
                 if (Input.GetButtonDown("Jump"))
                 {
-                    _animator.SetBool("is_in_air", true);
+                    _animator.SetBool("isJumping", true);
                     _characterController.AddForce(Vector3.up * JumpSpeed);
 
                 }
                 else
                 {
-                    _animator.SetBool("is_in_air", false);
                     if (isRunning)
                     {
-                        _animator.SetBool("run", move.magnitude > 0);
+                        _animator.SetBool("isRunning", move.magnitude > 0);
                     }
                     else
                     {
-                        _animator.SetBool("walk", move.magnitude > 0);
+                        _animator.SetBool("isWalking", move.magnitude > 0);
                     }
                 }
             }
@@ -206,6 +224,12 @@ public class PlayerControllerRun : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            _animator.SetBool("isRunning", false);
+            _animator.SetBool("isWalking", false);
+        }
+
 
         if (_characterController.velocity.y < -.5f)
             {

@@ -1,10 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/MusicPuzzleReordering.unity
-=======
-
-- path: Assets/Scenes/GravityFall.unity
-
->>>>>>> 18f8f4211100eacf97b2a9f5ea2f7a0e2483e408
+- path: Assets/Scenes/FloatingNabla.unity
   isLoaded: 1
   isActive: 1
