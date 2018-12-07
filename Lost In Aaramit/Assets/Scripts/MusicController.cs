@@ -20,13 +20,17 @@ public class MusicController : MonoBehaviour
     public float Seg4_pitch = 1.0f;
     public float Seg5_pitch = 1.0f;
 
-    public AdjustTrackPitch controller1; 
-    public AdjustTrackPitch controller2;
-    public AdjustTrackPitch controller3;
-    public AdjustTrackPitch controller4;
-    public AdjustTrackPitch controller5;
+    public SongPlayer controller1; 
+    public SongPlayer controller2;
+    public SongPlayer controller3;
+    public SongPlayer controller4;
+    public SongPlayer controller5;
+    public SongPlayer songPlayer;
 
     public bool returnToFullTrack = true;
+
+    public int scene;
+    //0 = complete; 1 = pitch; 2 = reoredering
 
     public int segment;
 
@@ -126,7 +130,7 @@ public class MusicController : MonoBehaviour
         }
     }
 
-    public void PlayerIsInteracting(AdjustTrackPitch cube, bool on)
+    public void PlayerIsInteracting(SongPlayer cube, bool on)
     {
         if (on == true){
             controller1.GetComponent<Renderer>().material = normal;
@@ -151,6 +155,5 @@ public class MusicController : MonoBehaviour
             SelectSegment();
             returnToFullTrack = true;
         }
-
     }
 }

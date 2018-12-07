@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/FloatingNabla.unity
-=======
-- path: Assets/Scenes/BossScene.unity
->>>>>>> cd67e96306b9427776fa26a82844c5440c730ef2
+- path: Assets/Scenes/MusicPuzzleReordering.unity
   isLoaded: 1
   isActive: 1
