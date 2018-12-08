@@ -26,7 +26,7 @@ public class PlayerControllerRun : MonoBehaviour
 
     public Transform feet;
 
-    public float RayLenght = 0.5f;
+    public float RayLenght = 0.2f;
 
     public float WalkingForce = 500f;
 
@@ -77,9 +77,8 @@ public class PlayerControllerRun : MonoBehaviour
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (_characterController.velocity.y < 0.2)
-        {
-            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down), Color.yellow, 0.0f, true);
+        
+            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down)* RayLenght, Color.yellow, 0.0f, true);
             if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
             {
                 _isGrounded = true;
@@ -102,21 +101,15 @@ public class PlayerControllerRun : MonoBehaviour
                 }
             }
             else
-            {
+            {    
                 _isGrounded = false;
-
             }
-        }
-        else
-        {
+        
 
-        }
-        if(_characterController.velocity.y > 0.05)
+        if (Mathf.Abs(_characterController.velocity.y) > 1 && _isGrounded == false)
         {
-            _isGrounded = false;
-            _animator.SetBool("isJumping", true);
+                _animator.SetBool("isJumping", true);
         }
-
 
         if (mIsControlEnabled)
         {
