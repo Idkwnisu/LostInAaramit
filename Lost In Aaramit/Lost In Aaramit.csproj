@@ -336,6 +336,7 @@
     <Compile Include="Assets\Scripts\PlayWhistle.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
+    <Compile Include="Assets\Scripts\SceneSelection.cs" />
     <Compile Include="Assets\Scripts\SeasonalChange.cs" />
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
     <Compile Include="Assets\Scripts\SongPlayer.cs" />
