@@ -1,17 +1,16 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SongPlayer.cs">
+  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CheckPoint.cs">
     <Files>
-      <File FileName="Assets/Scripts/BossFight.cs" Line="158" Column="48" />
-      <File FileName="Assets/Scripts/SongPlayer.cs" Line="162" Column="117" />
-      <File FileName="Assets/Scripts/MusicController.cs" Line="120" Column="10" />
+      <File FileName="Assets/Scripts/CheckPoint.cs" Line="12" Column="12" />
+      <File FileName="Assets/Scripts/ChangeCheckPoint.cs" Line="10" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
