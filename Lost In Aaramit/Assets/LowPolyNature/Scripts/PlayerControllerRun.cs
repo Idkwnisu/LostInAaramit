@@ -74,7 +74,6 @@ public class PlayerControllerRun : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         
@@ -91,7 +90,7 @@ public class PlayerControllerRun : MonoBehaviour
                 }
 
 
-                if (_characterController.velocity.y < -0.05) //is descending
+                if (_characterController.velocity.y < -0.00005) //is descending
                 {
                     if (!mIsControlEnabled)
                     {
