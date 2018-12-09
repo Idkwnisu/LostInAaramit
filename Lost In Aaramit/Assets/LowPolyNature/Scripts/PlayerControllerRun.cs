@@ -19,6 +19,8 @@ public class PlayerControllerRun : MonoBehaviour
 
     private bool _isGrounded;
 
+    private bool _canEnable = true;
+
     private bool isRunning;
     #endregion
 
@@ -69,6 +71,13 @@ public class PlayerControllerRun : MonoBehaviour
     public void ControlDisabling()
     {
         mIsControlEnabled = false;
+        _canEnable = false;
+        Invoke("setEnable", 1f);
+    }
+
+    public void setEnable()
+    {
+        _canEnable = true;
     }
 
     // Update is called once per frame
@@ -90,7 +99,7 @@ public class PlayerControllerRun : MonoBehaviour
                 }
 
 
-                if (_characterController.velocity.y < -0.00005) //is descending
+                if (_characterController.velocity.y <= 0 && _canEnable) //is descending
                 {
                     if (!mIsControlEnabled)
                     {
