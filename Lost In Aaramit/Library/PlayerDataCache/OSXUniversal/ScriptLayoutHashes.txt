@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/marco/Desktop/BuildProvaMac.app
+/Users/alessandrocarughi/Desktop/Lost in Aaramit.app
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/MusicPuzzleComplete.unity
@@ -148,7 +148,7 @@ a516188ef4e44c6d0fe43c13f769076f Assembly-CSharp.dll:.DialogueSystem
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.LightTouch
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.AnotherRay
 584e3b9f0607828d75fc72a5c7fb9bdd Assembly-CSharp.dll:.SeasonalChange
-fdd28f4676ff74a5a0359285b895028c Assembly-CSharp.dll:.BossFight
+b7c991e68887840dbbd2a41f510548b6 Assembly-CSharp.dll:.BossFight
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 8959247d35f3fc75659ea7e6c1345d25 Assembly-CSharp.dll:.RotateThis
 5746ca1add1ba56d5670e2f86614cb6b Assembly-CSharp.dll:.PickableItem

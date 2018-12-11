@@ -240,7 +240,7 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 Gravity = 1f;
             }
-             _characterController.AddForce(Physics.gravity * Gravity * (_characterController.mass * _characterController.mass));
+        _characterController.AddForce(Physics.gravity * Time.deltaTime * 100 *Gravity * (_characterController.mass * _characterController.mass));
            
         
      /*   Debug.Log("W:" + _animator.GetBool("walk"));

@@ -48,6 +48,7 @@ public class DialogueSystem : MonoBehaviour
     public void EnterRangeOfNPC()
     {
         outOfRange = false;
+        Debug.Log("Start");
         pressChatText.enabled = true;
         if (dialogueActive == true)
         {
