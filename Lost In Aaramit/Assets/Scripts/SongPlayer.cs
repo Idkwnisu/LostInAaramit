@@ -18,6 +18,7 @@ public class SongPlayer: MonoBehaviour
     public bool simplePlayer;
 
     public GameObject indicator;
+    public GameObject pitchIndicator;
 
     public MusicController musicController;
     private AudioSource Song;
@@ -26,9 +27,14 @@ public class SongPlayer: MonoBehaviour
     public SongPlayer rightController;
     private Material tempMaterial;
     private Color tempColor;
+    private Vector3 tempScale;
 
     private bool interactable = false;
     private bool interacting = false;
+    public bool correctPitch;
+    public bool correctReordering;
+    private bool tempBool;
+    private string targetClipName;
 
     // Use this for initialization
     void Start()
@@ -37,36 +43,44 @@ public class SongPlayer: MonoBehaviour
         objectCamera.enabled = false;
         rotatorLayout.SetActive(false);
         Song = musicController.Song;
+        correctPitch = false;
+        correctReordering = false;
             switch (name)
         {
             case "Cube1":
                 clip = musicController.Seg1;
                 pitch = musicController.Seg1_pitch;
                 simplePlayer = false;
+                targetClipName = "Seg1";
                 break;
             case "Cube2":
                 clip = musicController.Seg2;
                 pitch = musicController.Seg2_pitch;
                 simplePlayer = false;
+                targetClipName = "Seg2";
                 break;
             case "Cube3":
                 clip = musicController.Seg3;
                 pitch = musicController.Seg3_pitch;
                 simplePlayer = false;
+                targetClipName = "Seg3";
                 break;
             case "Cube4":
                 clip = musicController.Seg4;
                 pitch = musicController.Seg4_pitch;
                 simplePlayer = false;
+                targetClipName = "Seg4";
                 break;
             case "Cube5":
                 clip = musicController.Seg5;
                 pitch = musicController.Seg5_pitch;
                 simplePlayer = false;
+                targetClipName = "Seg5";
                 break;
             case "Cube6":
                 pitch = 1.0f;
                 simplePlayer = true;
+                targetClipName = "None";
                 break;
             default:
                 break;
@@ -132,9 +146,7 @@ public class SongPlayer: MonoBehaviour
                                 Song.pitch = 1.0f;
                                 pitch = Song.pitch;
                             }
-                            h = 0;
-                            Song.pitch = Mathf.Round(Song.pitch * 100f) / 100f;
-                            pitch = Song.pitch;
+                            pitchIndicator.transform.localScale += new Vector3(0.0F, 0.1F, 0.0F);
                         }
                     }
                     if (h < 0)
@@ -146,17 +158,13 @@ public class SongPlayer: MonoBehaviour
                             {
                                 Song.pitch = 1.0f;
                             }
-                            h = 0;
-                            Song.pitch = Mathf.Round(Song.pitch * 100f) / 100f;
-                            pitch = Song.pitch;
+                            pitchIndicator.transform.localScale -= new Vector3(0.0F, 0.1F, 0.0F);
                         }
                     }
-
-
-                    else
-                    {
-
-                    }
+                    h = 0;
+                    Song.pitch = Mathf.Round(Song.pitch * 100f) / 100f;
+                    pitch = Song.pitch;
+                    CheckPitch();
                     //Debug.Log("" + (float)Song.pitch);
                 }
                 if (Input.GetButtonDown("Horizontal") == true && simplePlayer == false && musicController.scene != 1)
@@ -178,12 +186,26 @@ public class SongPlayer: MonoBehaviour
                             Song.Play();
                             tempMaterial = indicator.GetComponent<Renderer>().material;
                             indicator.GetComponent<Renderer>().material = rightController.indicator.GetComponent<Renderer>().material;
+                            pitchIndicator.GetComponent<Renderer>().material = rightController.indicator.GetComponent<Renderer>().material;
                             rightController.indicator.GetComponent<Renderer>().material = tempMaterial;
+                            rightController.pitchIndicator.GetComponent<Renderer>().material = tempMaterial;
                             tempColor = indicator.GetComponent<Light>().color;
                             indicator.GetComponent<Light>().color = rightController.indicator.GetComponent<Light>().color;
+                            pitchIndicator.GetComponent<Light>().color = rightController.indicator.GetComponent<Light>().color;
                             rightController.indicator.GetComponent<Light>().color = tempColor;
+                            rightController.pitchIndicator.GetComponent<Light>().color = tempColor;
+                            tempScale = pitchIndicator.transform.localScale;
+                            pitchIndicator.transform.localScale = rightController.pitchIndicator.transform.localScale;
+                            rightController.pitchIndicator.transform.localScale = tempScale;
+                            tempBool = correctPitch;
+                            correctPitch = rightController.correctPitch;
+                            rightController.correctPitch = tempBool;
+                            tempBool = correctReordering;
+                            correctReordering = rightController.correctReordering;
+                            rightController.correctReordering = tempBool;
+                            rightController.CheckReordering();
+                            rightController.CheckPitch();
                         }
-                        h = 0;
                     }
                     if (h < 0)
                     {
@@ -200,17 +222,30 @@ public class SongPlayer: MonoBehaviour
                             Song.Play();
                             tempMaterial = indicator.GetComponent<Renderer>().material;
                             indicator.GetComponent<Renderer>().material = leftController.indicator.GetComponent<Renderer>().material;
+                            pitchIndicator.GetComponent<Renderer>().material = leftController.indicator.GetComponent<Renderer>().material;
                             leftController.indicator.GetComponent<Renderer>().material = tempMaterial;
+                            leftController.pitchIndicator.GetComponent<Renderer>().material = tempMaterial;
                             tempColor = indicator.GetComponent<Light>().color;
                             indicator.GetComponent<Light>().color = leftController.indicator.GetComponent<Light>().color;
+                            pitchIndicator.GetComponent<Light>().color = leftController.indicator.GetComponent<Light>().color;
                             leftController.indicator.GetComponent<Light>().color = tempColor;
+                            leftController.pitchIndicator.GetComponent<Light>().color = tempColor;
+                            tempScale = pitchIndicator.transform.localScale;
+                            pitchIndicator.transform.localScale = leftController.pitchIndicator.transform.localScale;
+                            leftController.pitchIndicator.transform.localScale = tempScale;
+                            tempBool = correctPitch;
+                            correctPitch = leftController.correctPitch;
+                            leftController.correctPitch = tempBool;
+                            tempBool = correctReordering;
+                            correctReordering = leftController.correctReordering;
+                            leftController.correctReordering = tempBool;
+                            leftController.CheckReordering();
+                            leftController.CheckPitch();
                         }
-                        h = 0;
                     }
-                }
-                else
-                {
-
+                    h = 0;
+                    CheckPitch();
+                    CheckReordering();
                 }
             }
         }
@@ -233,4 +268,37 @@ public class SongPlayer: MonoBehaviour
             interactable = false;
         }
     }
+
+    public void CheckPitch()
+    {
+        if (pitch < 1.01 && pitch > 0.99 && correctPitch == false)
+        {
+            musicController.pitchProgress += 1.0f;
+            musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
+            correctPitch = true;
+        }
+        if ((pitch > 1.01 || pitch < 0.99) && correctPitch == true)
+        {
+            musicController.pitchProgress -= 1.0f;
+            musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
+            correctPitch = false;
+        }
+    }
+
+    public void CheckReordering() {
+        if (targetClipName == clip.name && correctReordering == false)
+        {
+            musicController.reorderingProgress += 1.0f;
+            musicController.reorderingProgressBar.UpdateBar(musicController.reorderingProgress, 5.0f);
+            correctReordering = true;
+        }
+
+        if (targetClipName != clip.name && correctReordering == true)
+        {
+            musicController.reorderingProgress -= 1.0f;
+            musicController.reorderingProgressBar.UpdateBar(musicController.reorderingProgress, 5.0f);
+            correctReordering = false;
+        }
+    }
+
 }

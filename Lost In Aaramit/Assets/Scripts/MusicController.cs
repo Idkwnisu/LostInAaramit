@@ -29,12 +29,18 @@ public class MusicController : MonoBehaviour
 
     public bool returnToFullTrack = true;
 
+    public SimpleHealthBar pitchProgressBar;
+    public SimpleHealthBar reorderingProgressBar;
+    public float pitchProgress;
+    public float reorderingProgress;
+
     public int scene;
     //0 = complete; 1 = pitch; 2 = reoredering
 
     public int segment;
 
     private bool _win;
+    private bool initDone;
 
     public Material lumen;
     public Material normal;
@@ -100,10 +106,30 @@ public class MusicController : MonoBehaviour
             returnToFullTrack = true;
             Song.Play();
         }
+        pitchProgressBar.UpdateBar(0.0f, 5.0f);
+        reorderingProgressBar.UpdateBar(0.0f, 5.0f);
+        pitchProgress = 0f;
+        reorderingProgress = 0f;
+        initDone = false;
     }
 
     public void Update()
     {
+        if (!initDone)
+        {
+            controller1.CheckPitch();
+            controller1.CheckReordering();
+            controller2.CheckPitch();
+            controller2.CheckReordering();
+            controller3.CheckPitch();
+            controller3.CheckReordering();
+            controller4.CheckPitch();
+            controller4.CheckReordering();
+            controller5.CheckPitch();
+            controller5.CheckReordering();
+            initDone = true;
+        }
+
         //Debug.Log(""+returnToFullTrack);
         Seg1 = controller1.clip;
         Seg2 = controller2.clip;
@@ -118,10 +144,7 @@ public class MusicController : MonoBehaviour
         if (Song.isPlaying == false && returnToFullTrack == true){
             SelectSegment();
         }
-        if (Seg1_pitch < 1.01 && Seg1_pitch > 0.99 && Seg2_pitch < 1.01 && Seg2_pitch > 0.99 && Seg3_pitch < 1.01 &&
-            Seg3_pitch > 0.99 && Seg4_pitch < 1.01 && Seg4_pitch > 0.9 && Seg5_pitch < 1.01 && Seg5_pitch > 0.9 &&
-            controller1.clip.name == "Seg1" && controller2.clip.name == "Seg2" && controller3.clip.name == "Seg3" && 
-            controller4.clip.name == "Seg4" && controller5.clip.name == "Seg5" && _win == false)
+        if ((int)pitchProgress == 5 && (int)reorderingProgress == 5 && _win == false)
         {
             //Debug.Log("WIN");
             winSoundEffect.Play();

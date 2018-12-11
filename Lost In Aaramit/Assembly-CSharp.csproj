@@ -104,10 +104,17 @@
     <Compile Include="Assets\Scripts\TriggerNote.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />
     <Compile Include="Assets\Scripts\WinterFrostPickable.cs" />
+    <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\AsteroidController.cs" />
+    <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\HealthPickupController.cs" />
+    <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Simple Health Bar\Scripts\SimpleHealthBar.cs" />
     <Compile Include="Assets\TalkingFox.cs" />
     <Compile Include="Assets\TurnRemoteObject.cs" />
     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <None Include="Assets\ICE_sushishop\Shader\Ice(break).shader" />
+    <None Include="Assets\Simple Health Bar\README.txt" />
     <None Include="Assets\ICE_sushishop\Shader\Glass.shader" />
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
     <None Include="Assets\Shaders\LightShader.shader" />
