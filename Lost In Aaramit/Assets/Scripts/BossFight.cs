@@ -6,10 +6,12 @@ public class BossFight : MonoBehaviour
 {
 
     public GameObject boss;
+    /* Dialogue
     public GameObject bossDialogue1;
     public GameObject bossDialogue2;
     public GameObject bossDialogue3;
     public GameObject bossDialogue4;
+    */
     public GameObject note1;
     public GameObject note2;
     public GameObject note3;
@@ -114,8 +116,7 @@ public class BossFight : MonoBehaviour
                     {
                         cLev++;
                         cNote = 0;
-                        bossDialogue4.GetComponent<NPC>().triggerDialogue();
-                        Debug.Log("BOSS SCONFITTO");
+                        //bossDialogue4.GetComponent<NPC>().triggerDialogue();
                     }
                 }
                 else
@@ -129,8 +130,10 @@ public class BossFight : MonoBehaviour
 
     IEnumerator startNewLevel(GameObject[] lev)
     {
+        /* Dialogue
         yield return new WaitForSeconds(1f);
         //Player.GetComponent<PlayerControllerRun>().DisableControl();
+      
         switch (cLev){
             case 0:
                 bossDialogue1.GetComponent<NPC>().triggerDialogue();
@@ -142,8 +145,8 @@ public class BossFight : MonoBehaviour
                 bossDialogue3.GetComponent<NPC>().triggerDialogue();
                 break;
 
-        }
-        yield return new WaitForSeconds(5f);
+        }*/
+    yield return new WaitForSeconds(5f);
         for (int i = 0; i < lev.Length; i++)
         {
             lev[i].transform.GetChild(0).GetComponent<Renderer>().material = right;
