@@ -21,5 +21,10 @@ public class SceneSelection : MonoBehaviour {
         {
             SceneManager.LoadScene("SceneSelectionMenu", LoadSceneMode.Single);
         }
+
+        if (SceneManager.GetActiveScene().name == "SceneSelectionMenu")
+        {
+            Cursor.visible = true;
+        }
     }
 }
