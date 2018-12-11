@@ -30,10 +30,13 @@ public class NPC : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (talkable)
+        if (other.CompareTag("Player"))
         {
-            this.gameObject.GetComponent<NPC>().enabled = true;
-            dialogueSystem.EnterRangeOfNPC();
+            if (talkable)
+            {
+                this.gameObject.GetComponent<NPC>().enabled = true;
+                dialogueSystem.EnterRangeOfNPC();
+            }
         }
     }
 

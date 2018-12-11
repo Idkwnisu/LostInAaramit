@@ -1,6 +1,10 @@
 OSXStandalone
 PlayerPath?
+<<<<<<< HEAD
 /Users/marco/Desktop/MacBuild.app
+=======
+/Users/alessandrocarughi/Desktop/LIA test.app
+>>>>>>> ec3d7ea377ee882bed3741641eeca108e29fa6c8
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/MusicPuzzleComplete.unity
@@ -212,7 +216,7 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 8549304b2906162d5de1a1c939be70d9 Assembly-CSharp.dll:.PickupThings
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Rotation
-ac4e5a33e5c1c4047b4ac4e7e146e6ca Assembly-CSharp.dll:.GravityFall
+4d78b6102c0f24ee1a3608bae8b39f2b Assembly-CSharp.dll:.GravityFall
 46e573f543f421b5cdafb778b870fbfa Assembly-CSharp.dll:.JumpingPlatform
 739ce823cd6885101e021327b710a7b1 Assembly-CSharp.dll:.MasterRotator
 4754c5ee1cf4085c7147a71f2296d0c0 Assembly-CSharp.dll:.SeasonsClock

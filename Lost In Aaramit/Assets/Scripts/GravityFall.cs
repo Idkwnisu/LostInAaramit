@@ -9,6 +9,20 @@ public class GravityFall : MonoBehaviour {
 
     private int c;
 
+    public int target = 80;
+
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = target;
+    }
+
+    void Update()
+    {
+        if (Application.targetFrameRate != target)
+            Application.targetFrameRate = target;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player")){
