@@ -1,6 +1,10 @@
 OSXStandalone
 PlayerPath?
+<<<<<<< HEAD
+/Users/marco/Desktop/MacBuild.app
+=======
 /Users/alessandrocarughi/Desktop/LIA test.app
+>>>>>>> ec3d7ea377ee882bed3741641eeca108e29fa6c8
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/MusicPuzzleComplete.unity
