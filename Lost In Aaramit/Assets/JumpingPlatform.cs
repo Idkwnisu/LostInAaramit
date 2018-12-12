@@ -23,10 +23,11 @@ public class JumpingPlatform : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
+            PlayerControllerRun player = other.GetComponent<PlayerControllerRun>();
             audioSource.Play();
-            other.GetComponent<PlayerControllerRun>().ControlDisabling();
-            other.GetComponent<PlayerControllerRun>().resetSpeed();
-            other.GetComponent<PlayerControllerRun>().applyForce(target.position-transform.position, VerticalSpeed);
+            player.ControlDisabling();
+            player.resetSpeed();
+            player.applyForce(target.position-transform.position, VerticalSpeed);
         }
     }
 }

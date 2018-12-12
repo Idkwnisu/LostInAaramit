@@ -269,4 +269,8 @@ public class PlayerControllerRun : MonoBehaviour
         _characterController.velocity = Vector3.zero;   
     }
   
+    public bool isControlEnabled()
+    {
+        return mIsControlEnabled;
+    }
 }

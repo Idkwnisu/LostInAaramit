@@ -20,6 +20,9 @@ public class PlayerFollow : MonoBehaviour
     public float minDistance = 0.3f;
     public float approachingSpeed = 0.4f;
 
+    public float minCamera = -0.4f;
+    public float maxCamera = 1.5f;
+
     // Use this for initialization
     void Start()
     {
@@ -58,7 +61,13 @@ public class PlayerFollow : MonoBehaviour
         if (h != 0 || v != 0)
         {
             transform.position = newPos;
+
             transform.RotateAround(PlayerTransform.position, transform.right, v);
+            if (transform.rotation.ToEulerAngles().x < minCamera || transform.rotation.ToEulerAngles().x > maxCamera)
+            {
+                transform.RotateAround(PlayerTransform.position, transform.right, (-1)*v);
+            }
+
             transform.RotateAround(PlayerTransform.position, Vector3.up, h);
             transform.LookAt(PlayerTransform);
             _cameraOffset = (transform.position - PlayerTransform.position)/_cameraProximity;
