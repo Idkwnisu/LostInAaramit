@@ -191,7 +191,8 @@ public class FoxFollow : MonoBehaviour {
                     _animator.SetBool("isWalking", false);
                     _animator.SetBool("isFlying", true);
                 }
-            }            
+            }
+            currentOffset = transform.position - player.position;
         }
         else
         {

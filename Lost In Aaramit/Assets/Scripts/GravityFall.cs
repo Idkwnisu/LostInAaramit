@@ -26,8 +26,19 @@ public class GravityFall : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player")){
+            //player.GetComponent<PlayerControllerRun>().ControlDisabling();
             player.GetComponent<Rigidbody>().AddForce(Vector3.up*speed, ForceMode.VelocityChange);
         }
     }
 
+    /*
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            player.GetComponent<PlayerControllerRun>().ControlEnabling();
+
+        }
+    }
+    */
 }
