@@ -24,7 +24,8 @@ public class JumpingPlatform : MonoBehaviour {
         if(other.CompareTag("Player"))
         {
             PlayerControllerRun player = other.GetComponent<PlayerControllerRun>();
-            audioSource.Play();
+            if(audioSource != null)
+                audioSource.Play();
             player.ControlDisabling();
             player.resetSpeed();
             player.applyForce(target.position-transform.position, VerticalSpeed);

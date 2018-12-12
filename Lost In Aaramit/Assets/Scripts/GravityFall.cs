@@ -27,10 +27,20 @@ public class GravityFall : MonoBehaviour {
     {
         if (other.CompareTag("Player")){
             //player.GetComponent<PlayerControllerRun>().ControlDisabling();
-            player.GetComponent<Rigidbody>().AddForce(Vector3.up*speed, ForceMode.VelocityChange);
+            player.GetComponent<Rigidbody>().AddForce(Vector3.up*speed*Time.deltaTime, ForceMode.VelocityChange);
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //player.GetComponent<PlayerControllerRun>().ControlDisabling();
+            player.GetComponent<PlayerControllerRun>().resetSpeed();
+            player.GetComponent<PlayerControllerRun>().ControlDisabling();
+        }
+    }
+ 
     /*
     private void OnTriggerExit(Collider other)
     {

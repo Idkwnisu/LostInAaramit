@@ -6,6 +6,7 @@ public class FoxFollow : MonoBehaviour {
 
     public Transform player;
     public float speed = 300;
+    public float retreatSpeed = 500;
     public float chaseDistance = 0.4f;
     public float minDistance = 0.2f;
     public float maxSpeed = 10f;
@@ -149,7 +150,7 @@ public class FoxFollow : MonoBehaviour {
                         {
                             switchMovement();
                         }
-                        _rb.AddForce(Vector3.up * stuckRecoveringSpeed, ForceMode.Force);
+                        _rb.AddForce(Vector3.up * stuckRecoveringSpeed*Time.deltaTime);
                     }
 
                 }
@@ -196,7 +197,6 @@ public class FoxFollow : MonoBehaviour {
         }
         else
         {
-            Debug.Log(currentOffset);
             Vector3 planeOffset = new Vector3(currentOffset.x, 0, currentOffset.z);
             _rb.MovePosition(player.transform.position + planeOffset);
             if(!flying)
@@ -223,7 +223,7 @@ public class FoxFollow : MonoBehaviour {
         {
             Vector3 directionF = (planeTarget - planePosition).normalized * (-1);
             if (_rb.velocity.magnitude < maxSpeed)
-                _rb.AddForce(directionF * speed * speedMultiplier * Time.deltaTime);
+                _rb.AddForce(directionF * retreatSpeed * speedMultiplier * Time.deltaTime);
         }
         
     }
@@ -244,13 +244,13 @@ public class FoxFollow : MonoBehaviour {
         {
             Vector3 directionF = (target - transform.position).normalized * (-1);
             if (_rb.velocity.magnitude < maxSpeed)
-                _rb.AddForce(directionF * speed * speedMultiplier * Time.deltaTime);
+                _rb.AddForce(directionF * retreatSpeed * speedMultiplier * Time.deltaTime);
         }
         else if(planeDistance < minDistance)
         {
             Vector3 directionF = (planeTarget - planePosition).normalized * (-1);
             if (_rb.velocity.magnitude < maxSpeed)
-                _rb.AddForce(directionF * speed * speedMultiplier * Time.deltaTime);
+                _rb.AddForce(directionF * retreatSpeed * speedMultiplier * Time.deltaTime);
         }
     }
 
