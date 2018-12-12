@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPoint : MonoBehaviour {
 
@@ -10,8 +11,12 @@ public class CheckPoint : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
-            player.transform.position = checkPoint.position;
-            player.transform.rotation = checkPoint.rotation;
+            if (this.gameObject.name == "DieFloor_0"){
+                SceneManager.LoadScene("GravityFall", LoadSceneMode.Single);
+            } else {
+                player.transform.position = checkPoint.position;
+                player.transform.rotation = checkPoint.rotation;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossFight : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class BossFight : MonoBehaviour
     public GameObject bossDialogue3;
     public GameObject bossDialogue4;
     */
+    public Text stepText;
     public GameObject note1;
     public GameObject note2;
     public GameObject note3;
@@ -35,6 +37,9 @@ public class BossFight : MonoBehaviour
 
     void Start()
     {
+
+        stepText.enabled = false;
+
         nLevels = 3;
         cLevel = new int[nLevels];
         cLevel[0] = 4;
@@ -116,6 +121,8 @@ public class BossFight : MonoBehaviour
                     {
                         cLev++;
                         cNote = 0;
+                        stepText.enabled = true;
+                        stepText.text = "Boss sconfitto, premere ESC";
                         //bossDialogue4.GetComponent<NPC>().triggerDialogue();
                     }
                 }
@@ -130,8 +137,12 @@ public class BossFight : MonoBehaviour
 
     IEnumerator startNewLevel(GameObject[] lev)
     {
-        /* Dialogue
+       
         yield return new WaitForSeconds(1f);
+        stepText.enabled = true;
+        int levStep = cLev + 1;
+        stepText.text = "Step " + levStep;
+        /* Dialogue
         //Player.GetComponent<PlayerControllerRun>().DisableControl();
       
         switch (cLev){
@@ -146,7 +157,8 @@ public class BossFight : MonoBehaviour
                 break;
 
         }*/
-    yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f);
+        stepText.enabled = false;
         for (int i = 0; i < lev.Length; i++)
         {
             lev[i].transform.GetChild(0).GetComponent<Renderer>().material = right;
