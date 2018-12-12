@@ -204,7 +204,10 @@ public class SongPlayer: MonoBehaviour
                             correctReordering = rightController.correctReordering;
                             rightController.correctReordering = tempBool;
                             rightController.CheckReordering();
-                            rightController.CheckPitch();
+                            if (musicController.scene != 2)
+                            {
+                                rightController.CheckPitch();
+                            }
                         }
                     }
                     if (h < 0)
@@ -240,11 +243,17 @@ public class SongPlayer: MonoBehaviour
                             correctReordering = leftController.correctReordering;
                             leftController.correctReordering = tempBool;
                             leftController.CheckReordering();
-                            leftController.CheckPitch();
+                            if (musicController.scene != 2)
+                            {
+                                leftController.CheckPitch();
+                            }
                         }
                     }
                     h = 0;
-                    CheckPitch();
+                    if (musicController.scene != 2)
+                    {
+                        CheckPitch();
+                    }
                     CheckReordering();
                 }
             }

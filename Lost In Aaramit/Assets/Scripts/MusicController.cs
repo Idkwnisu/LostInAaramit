@@ -117,16 +117,30 @@ public class MusicController : MonoBehaviour
     {
         if (!initDone)
         {
-            controller1.CheckPitch();
-            controller1.CheckReordering();
-            controller2.CheckPitch();
-            controller2.CheckReordering();
-            controller3.CheckPitch();
-            controller3.CheckReordering();
-            controller4.CheckPitch();
-            controller4.CheckReordering();
-            controller5.CheckPitch();
-            controller5.CheckReordering();
+            if (scene == 0 || scene == 1)
+            {
+                controller1.CheckPitch();
+                controller2.CheckPitch();
+                controller3.CheckPitch();
+                controller4.CheckPitch();
+                controller5.CheckPitch();
+            }
+            if (scene == 0 || scene == 2)
+            {
+                controller1.CheckReordering();
+                controller2.CheckReordering();
+                controller3.CheckReordering();
+                controller4.CheckReordering();
+                controller5.CheckReordering();
+            }
+            if (scene == 1)
+            {
+                reorderingProgress = 5.0f;
+            }
+            if (scene == 2)
+            {
+                pitchProgress = 5.0f;
+            }
             initDone = true;
         }
 
