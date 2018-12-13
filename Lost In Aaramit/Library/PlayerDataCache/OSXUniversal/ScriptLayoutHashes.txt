@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/alessandrocarughi/Desktop/LIA.app
+/Users/marco/Desktop/MacBuild.app
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/MusicPuzzleComplete.unity
@@ -9,6 +9,8 @@ Assets/Scenes/GravityFall.unity
 Assets/Scenes/BossScene.unity
 Assets/Scenes/FloatingNablaPlat1.unity
 Assets/Scenes/FloatingNablaPlat2.unity
+Assets/Scenes/MusicPuzzlePitch.unity
+Assets/Scenes/MusicPuzzleReordering.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 f19fb3c1a3106e5cff30157bddc257ae Assembly-CSharp.dll:.AdvancedPicking
@@ -101,7 +103,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 172343c6d23e0a5c210dbc66f4191368 Assembly-CSharp.dll:.MaterialSeasonalChange
 3572e4392388bb343d5531ebc21e80ce Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.Antialiasing
-3a24a2d373fdfd7d849d6d5da9829a88 Assembly-CSharp.dll:.PlayerControllerRun
+768da903d94844d86d20d64dd83c47c1 Assembly-CSharp.dll:.PlayerControllerRun
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 754551afe4f2531f58476bf14c510657 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset

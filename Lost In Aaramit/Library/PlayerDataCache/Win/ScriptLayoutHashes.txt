@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/stefa/Desktop/ToSend/Lost In Aaramit.exe
+/Users/marco/Desktop/WinBuild/Lost In Aaramit.exe
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/MusicPuzzleComplete.unity
@@ -9,6 +9,8 @@ Assets/Scenes/GravityFall.unity
 Assets/Scenes/BossScene.unity
 Assets/Scenes/FloatingNablaPlat1.unity
 Assets/Scenes/FloatingNablaPlat2.unity
+Assets/Scenes/MusicPuzzlePitch.unity
+Assets/Scenes/MusicPuzzleReordering.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 f19fb3c1a3106e5cff30157bddc257ae Assembly-CSharp.dll:.AdvancedPicking
