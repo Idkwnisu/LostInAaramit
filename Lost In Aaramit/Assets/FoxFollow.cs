@@ -77,10 +77,11 @@ public class FoxFollow : MonoBehaviour {
             if(!flying)
             {
                 start = feet.position;
+                direction = new Vector3(direction.x, 0, direction.y);
             }
             if (Physics.Raycast(start, direction, out hit, Mathf.Infinity))
             {
-                Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.yellow);
+                Debug.DrawRay(start, direction.normalized * hit.distance, Color.yellow);
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
 
@@ -111,8 +112,7 @@ public class FoxFollow : MonoBehaviour {
                             lastKnownPosition = player.position;
                         }
                     }
-                    if (flying)
-                    {
+                    
                         Vector3 verticalOffset = Vector3.Cross(direction.normalized, Vector3.right) * lateralOffset;
                         direction = player.position - transform.position - verticalOffset;
                         if (Physics.Raycast(transform.position + verticalOffset, direction, out hit, Mathf.Infinity))
@@ -138,13 +138,19 @@ public class FoxFollow : MonoBehaviour {
                             }
                         }
                         Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
-
+                    if(offsetToApply.y != 0)
+                    {
+                        if(!flying)
+                        {
+                            switchMovement();
+                        }
+                    }
+                    if (flying)
+                    {
                         GoForTargetInAir(offsetToApply, lateralSpeedDecrease);
                     }
                     else
                     {
-                        Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
-
                         GoForTarget(offsetToApply, lateralSpeedDecrease);
                     }
                     // Debug.Log(offsetToApply);
@@ -273,8 +279,4 @@ public class FoxFollow : MonoBehaviour {
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collide");
-    }
 }
