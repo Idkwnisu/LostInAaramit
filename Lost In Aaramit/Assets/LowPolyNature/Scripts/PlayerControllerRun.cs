@@ -47,6 +47,9 @@ public class PlayerControllerRun : MonoBehaviour
     [Range(0.01f,0.99f)]
     public float fallingMovement = 0.2f;
 
+    public float groundDelay = 0.2f;
+
+
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
 
@@ -110,7 +113,14 @@ public class PlayerControllerRun : MonoBehaviour
             }
             else
             {    
-                _isGrounded = false;
+                if(groundDelay == 0.0f)
+                {
+                unGround();
+                }
+                else
+                {
+                Invoke("unGround", groundDelay);
+                }
             }
         
 
@@ -251,7 +261,10 @@ public class PlayerControllerRun : MonoBehaviour
 
     }
 
-
+    public void unGround()
+    {
+        _isGrounded = false;
+    }
 
     Vector3 realPosition(Transform transform)
     {

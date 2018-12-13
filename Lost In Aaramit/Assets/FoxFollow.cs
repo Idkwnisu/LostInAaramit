@@ -73,7 +73,12 @@ public class FoxFollow : MonoBehaviour {
             Vector3 offset = Vector3.Cross(direction.normalized, Vector3.up) * lateralOffset;
             Vector3 offsetToApply = Vector3.zero;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity))
+            Vector3 start = transform.position;
+            if(!flying)
+            {
+                start = feet.position;
+            }
+            if (Physics.Raycast(start, direction, out hit, Mathf.Infinity))
             {
                 Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.yellow);
                 if (hit.transform.gameObject.CompareTag("Player"))
@@ -132,16 +137,17 @@ public class FoxFollow : MonoBehaviour {
                                 lastKnownPosition = player.position;
                             }
                         }
+                        Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
 
                         GoForTargetInAir(offsetToApply, lateralSpeedDecrease);
                     }
                     else
                     {
+                        Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
 
                         GoForTarget(offsetToApply, lateralSpeedDecrease);
                     }
                     // Debug.Log(offsetToApply);
-                    Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
 
                     if (offsetToApply == Vector3.zero)
                     {
@@ -267,4 +273,8 @@ public class FoxFollow : MonoBehaviour {
         }
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collide");
+    }
 }
