@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GravityFall.cs">
-    <Files>
-      <File FileName="Assets/Scripts/GravityFall.cs" Line="29" Column="15" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Simple Health Bar\Editor\SimpleHealthBarEditor.cs" />
     <Compile Include="Assets\Simple Health Bar\Editor\SimpleHealthBarWindow.cs" />
     <Reference Include="UnityEditor.StandardEvents">
