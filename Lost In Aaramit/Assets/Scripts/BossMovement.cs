@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour {
 
     public Transform[] target;
-    public float speed;
+    private float v = 4f;
 
     private int c;
 
@@ -14,15 +14,17 @@ public class BossMovement : MonoBehaviour {
     }
 	private void Update () {
         if(transform.position != target[c].position){
-            Vector3 pos = Vector3.MoveTowards(transform.position, target[c].position, speed * Time.deltaTime);
+            Vector3 pos = Vector3.MoveTowards(transform.position, target[c].position, v * Time.deltaTime);
             GetComponent<Rigidbody>().MovePosition(pos);
         } else {
             c = (c + 1) % target.Length;
         }
 	}
 
-    public void setActive(){
+    public void setActive(float speed){
         enabled = true;
+        v = speed;
+
     }
 
     public void setNotActive()

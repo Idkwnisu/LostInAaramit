@@ -71,6 +71,12 @@ public class PlayerControllerRun : MonoBehaviour
         mIsControlEnabled = true;
     }
 
+    public void ControlDisablingPermanent()
+    {
+        mIsControlEnabled = false;
+        _canEnable = false;
+    }
+
     public void ControlDisabling()
     {
         mIsControlEnabled = false;
