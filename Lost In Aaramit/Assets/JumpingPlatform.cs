@@ -11,11 +11,16 @@ public class JumpingPlatform : MonoBehaviour {
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
-
+        transform.hasChanged = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if(transform.hasChanged)
+        {
+            transform.parent.LookAt(target);
+            transform.hasChanged = false;
+        }
 		
 	}
 
@@ -24,11 +29,24 @@ public class JumpingPlatform : MonoBehaviour {
         if(other.CompareTag("Player"))
         {
             PlayerControllerRun player = other.GetComponent<PlayerControllerRun>();
-            if(audioSource != null)
-                audioSource.Play();
-            player.ControlDisabling();
-            player.resetSpeed();
-            player.applyForce(target.position-transform.position, VerticalSpeed);
+            if (player != null)
+            {
+                if (audioSource != null)
+                    audioSource.Play();
+                player.ControlDisabling();
+                player.resetSpeed();
+                player.applyForce(target.position - transform.position, VerticalSpeed);
+            }
+            else
+            {
+                PlayerControllerRunNoFreeCamera p = other.GetComponent<PlayerControllerRunNoFreeCamera>();
+                if (audioSource != null)
+                    audioSource.Play();
+                p.ControlDisabling();
+                p.resetSpeed();
+                p.applyForce(target.position - transform.position, VerticalSpeed);
+            }
+            
         }
     }
 }
