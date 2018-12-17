@@ -19,8 +19,13 @@ public class TurnRemoteObject : MonoBehaviour {
     [Range(0.01f, 1)]
     public float Smoothness;
 
+    public bool Horizontal;
+    public bool Vertical;
+
     private float currentRotationSpeedX;
     private float currentRotationSpeedY;
+
+    private Vector3 lastVel = Vector3.zero;
 
 
     private bool interactable = false;
@@ -30,6 +35,15 @@ public class TurnRemoteObject : MonoBehaviour {
         InteractText.enabled = false;
         objectCamera.enabled = false;
         rotatorLayout.SetActive(false);
+        if(!Horizontal)
+        {
+            indicator.transform.localScale = new Vector3(1, 1, 0.2f);
+        }
+
+        if(!Vertical)
+        {
+            indicator.transform.localScale = new Vector3(1, 0.2f, 1);
+        }
     }
 	
 	// Update is called once per frame
@@ -47,11 +61,11 @@ public class TurnRemoteObject : MonoBehaviour {
                     rotatorLayout.SetActive(false);
                     if (Player.GetComponent<PlayerControllerRun>() != null)
                     {
-                        Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+                        Player.GetComponent<PlayerControllerRun>().NonInteracting();
                     }
                     else
                     {
-                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().ControlEnabling();
+                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().NonInteracting();
                     }
 
                 }
@@ -65,12 +79,12 @@ public class TurnRemoteObject : MonoBehaviour {
                     if (Player.GetComponent<PlayerControllerRun>() != null)
                     {
                         Player.GetComponent<PlayerControllerRun>().resetSpeed();
-                        Player.GetComponent<PlayerControllerRun>().ControlDisabling();
+                        Player.GetComponent<PlayerControllerRun>().Interacting();
                     }
                     else
                     {
                         Player.GetComponent<PlayerControllerRunNoFreeCamera>().resetSpeed();
-                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().ControlDisabling();
+                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().Interacting();
                     }
                 }
             }
@@ -80,18 +94,27 @@ public class TurnRemoteObject : MonoBehaviour {
                 if (h == 0)
                 {
                     currentRotationSpeedY =  Mathf.Lerp(currentRotationSpeedY, 0, Smoothness);
+                    if (Mathf.Abs(currentRotationSpeedY) < 0.01)
+                    {
+                        currentRotationSpeedY = 0.0f;
+                    }
+                    
 
                 }
                 else
                 {
                     currentRotationSpeedY = Mathf.Clamp(currentRotationSpeedY + h * rotationSpeed, (-1) * maxRotationSpeed, maxRotationSpeed);
+                    
                 }
 
                 float v = Input.GetAxis("Vertical");
                 if (v == 0)
                 {
                     currentRotationSpeedX = Mathf.Lerp(currentRotationSpeedX, 0, Smoothness);
-
+                    if (Mathf.Abs(currentRotationSpeedX) < 0.01)
+                    {
+                        currentRotationSpeedX = 0.0f;
+                    }
                 }
                 else
                 {
@@ -104,15 +127,33 @@ public class TurnRemoteObject : MonoBehaviour {
             if (currentRotationSpeedY != 0 || currentRotationSpeedX != 0)
             {
                 Vector3 vec = new Vector3(0,0,0);
-                
-                vec.y += currentRotationSpeedY * Time.deltaTime;
-                vec.z += currentRotationSpeedX * Time.deltaTime;
+
+                if (Horizontal && ((lastVel == Vector3.zero) || lastVel.y != 0))
+                {
+                    vec.y += currentRotationSpeedY * Time.deltaTime;
+                }
+                if (Vertical && ((lastVel.y == 0 && lastVel.z == 0) || lastVel.z != 0))
+                {
+                    vec.z += currentRotationSpeedX * Time.deltaTime;
+                }
+                if(vec.z != 0 && vec.y != 0)
+                {
+                    vec.z = 0;
+                }
+                lastVel = vec;
                 indicator.transform.Rotate(vec,Space.World);
                 toRotate.GetComponent<RotateThis>().Rotate(vec);
             }
+            else
+            {
+                lastVel = Vector3.zero;
+            }
+
+            
+
         }
-		
-	}
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -21,7 +21,10 @@ public class PlayerControllerRun : MonoBehaviour
 
     private bool _canEnable = true;
 
+    private bool interacting = false;
+
     private bool isRunning;
+
     #endregion
 
     #region Public Members
@@ -89,9 +92,29 @@ public class PlayerControllerRun : MonoBehaviour
         _canEnable = true;
     }
 
+    public void Interacting()
+    {
+        interacting = true;
+    }
+
+    public void NonInteracting()
+    {
+        interacting = false;
+    }
     // Update is called once per frame
     private void Update()
     {
+        if (_isGrounded)
+        {
+            if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
+            {
+                Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
+                difference = new Vector3(difference.x, difference.y, difference.z);
+                transform.position += difference;
+                _initialPlatformPosition = realPosition(currentPlatform.transform);
+            }
+        }
+
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         
@@ -134,11 +157,9 @@ public class PlayerControllerRun : MonoBehaviour
         {
                 _animator.SetBool("isJumping", true);
         }
-
-        if (mIsControlEnabled)
+        
+        if (mIsControlEnabled && !interacting)
         {
-           
-
             // Get Input for axis
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
@@ -231,15 +252,7 @@ public class PlayerControllerRun : MonoBehaviour
 
             _characterController.AddForce(_moveDirection * Time.deltaTime);
 
-
-            if (_isGrounded)
-            {
-                if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
-                {
-                    transform.position += (realPosition(currentPlatform.transform) - _initialPlatformPosition);
-                    _initialPlatformPosition = realPosition(currentPlatform.transform);
-                }
-            }
+            
         }
         else
         {
@@ -291,5 +304,10 @@ public class PlayerControllerRun : MonoBehaviour
     public bool isControlEnabled()
     {
         return mIsControlEnabled;
+    }
+
+    public bool isInteracting()
+    {
+        return interacting;
     }
 }

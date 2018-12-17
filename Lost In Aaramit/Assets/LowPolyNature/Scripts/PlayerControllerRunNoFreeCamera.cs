@@ -21,6 +21,8 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
     private bool _canEnable = true;
 
+    private bool interacting = false;
+
     private bool isRunning;
     #endregion
 
@@ -83,6 +85,16 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
         _canEnable = true;
     }
 
+    public void Interacting()
+    {
+        interacting = true;
+    }
+
+    public void NonInteracting()
+    {
+        interacting = false;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -129,7 +141,7 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
                 _animator.SetBool("isJumping", true);
         }
 
-        if (mIsControlEnabled)
+        if (mIsControlEnabled && !interacting)
         {
            
 
@@ -285,5 +297,10 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
     public bool isControlEnabled()
     {
         return mIsControlEnabled;
+    }
+
+    public bool isInteracting()
+    {
+        return interacting;
     }
 }

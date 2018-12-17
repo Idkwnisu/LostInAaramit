@@ -336,6 +336,7 @@
     <Compile Include="Assets\Scripts\MixedSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\ModelSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\MusicController.cs" />
+    <Compile Include="Assets\Scripts\NablaBossMove.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\PickableItem.cs" />
     <Compile Include="Assets\Scripts\PickupThings.cs" />
