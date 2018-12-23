@@ -77,14 +77,14 @@ public class FoxFollow : MonoBehaviour {
             if(!flying)
             {
                 start = feet.position;
-                direction = new Vector3(direction.x, 0, direction.y);
+                //direction = new Vector3(direction.x, 0, direction.y);
             }
             if (Physics.Raycast(start, direction, out hit, Mathf.Infinity))
             {
-                Debug.DrawRay(start, direction.normalized * hit.distance, Color.yellow);
+                Debug.DrawRay(start, direction.normalized * hit.distance, Color.cyan);
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
-
+                    Debug.Log("Update");
                     lastKnownPosition = player.position;
                 }
 
@@ -138,13 +138,15 @@ public class FoxFollow : MonoBehaviour {
                             }
                         }
                         Debug.DrawRay(transform.position, offsetToApply * 10, Color.red);
-                    if(offsetToApply.y != 0)
+                   /* if(offsetToApply.y != 0)
                     {
                         if(!flying)
                         {
+                            Debug.Log("FLY");
+
                             switchMovement();
                         }
-                    }
+                    }*/
                     if (flying)
                     {
                         GoForTargetInAir(offsetToApply, lateralSpeedDecrease);
@@ -160,6 +162,7 @@ public class FoxFollow : MonoBehaviour {
                         //Debug.Log("STUCK");
                         if (!flying)
                         {
+
                             switchMovement();
                         }
                         _rb.AddForce(Vector3.up * stuckRecoveringSpeed*Time.deltaTime);
@@ -170,17 +173,20 @@ public class FoxFollow : MonoBehaviour {
 
             if (flying)
             {
-                GoForTargetInAir(lastKnownPosition, 1);
+                //GoForTargetInAir(lastKnownPosition, 1);
+                GoForTargetInAir(player.position,1);
             }
             else
             {
-                GoForTarget(lastKnownPosition, 1);
+                // GoForTarget(lastKnownPosition, 1);
+                GoForTarget(player.position, 1);
             }
             Vector3 LookAtPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
             transform.LookAt(LookAtPosition);
 
             if (_rb.velocity.magnitude < 0.3)
             {
+
                 if (!flying)
                 {
                     _animator.SetBool("isWalking", false);
