@@ -7,12 +7,11 @@ public class BossFight : MonoBehaviour
 {
 
     public GameObject boss;
-    /* Dialogue
+    /* Dialogue */
     public GameObject bossDialogue1;
     public GameObject bossDialogue2;
     public GameObject bossDialogue3;
     public GameObject bossDialogue4;
-    */
     public Text stepText;
     public GameObject note1;
     public GameObject note2;
@@ -43,8 +42,8 @@ public class BossFight : MonoBehaviour
         nLevels = 3;
         cLevel = new int[nLevels];
         cLevel[0] = 4;
-        cLevel[1] = 6;
-        cLevel[2] = 6;
+        cLevel[1] = 3;
+        cLevel[2] = 4;
 
         level1 = new GameObject[cLevel[0]];
         level1[0] = note1;
@@ -53,21 +52,19 @@ public class BossFight : MonoBehaviour
         level1[3] = note3;
 
         level2 = new GameObject[cLevel[1]];
-        level2[0] = note3;
+        level2[0] = note4;
         level2[1] = note6;
-        level2[2] = note1;
-        level2[3] = note4;
-        level2[4] = note6;
-        level2[5] = note5;
+        level2[2] = note2;
 
         level3 = new GameObject[cLevel[2]];
-        level3[0] = note1;
-        level3[1] = note2;
-        level3[2] = note3;
-        level3[3] = note4;
-        level3[4] = note5;
-        level3[5] = note6;
+        level3[0] = note3;
+        level3[1] = note6;
+        level3[2] = note4;
+        level3[3] = note3;
+    }
 
+    public void StartFight()
+    {
         StartCoroutine(startNewLevel(level1));
     }
 
@@ -85,6 +82,7 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level2));
+                        startBossMove(4f);
                     }
                 }
                 else
@@ -103,11 +101,12 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level3));
-                        startBossMove();
+                        startBossMove(6f);
                     }
                 }
                 else
                 {
+                    stopBossMove();
                     StartCoroutine(LightNote(note, wrong));
                     note.GetComponent<Rigidbody>().isKinematic = false;
                 }
@@ -123,7 +122,7 @@ public class BossFight : MonoBehaviour
                         cNote = 0;
                         stepText.enabled = true;
                         stepText.text = "Boss sconfitto, premere ESC";
-                        //bossDialogue4.GetComponent<NPC>().triggerDialogue();
+                        bossDialogue4.GetComponent<NPC>().triggerDialogue();
                     }
                 }
                 else
@@ -142,8 +141,7 @@ public class BossFight : MonoBehaviour
         stepText.enabled = true;
         int levStep = cLev + 1;
         stepText.text = "Step " + levStep;
-        /* Dialogue
-        //Player.GetComponent<PlayerControllerRun>().DisableControl();
+        /* Dialogue*/
       
         switch (cLev){
             case 0:
@@ -156,7 +154,7 @@ public class BossFight : MonoBehaviour
                 bossDialogue3.GetComponent<NPC>().triggerDialogue();
                 break;
 
-        }*/
+        }
         yield return new WaitForSeconds(5f);
         stepText.enabled = false;
         for (int i = 0; i < lev.Length; i++)
@@ -165,7 +163,6 @@ public class BossFight : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             lev[i].transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
         }
-        //Player.GetComponent<PlayerControllerRun>().EnableControl();
     }
 
     IEnumerator LightNote(GameObject note, Material mat)
@@ -175,7 +172,12 @@ public class BossFight : MonoBehaviour
         note.transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
     }
 
-    private void startBossMove(){
-        boss.GetComponent<BossMovement>().setActive();
+    private void startBossMove(float speed){
+        boss.GetComponent<BossMovement>().setActive(speed);
+    }
+
+    private void stopBossMove()
+    {
+        boss.GetComponent<BossMovement>().setNotActive();
     }
 }
