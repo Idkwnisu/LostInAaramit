@@ -1,14 +1,7 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs">
-    <Files>
-      <File FileName="Assets/Scripts/BossFight.cs" Line="63" Column="26" />
-      <File FileName="Assets/Scripts/BossMovement.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/NablaBossMove.cs" Line="43" Column="13" />
-      <File FileName="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

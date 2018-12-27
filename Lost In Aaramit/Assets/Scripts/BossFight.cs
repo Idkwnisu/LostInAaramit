@@ -63,12 +63,6 @@ public class BossFight : MonoBehaviour
         level3[3] = note3;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-            StartFight();
-    }
-
     public void StartFight()
     {
         StartCoroutine(startNewLevel(level1));

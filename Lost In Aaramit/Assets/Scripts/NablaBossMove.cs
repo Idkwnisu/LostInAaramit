@@ -6,12 +6,13 @@ public class NablaBossMove : MonoBehaviour {
 
     public Transform[] targetPlayer;
     public Transform[] targetBoss;
-    public GameObject NablaAndPlayer;
+    public GameObject NablaPlayer;
     public GameObject NablaBoss;
     public GameObject Boss;
     public GameObject Allen;
-
+    public GameObject BossFight;
     public GameObject DieCube;
+    public Transform[] StartingNab;
 
     public float speed;
 
@@ -26,9 +27,9 @@ public class NablaBossMove : MonoBehaviour {
     }
 
     private void Update () {
-        if(NablaAndPlayer.transform.position != targetPlayer[c].position){
-            Vector3 pos = Vector3.MoveTowards(NablaAndPlayer.transform.position, targetPlayer[c].position, speed * Time.deltaTime);
-            NablaAndPlayer.GetComponent<Rigidbody>().MovePosition(pos);
+        if(NablaPlayer.transform.position != targetPlayer[c].position){
+            Vector3 pos = Vector3.MoveTowards(NablaPlayer.transform.position, targetPlayer[c].position, speed * Time.deltaTime);
+            NablaPlayer.GetComponent<Rigidbody>().MovePosition(pos);
         } else {
             if (c == (targetPlayer.Length - 1))
             {
@@ -68,6 +69,7 @@ public class NablaBossMove : MonoBehaviour {
     }
 
     public void setActive(){
+        Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
         enabled = true;
     }
 
@@ -75,5 +77,9 @@ public class NablaBossMove : MonoBehaviour {
     {
         DieCube.GetComponent<BoxCollider>().enabled = true;
         enabled = false;
+        StartingNab[0].GetComponent<MeshRenderer>().enabled = false;
+        StartingNab[1].GetComponent<MeshRenderer>().enabled = false;
+        Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
+        BossFight.GetComponent<BossFight>().StartFight();
     }
 }
