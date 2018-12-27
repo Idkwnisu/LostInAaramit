@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelection : MonoBehaviour {
 
+    private Scene sceneToDestroy;
+
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -19,7 +21,12 @@ public class SceneSelection : MonoBehaviour {
     {
         if (Input.GetButtonDown("Cancel"))
         {
+            //Debug.Log("" + SceneManager.sceneCount);
+            sceneToDestroy = SceneManager.GetActiveScene();
+            SceneManager.UnloadSceneAsync(sceneToDestroy.buildIndex);
+            //.Log("" + SceneManager.sceneCount);
             SceneManager.LoadScene("SceneSelectionMenu", LoadSceneMode.Single);
+            //Debug.Log("" + SceneManager.sceneCount);
         }
 
         if (SceneManager.GetActiveScene().name == "SceneSelectionMenu")
