@@ -312,6 +312,7 @@
     <Compile Include="Assets\ICE_sushishop\scripts_probes\RealtimeReflection1.cs" />
     <Compile Include="Assets\JumpingPlatform.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRun.cs" />
+    <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRunJoypad.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerControllerRunNoFreeCamera.cs" />
     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
     <Compile Include="Assets\MasterRotator.cs" />

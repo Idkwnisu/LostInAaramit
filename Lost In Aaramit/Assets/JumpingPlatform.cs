@@ -28,25 +28,31 @@ public class JumpingPlatform : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
-            PlayerControllerRun player = other.GetComponent<PlayerControllerRun>();
-            if (player != null)
+            PlayerControllerRun playerCR = other.GetComponent<PlayerControllerRun>();
+            PlayerControllerRunNoFreeCamera playerCRFC = other.GetComponent<PlayerControllerRunNoFreeCamera>();
+            PlayerControllerRunJoypad playerCRC = other.GetComponent<PlayerControllerRunJoypad>();
+
+
+            if (playerCR.enabled)
             {
-                if (audioSource != null)
-                    audioSource.Play();
-                player.ControlDisabling();
-                player.resetSpeed();
-                player.applyForce(target.position - transform.position, VerticalSpeed);
+                playerCR.ControlDisabling();
+                playerCR.resetSpeed();
+                playerCR.applyForce(target.position - transform.position, VerticalSpeed);
             }
-            else
+            if (playerCRFC.enabled)
             {
-                PlayerControllerRunNoFreeCamera p = other.GetComponent<PlayerControllerRunNoFreeCamera>();
-                if (audioSource != null)
-                    audioSource.Play();
-                p.ControlDisabling();
-                p.resetSpeed();
-                p.applyForce(target.position - transform.position, VerticalSpeed);
+                playerCRFC.ControlDisabling();
+                playerCRFC.resetSpeed();
+                playerCRFC.applyForce(target.position - transform.position, VerticalSpeed);
+
             }
-            
+            if (playerCRC.enabled)
+            {
+                playerCRC.ControlDisabling();
+                playerCRC.resetSpeed();
+                playerCRC.applyForce(target.position - transform.position, VerticalSpeed);
+
+            }
         }
     }
 }

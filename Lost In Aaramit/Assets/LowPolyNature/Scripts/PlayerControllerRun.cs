@@ -110,6 +110,7 @@ public class PlayerControllerRun : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         if (_isGrounded)
         {
             if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
