@@ -169,6 +169,16 @@ public class MusicController : MonoBehaviour
 
     public void PlayerIsInteracting(SongPlayer cube, bool on)
     {
+        if (cube.simplePlayer)
+        {
+            cube.displaySegment.segment = 2;
+            cube.displaySegment.display = false;
+            cube.displaySegment.square1.image.color = Color.white;
+            cube.displaySegment.square2.image.color = Color.black;
+            cube.displaySegment.square3.image.color = Color.black;
+            cube.displaySegment.square4.image.color = Color.black;
+            cube.displaySegment.square5.image.color = Color.black;
+        }
         if (on == true){
             controller1.GetComponent<Renderer>().material = normal;
             controller2.GetComponent<Renderer>().material = normal;
@@ -178,9 +188,19 @@ public class MusicController : MonoBehaviour
             cube.GetComponent<Renderer>().material = lumen;
 
             returnToFullTrack = false;
-            Song.pitch = cube.pitch;
-            Song.clip = cube.clip;
-            Song.Play();
+            if (!cube.simplePlayer)
+            {
+                Song.pitch = cube.pitch;
+                Song.clip = cube.clip;
+                Song.Play();
+            }
+            else
+            {
+                Song.pitch = 1.0f;
+                cube.displaySegment.display = true;
+                Song.clip = cube.displaySegment.Seg1;
+                Song.Play();
+            }
         }
         else
         {

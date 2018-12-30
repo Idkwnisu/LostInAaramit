@@ -7,14 +7,12 @@ using UnityEngine.UI;
 public class SongPlayer: MonoBehaviour
 {
     public Text InteractText;
-    public GameObject rotatorLayout;
+    public GameObject controllerLayout;
     public Camera mainCamera;
     public Camera objectCamera;
     public GameObject Player;
     public AudioClip clip;
-    private AudioClip tempClip;
     public float pitch;
-    private float tempPitch;
     public bool simplePlayer;
 
     public GameObject indicator;
@@ -25,23 +23,22 @@ public class SongPlayer: MonoBehaviour
 
     public SongPlayer leftController;
     public SongPlayer rightController;
-    private Material tempMaterial;
-    private Color tempColor;
-    private Vector3 tempScale;
 
     private bool interactable = false;
     private bool interacting = false;
     public bool correctPitch;
     public bool correctReordering;
-    private bool tempBool;
     private string targetClipName;
+    private int segment;
+    public DisplaySegment displaySegment;
 
     // Use this for initialization
     void Start()
     {
+        segment = 1;
         InteractText.enabled = false;
         objectCamera.enabled = false;
-        rotatorLayout.SetActive(false);
+        controllerLayout.SetActive(false);
         Song = musicController.Song;
         correctPitch = false;
         correctReordering = false;
@@ -102,7 +99,7 @@ public class SongPlayer: MonoBehaviour
                     mainCamera.enabled = true;
                     objectCamera.enabled = false;
                     InteractText.enabled = true;
-                    rotatorLayout.SetActive(false);
+                    controllerLayout.SetActive(false);
                     Player.GetComponent<PlayerControllerRun>().ControlEnabling();
 
                     musicController.PlayerIsInteracting(this, false);
@@ -113,10 +110,7 @@ public class SongPlayer: MonoBehaviour
                     mainCamera.enabled = false;
                     objectCamera.enabled = true;
                     InteractText.enabled = false;
-                    if (simplePlayer == false)
-                    {
-                        rotatorLayout.SetActive(true);
-                    }
+                    controllerLayout.SetActive(true);
                     Player.GetComponent<PlayerControllerRun>().ControlDisabling();
 
                     musicController.PlayerIsInteracting(this, true);
@@ -126,39 +120,47 @@ public class SongPlayer: MonoBehaviour
             {
                 //Debug.Log("" + clip.name);
                 //Debug.Log("" + musicController.returnToFullTrack);
-
                 if (Song.isPlaying == false)
                 {
-                    Song.pitch = pitch;
-                    Song.clip = clip;
-                    Song.Play();
+                    if (!simplePlayer)
+                    {
+                        Song.pitch = pitch;
+                        Song.clip = clip;
+                        Song.Play();
+                    }
                 }
                 if (Input.GetButtonDown("Vertical") == true && simplePlayer == false && musicController.scene != 2)
                 {
                     float h = Input.GetAxis("Vertical");
-                    if (h > 0)
+                    if (h > 0 && Song.pitch < 4.0f)
                     {
                         if (Input.GetButtonDown("Vertical") == true)
                         {
-                            Song.pitch += 0.10f;
+                            Song.pitch += 0.20f;
                             if (Song.pitch > 0.96 && Song.pitch < 1)
                             {
                                 Song.pitch = 1.0f;
                                 pitch = Song.pitch;
                             }
-                            pitchIndicator.transform.localScale += new Vector3(0.0F, 0.1F, 0.0F);
+                            if (pitchIndicator.transform.localScale.y < 5.0F)
+                            {
+                                pitchIndicator.transform.localScale += new Vector3(0.0F, 0.1F, 0.0F);
+                            }
                         }
                     }
-                    if (h < 0)
+                    if (h < 0 && Song.pitch > 0.2f)
                     {
                         if (Input.GetButtonDown("Vertical") == true)
                         {
-                            Song.pitch -= 0.10f;
+                            Song.pitch -= 0.20f;
                             if (Song.pitch > 0.96 && Song.pitch < 1)
                             {
                                 Song.pitch = 1.0f;
                             }
-                            pitchIndicator.transform.localScale -= new Vector3(0.0F, 0.1F, 0.0F);
+                            if (pitchIndicator.transform.localScale.y > 0.2F)
+                            {
+                                pitchIndicator.transform.localScale -= new Vector3(0.0F, 0.1F, 0.0F);
+                            }
                         }
                     }
                     h = 0;
@@ -175,78 +177,14 @@ public class SongPlayer: MonoBehaviour
                     {
                         if (Input.GetButtonDown("Horizontal") == true)
                         {
-                            tempClip = clip;
-                            clip = rightController.clip;
-                            rightController.clip = tempClip;
-                            tempPitch = pitch;
-                            pitch = rightController.pitch;
-                            rightController.pitch = tempPitch;
-                            Song.pitch = pitch;
-                            Song.clip = clip;
-                            Song.Play();
-                            tempMaterial = indicator.GetComponent<Renderer>().material;
-                            indicator.GetComponent<Renderer>().material = rightController.indicator.GetComponent<Renderer>().material;
-                            pitchIndicator.GetComponent<Renderer>().material = rightController.indicator.GetComponent<Renderer>().material;
-                            rightController.indicator.GetComponent<Renderer>().material = tempMaterial;
-                            rightController.pitchIndicator.GetComponent<Renderer>().material = tempMaterial;
-                            tempColor = indicator.GetComponent<Light>().color;
-                            indicator.GetComponent<Light>().color = rightController.indicator.GetComponent<Light>().color;
-                            pitchIndicator.GetComponent<Light>().color = rightController.indicator.GetComponent<Light>().color;
-                            rightController.indicator.GetComponent<Light>().color = tempColor;
-                            rightController.pitchIndicator.GetComponent<Light>().color = tempColor;
-                            tempScale = pitchIndicator.transform.localScale;
-                            pitchIndicator.transform.localScale = rightController.pitchIndicator.transform.localScale;
-                            rightController.pitchIndicator.transform.localScale = tempScale;
-                            tempBool = correctPitch;
-                            correctPitch = rightController.correctPitch;
-                            rightController.correctPitch = tempBool;
-                            tempBool = correctReordering;
-                            correctReordering = rightController.correctReordering;
-                            rightController.correctReordering = tempBool;
-                            rightController.CheckReordering();
-                            if (musicController.scene != 2)
-                            {
-                                rightController.CheckPitch();
-                            }
+                            SwapSegments(rightController, clip, pitch, indicator.GetComponent<SkinnedMeshRenderer>().material, indicator.GetComponent<Light>().color, pitchIndicator.transform.localScale, correctPitch);
                         }
                     }
                     if (h < 0)
                     {
                         if (Input.GetButtonDown("Horizontal") == true)
                         {
-                            tempClip = clip;
-                            clip = leftController.clip;
-                            leftController.clip = tempClip;
-                            tempPitch = pitch;
-                            pitch = leftController.pitch;
-                            leftController.pitch = tempPitch;
-                            Song.pitch = pitch;
-                            Song.clip = clip;
-                            Song.Play();
-                            tempMaterial = indicator.GetComponent<Renderer>().material;
-                            indicator.GetComponent<Renderer>().material = leftController.indicator.GetComponent<Renderer>().material;
-                            pitchIndicator.GetComponent<Renderer>().material = leftController.indicator.GetComponent<Renderer>().material;
-                            leftController.indicator.GetComponent<Renderer>().material = tempMaterial;
-                            leftController.pitchIndicator.GetComponent<Renderer>().material = tempMaterial;
-                            tempColor = indicator.GetComponent<Light>().color;
-                            indicator.GetComponent<Light>().color = leftController.indicator.GetComponent<Light>().color;
-                            pitchIndicator.GetComponent<Light>().color = leftController.indicator.GetComponent<Light>().color;
-                            leftController.indicator.GetComponent<Light>().color = tempColor;
-                            leftController.pitchIndicator.GetComponent<Light>().color = tempColor;
-                            tempScale = pitchIndicator.transform.localScale;
-                            pitchIndicator.transform.localScale = leftController.pitchIndicator.transform.localScale;
-                            leftController.pitchIndicator.transform.localScale = tempScale;
-                            tempBool = correctPitch;
-                            correctPitch = leftController.correctPitch;
-                            leftController.correctPitch = tempBool;
-                            tempBool = correctReordering;
-                            correctReordering = leftController.correctReordering;
-                            leftController.correctReordering = tempBool;
-                            leftController.CheckReordering();
-                            if (musicController.scene != 2)
-                            {
-                                leftController.CheckPitch();
-                            }
+                            SwapSegments(leftController, clip, pitch, indicator.GetComponent<SkinnedMeshRenderer>().material, indicator.GetComponent<Light>().color, pitchIndicator.transform.localScale, correctPitch);
                         }
                     }
                     h = 0;
@@ -310,4 +248,34 @@ public class SongPlayer: MonoBehaviour
         }
     }
 
+    public void SwapSegments(SongPlayer controller, AudioClip tempClip, float tempPitch, Material tempMaterial, Color tempColor, Vector3 tempScale, bool tempBool)
+    {
+        clip = controller.clip;
+        controller.clip = tempClip;
+        pitch = controller.pitch;
+        controller.pitch = tempPitch;
+        Song.pitch = pitch;
+        Song.clip = clip;
+        Song.Play();
+        indicator.GetComponent<SkinnedMeshRenderer>().material = controller.indicator.GetComponent<SkinnedMeshRenderer>().material;
+        pitchIndicator.GetComponent<MeshRenderer>().material = controller.indicator.GetComponent<SkinnedMeshRenderer>().material;
+        controller.indicator.GetComponent<SkinnedMeshRenderer>().material = tempMaterial;
+        controller.pitchIndicator.GetComponent<MeshRenderer>().material = tempMaterial;
+        indicator.GetComponent<Light>().color = controller.indicator.GetComponent<Light>().color;
+        pitchIndicator.GetComponent<Light>().color = controller.indicator.GetComponent<Light>().color;
+        controller.indicator.GetComponent<Light>().color = tempColor;
+        controller.pitchIndicator.GetComponent<Light>().color = tempColor;
+        pitchIndicator.transform.localScale = controller.pitchIndicator.transform.localScale;
+        controller.pitchIndicator.transform.localScale = tempScale;
+        correctPitch = controller.correctPitch;
+        controller.correctPitch = tempBool;
+        tempBool = correctReordering;
+        correctReordering = controller.correctReordering;
+        controller.correctReordering = tempBool;
+        controller.CheckReordering();
+        if (musicController.scene != 2)
+        {
+            controller.CheckPitch();
+        }
+    }
 }
