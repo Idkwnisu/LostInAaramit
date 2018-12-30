@@ -23,6 +23,8 @@ public class PlayerFollow : MonoBehaviour
     public float minCamera = -0.4f;
     public float maxCamera = 1.5f;
 
+    public bool cameraActive;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +42,11 @@ public class PlayerFollow : MonoBehaviour
 
             float h = Input.GetAxis("Mouse X") * RotationsSpeed;
             float v = Input.GetAxis("Mouse Y") * RotationsSpeed * -1;
+
+        if(!cameraActive)
+        {
+            h = v = 0;
+        }
 
         if (!_isColliding && _cameraProximity < 1.0f)
         {
