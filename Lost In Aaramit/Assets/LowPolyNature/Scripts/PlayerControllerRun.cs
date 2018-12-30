@@ -51,6 +51,8 @@ public class PlayerControllerRun : MonoBehaviour
 
     public float FallingGravity = 4.0f;
 
+    public float VelocityDamping = 2.0f;
+
     [Range(0.01f,0.99f)]
     public float fallingMovement = 0.2f;
 
@@ -108,6 +110,7 @@ public class PlayerControllerRun : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         if (_isGrounded)
         {
             if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
@@ -271,6 +274,10 @@ public class PlayerControllerRun : MonoBehaviour
 
             _characterController.AddForce(_moveDirection * Time.deltaTime);
 
+            if(move.magnitude < 0.01f && _isGrounded)
+            {
+                _characterController.velocity /= VelocityDamping;
+            }
             
         }
         else

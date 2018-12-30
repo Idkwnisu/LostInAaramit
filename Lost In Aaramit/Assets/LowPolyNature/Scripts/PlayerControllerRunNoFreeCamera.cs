@@ -42,7 +42,12 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
     public float RotationSpeed = 240.0f;
 
-    public float JumpSpeed = 7.0f;
+    public float IdleJumpSpeed = 7.0f;
+
+    public float WalkJumpSpeed = 7.0f;
+
+    public float RunJumpSpeed = 7.0f;
+
 
     public float FallingGravity = 4.0f;
 
@@ -187,17 +192,32 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
             if (_isGrounded)
             {
-                _moveDirection = transform.forward * move.magnitude * Mathf.Sign(v);
+                _moveDirection = transform.forward * move.magnitude;
 
                 if (isRunning)
                     _moveDirection *= RunningForce;
                 else
                     _moveDirection *= WalkingForce;
-                
+
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("isJumping", true);
-                    _characterController.AddForce(Vector3.up * JumpSpeed);
+                    _isGrounded = false;
+                    if (move.magnitude < 0.1f)
+                    {
+                        _characterController.AddForce(Vector3.up * IdleJumpSpeed);
+                    }
+                    else
+                    {
+                        if (isRunning)
+                        {
+                            _characterController.AddForce(Vector3.up * RunJumpSpeed);
+                        }
+                        else
+                        {
+                            _characterController.AddForce(Vector3.up * WalkJumpSpeed);
+                        }
+                    }
 
                 }
                 else
@@ -216,7 +236,6 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
             {
                 _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
             }
-
             Vector2 horizontalSpeed = new Vector2(_characterController.velocity.x, _characterController.velocity.z);
             if (isRunning == false)
             {
