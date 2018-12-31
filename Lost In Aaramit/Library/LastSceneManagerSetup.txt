@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/MusicPuzzleNewVersion.unity
-=======
 - path: Assets/Scenes/FloatingNablaPlat1.unity
->>>>>>> cb290e0edb6674667a703a85f94df4b7f82831b6
   isLoaded: 1
   isActive: 1

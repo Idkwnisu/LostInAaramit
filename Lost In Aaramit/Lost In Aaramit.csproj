@@ -303,6 +303,7 @@
     <Compile Include="Assets\ColorSkies\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\ColorSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\ControlManager.cs" />
+    <Compile Include="Assets\DisplaySegment.cs" />
     <Compile Include="Assets\FoxFollow.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
@@ -362,6 +363,9 @@
     <Compile Include="Assets\Simple Health Bar\_Asteroids Example\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Simple Health Bar\Scripts\SimpleHealthBar.cs" />
     <Compile Include="Assets\TalkingFox.cs" />
+    <Compile Include="Assets\theNotes\Script\CamControl.cs" />
+    <Compile Include="Assets\theNotes\Script\GUIConrtol_note.cs" />
+    <Compile Include="Assets\theNotes\Script\NoteAnimatorControl.cs" />
     <Compile Include="Assets\TurnRemoteObject.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +399,11 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_en.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_jp.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_kr.txt" />
+    <None Include="Assets\theNotes\Script\IMinfo.txt" />
+    <None Include="Assets\theNotes\Script\stateName.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

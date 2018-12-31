@@ -306,6 +306,8 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
     {
         Vector3 versor = direction.normalized;
         _characterController.AddForce(versor * force);
+        Vector3 planeDirection = new Vector3(direction.x, 0, direction.z);
+        transform.LookAt(transform.position + planeDirection);
     }
 
     public void resetSpeed()
