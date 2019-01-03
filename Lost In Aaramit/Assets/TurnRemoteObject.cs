@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TurnRemoteObject : MonoBehaviour {
     public Text InteractText;
     public GameObject rotatorLayout;
-    public Camera mainCamera;
     public Camera objectCamera;
     public GameObject Player;
 
@@ -55,7 +54,7 @@ public class TurnRemoteObject : MonoBehaviour {
                 if (interacting)
                 {
                     interacting = false;
-                    mainCamera.enabled = true;
+                    ControlManager.instance.getCurrentCamera().enabled = true;
                     objectCamera.enabled = false;
                     InteractText.enabled = true;
                     rotatorLayout.SetActive(false);
@@ -72,7 +71,7 @@ public class TurnRemoteObject : MonoBehaviour {
                 else
                 {
                     interacting = true;
-                    mainCamera.enabled = false;
+                    ControlManager.instance.getCurrentCamera().enabled = false;
                     objectCamera.enabled = true;
                     InteractText.enabled = false;
                     rotatorLayout.SetActive(true);
