@@ -16,8 +16,6 @@ public class DialogueSystem : MonoBehaviour
     public float letterDelay = 0.1f;
     public float letterMultiplier = 0.5f;
 
-    public KeyCode DialogueInput = KeyCode.F;
-
     public string Names;
 
     public string[] dialogueLines;
@@ -96,7 +94,7 @@ public class DialogueSystem : MonoBehaviour
 
             while (true)
             {
-                if (Input.GetKeyDown(DialogueInput) || automaticContinue && dialogueEnded == false)
+                if (Input.GetButtonDown("Dialogue") || automaticContinue && dialogueEnded == false)
                 {
                     break;
                 }
@@ -126,7 +124,7 @@ public class DialogueSystem : MonoBehaviour
                 {
                     //Debug.Log(automaticContinue);
 
-                    if (Input.GetKey(DialogueInput) || automaticContinue)
+                    if (Input.GetButtonDown("Dialogue") || automaticContinue)
                     {
                         automaticContinue = false;
 
@@ -149,7 +147,7 @@ public class DialogueSystem : MonoBehaviour
             }
             while (true)
             {
-                if (Input.GetKeyDown(DialogueInput) || automaticContinue)
+                if (Input.GetButtonDown("Dialogue") || automaticContinue)
                 {
                     break;
                 }
