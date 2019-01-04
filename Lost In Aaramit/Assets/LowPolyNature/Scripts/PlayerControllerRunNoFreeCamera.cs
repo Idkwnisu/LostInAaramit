@@ -103,6 +103,19 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (_isGrounded)
+        {
+            if (currentPlatform.GetComponent<FallingNabla>() == null || currentPlatform.GetComponent<FallingNabla>().isFalling == false)
+            {
+                if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
+                {
+                    Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
+                    difference = new Vector3(difference.x, difference.y, difference.z);
+                    transform.position += difference;
+                    _initialPlatformPosition = realPosition(currentPlatform.transform);
+                }
+            }
+        }
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         
@@ -164,7 +177,7 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
             // Calculate the rotation for the player
             move = transform.InverseTransformDirection(move);
-            if(move.magnitude > 0.01)
+            if(move.magnitude > 0.1)
             {
                 if (Input.GetButton("Run"))
                 {
@@ -257,14 +270,6 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
             _characterController.AddForce(_moveDirection * Time.deltaTime);
 
 
-            if (_isGrounded)
-            {
-                if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
-                {
-                    transform.position += (realPosition(currentPlatform.transform) - _initialPlatformPosition);
-                    _initialPlatformPosition = realPosition(currentPlatform.transform);
-                }
-            }
         }
         else
         {

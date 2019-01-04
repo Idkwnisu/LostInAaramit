@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FallingNabla : MonoBehaviour {
 
+    public bool isFalling = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -16,6 +18,7 @@ public class FallingNabla : MonoBehaviour {
     {
         yield return new WaitForSeconds(5f);
         nabla.GetComponent<Rigidbody>().isKinematic = false;
+        isFalling = true;
     }
 
 

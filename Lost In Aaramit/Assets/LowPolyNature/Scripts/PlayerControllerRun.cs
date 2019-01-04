@@ -113,12 +113,15 @@ public class PlayerControllerRun : MonoBehaviour
 
         if (_isGrounded)
         {
+            if (currentPlatform.GetComponent<FallingNabla>() == null || currentPlatform.GetComponent<FallingNabla>().isFalling == false)
+            { 
             if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
-            {
-                Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
-                difference = new Vector3(difference.x, difference.y, difference.z);
-                transform.position += difference;
-                _initialPlatformPosition = realPosition(currentPlatform.transform);
+                {
+                    Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
+                    difference = new Vector3(difference.x, difference.y, difference.z);
+                    transform.position += difference;
+                    _initialPlatformPosition = realPosition(currentPlatform.transform);
+                }
             }
         }
 
