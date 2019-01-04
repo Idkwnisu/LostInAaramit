@@ -180,7 +180,7 @@ public class PlayerControllerRun : MonoBehaviour
 
             // Calculate the rotation for the player
             move = transform.InverseTransformDirection(move);
-            if(move.magnitude > 0.01)
+            if(move.magnitude > 0.1)
             {
                 if (Input.GetButton("Run"))
                 {
