@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayWhistle : MonoBehaviour {
 
-    public AudioClip SoundToPlay;
+    public AudioClip[] SoundToPlay;
     public float Volume;
     public int timer;
     AudioSource audio;
@@ -21,8 +21,10 @@ public class PlayWhistle : MonoBehaviour {
     {
         while (true)
         {
+            int rand = Random.Range(0, SoundToPlay.Length);
             yield return new WaitForSeconds(timer);
-            audio.PlayOneShot(SoundToPlay, Volume);
+
+            audio.PlayOneShot(SoundToPlay[rand], Volume);
         }
     }
 }
