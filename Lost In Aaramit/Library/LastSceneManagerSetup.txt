@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/MusicPuzzleNewVersion.unity
+=======
+- path: Assets/Scenes/BossScene.unity
+>>>>>>> 90195724213ec65616af9d17d2e07fbf82c68d5e
   isLoaded: 1
   isActive: 1

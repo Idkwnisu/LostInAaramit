@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 632d0796bdcd64380b3cff22c867f677
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm.1.L
+    100002: Arm.1.R
+    100004: Arm.2.L
+    100006: Arm.2.R
+    100008: ArmaturePupino.Guardia.def
+    100010: Circle.001
+    100012: Collarbone.L
+    100014: Collarbone.R
+    100016: Foot.L
+    100018: Foot.L_end
+    100020: Foot.R
+    100022: Foot.R_end
+    100024: FootControl.L
+    100026: FootControl.R
+    100028: Hand.1.L
+    100030: Hand.1.R
+    100032: Hand.2.L
+    100034: Hand.2.R
+    100036: Hand.3.L
+    100038: Hand.3.L_end
+    100040: Hand.3.R
+    100042: Hand.3.R_end
+    100044: Head
+    100046: Head_end
+    100048: ik.pole.Arm.L
+    100050: ik.pole.Arm.L_end
+    100052: ik.pole.Arm.R
+    100054: ik.pole.Arm.R_end
+    100056: ik.pole.Leg.L
+    100058: ik.pole.Leg.L_end
+    100060: ik.pole.Leg.R
+    100062: ik.pole.Leg.R_end
+    100064: ik.target.Arm.L
+    100066: ik.target.Arm.L_end
+    100068: ik.target.Arm.R
+    100070: ik.target.Arm.R_end
+    100072: ik.target.Leg.L
+    100074: ik.target.Leg.L_end
+    100076: ik.target.Leg.R
+    100078: ik.target.Leg.R_end
+    100080: Leg.1.L
+    100082: Leg.1.R
+    100084: Leg.2.L
+    100086: Leg.2.R
+    100088: Neck
+    100090: //RootNode
+    100092: PupinsGuardia.Body.def
+    100094: Root
+    100096: Spine.1
+    400000: Arm.1.L
+    400002: Arm.1.R
+    400004: Arm.2.L
+    400006: Arm.2.R
+    400008: ArmaturePupino.Guardia.def
+    400010: Circle.001
+    400012: Collarbone.L
+    400014: Collarbone.R
+    400016: Foot.L
+    400018: Foot.L_end
+    400020: Foot.R
+    400022: Foot.R_end
+    400024: FootControl.L
+    400026: FootControl.R
+    400028: Hand.1.L
+    400030: Hand.1.R
+    400032: Hand.2.L
+    400034: Hand.2.R
+    400036: Hand.3.L
+    400038: Hand.3.L_end
+    400040: Hand.3.R
+    400042: Hand.3.R_end
+    400044: Head
+    400046: Head_end
+    400048: ik.pole.Arm.L
+    400050: ik.pole.Arm.L_end
+    400052: ik.pole.Arm.R
+    400054: ik.pole.Arm.R_end
+    400056: ik.pole.Leg.L
+    400058: ik.pole.Leg.L_end
+    400060: ik.pole.Leg.R
+    400062: ik.pole.Leg.R_end
+    400064: ik.target.Arm.L
+    400066: ik.target.Arm.L_end
+    400068: ik.target.Arm.R
+    400070: ik.target.Arm.R_end
+    400072: ik.target.Leg.L
+    400074: ik.target.Leg.L_end
+    400076: ik.target.Leg.R
+    400078: ik.target.Leg.R_end
+    400080: Leg.1.L
+    400082: Leg.1.R
+    400084: Leg.2.L
+    400086: Leg.2.R
+    400088: Neck
+    400090: //RootNode
+    400092: PupinsGuardia.Body.def
+    400094: Root
+    400096: Spine.1
+    2100000: Material.002
+    2100002: Material.018
+    2100004: Material.001
+    2100006: Material
+    2300000: Circle.001
+    3300000: Circle.001
+    4300000: PupinsGuardia.Body.def
+    4300002: Circle.001
+    7400000: Idle
+    7400002: ArmaturePupino.Guardia.def|(giusta) Hand out (and back)
+    7400004: ArmaturePupino.Guardia.def|Grab (and back)
+    7400006: ArmaturePupino.Guardia.def|Hand out (and back)
+    7400008: ArmaturePupino.Guardia.def|Idle
+    7400010: ArmaturePupino.Guardia.def|Idle.002
+    7400012: ArmaturePupino.Guardia.def|Idle.008
+    7400014: ArmaturePupino.Guardia.def|Jump.End
+    7400016: ArmaturePupino.Guardia.def|Jump.Start+MidAir
+    7400018: ArmaturePupino.Guardia.def|Run
+    7400020: ArmaturePupino.Guardia.def|Sitting Idle
+    7400022: ArmaturePupino.Guardia.def|Walk
+    7400024: Circle.001|(giusta) Hand out (and back)
+    7400026: Circle.001|Grab (and back)
+    7400028: Circle.001|Hand out (and back)
+    7400030: Circle.001|Idle.002
+    7400032: Circle.001|Idle.008
+    7400034: Circle.001|Sitting Idle
+    9500000: //RootNode
+    13700000: PupinsGuardia.Body.def
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -405,6 +405,11 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_en.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_jp.txt" />
+    <None Include="Assets\theNotes\00_ReadMe\ReadMe_kr.txt" />
+    <None Include="Assets\theNotes\Script\IMinfo.txt" />
+    <None Include="Assets\theNotes\Script\stateName.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

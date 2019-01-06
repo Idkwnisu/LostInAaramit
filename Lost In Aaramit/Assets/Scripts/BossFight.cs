@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossFight : MonoBehaviour
 {
 
+    public GameObject cloudBoss;
     public GameObject boss;
     /* Dialogue */
     public GameObject bossDialogue1;
@@ -61,6 +62,14 @@ public class BossFight : MonoBehaviour
         level3[1] = note6;
         level3[2] = note4;
         level3[3] = note3;
+    }
+
+    private void Update()
+    {
+        /*
+        Vector3 playerPos = Player.transform.position;
+        boss.transform.LookAt(transform.position);
+        */
     }
 
     public void StartFight()
@@ -172,12 +181,13 @@ public class BossFight : MonoBehaviour
         note.transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
     }
 
+
     private void startBossMove(float speed){
-        boss.GetComponent<BossMovement>().setActive(speed);
+        cloudBoss.GetComponent<BossMovement>().setActive(speed);
     }
 
     private void stopBossMove()
     {
-        boss.GetComponent<BossMovement>().setNotActive();
+        cloudBoss.GetComponent<BossMovement>().setNotActive();
     }
 }

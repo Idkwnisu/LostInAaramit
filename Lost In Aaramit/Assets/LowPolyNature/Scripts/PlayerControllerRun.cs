@@ -113,12 +113,15 @@ public class PlayerControllerRun : MonoBehaviour
 
         if (_isGrounded)
         {
+            if (currentPlatform.GetComponent<FallingNabla>() == null || currentPlatform.GetComponent<FallingNabla>().isFalling == false)
+            { 
             if (realPosition(currentPlatform.transform) != _initialPlatformPosition)
-            {
-                Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
-                difference = new Vector3(difference.x, difference.y, difference.z);
-                transform.position += difference;
-                _initialPlatformPosition = realPosition(currentPlatform.transform);
+                {
+                    Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
+                    difference = new Vector3(difference.x, difference.y, difference.z);
+                    transform.position += difference;
+                    _initialPlatformPosition = realPosition(currentPlatform.transform);
+                }
             }
         }
 
@@ -180,7 +183,7 @@ public class PlayerControllerRun : MonoBehaviour
 
             // Calculate the rotation for the player
             move = transform.InverseTransformDirection(move);
-            if(move.magnitude > 0.01)
+            if(move.magnitude > 0.1)
             {
                 if (Input.GetButton("Run"))
                 {
@@ -320,6 +323,8 @@ public class PlayerControllerRun : MonoBehaviour
     {
         Vector3 versor = direction.normalized;
         _characterController.AddForce(versor * force);
+        Vector3 planeDirection = new Vector3(direction.x, 0, direction.z);
+        transform.LookAt(transform.position + planeDirection);
     }
 
     public void resetSpeed()

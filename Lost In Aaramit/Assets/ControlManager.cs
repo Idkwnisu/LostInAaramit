@@ -8,7 +8,9 @@ public class ControlManager : MonoBehaviour {
     public GameObject StaticCamera;
     public GameObject Player;
 
-    private ControlManager instance;
+    public static ControlManager instance = null;
+
+    public Camera currentCamera;
 
     enum ControlType{FreeCamera, StaticCamera, Joypad};
 
@@ -26,19 +28,24 @@ public class ControlManager : MonoBehaviour {
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
 
-        //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);
     }
+
 
     // Use this for initialization
     void Start () {
+        currentCamera = FreeCamera.GetComponent<Camera>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public Camera getCurrentCamera()
+    {
+        return currentCamera;
+    }
 
     public void ChangeControlType(int type)
     {
@@ -51,6 +58,7 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = true;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = true;
                 StaticCamera.GetComponent<Camera>().enabled = false;
+                currentCamera = FreeCamera.GetComponent<Camera>();
                 break;
             case 1:
                 Player.GetComponent<PlayerControllerRun>().enabled = false;
@@ -59,6 +67,7 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = false;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = false;
                 StaticCamera.GetComponent<Camera>().enabled = true;
+                currentCamera = StaticCamera.GetComponent<Camera>();
                 break;
             case 2:
                 Player.GetComponent<PlayerControllerRun>().enabled = false;
@@ -67,6 +76,8 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = false;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = false;
                 StaticCamera.GetComponent<Camera>().enabled = true;
+                currentCamera = StaticCamera.GetComponent<Camera>();
+
                 break;
         }
     }
