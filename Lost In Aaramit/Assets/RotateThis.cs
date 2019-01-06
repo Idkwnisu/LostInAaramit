@@ -31,7 +31,7 @@ public class RotateThis : MonoBehaviour {
         if(keepObjectsRotation)
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).Rotate(counterRotation);
+            transform.GetChild(i).Rotate(counterRotation,Space.World);
         }
     }
 }
