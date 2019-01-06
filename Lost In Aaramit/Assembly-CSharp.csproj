@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\LightRayCaster.cs" />
     <Compile Include="Assets\Scripts\LightTouch.cs" />
     <Compile Include="Assets\Scripts\MaterialSeasonalChange.cs" />
+    <Compile Include="Assets\Scripts\MazeGenerator.cs" />
     <Compile Include="Assets\Scripts\MixedSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\ModelSeasonalChange.cs" />
     <Compile Include="Assets\Scripts\MusicController.cs" />

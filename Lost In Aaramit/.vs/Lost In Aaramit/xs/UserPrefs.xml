@@ -1,17 +1,20 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MusicController.cs">
+  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BossMovement.cs">
     <Files>
       <File FileName="Assets/DisplaySegment.cs" Line="31" Column="25" />
       <File FileName="Assets/Scripts/SongPlayer.cs" Line="25" Column="39" />
       <File FileName="Assets/Scripts/MusicController.cs" Line="202" Column="29" />
+      <File FileName="Assets/Scripts/BossFight.cs" Line="9" Column="27" />
+      <File FileName="Assets/Scripts/NablaBossMove.cs" Line="47" Column="13" />
+      <File FileName="Assets/Scripts/BossMovement.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
