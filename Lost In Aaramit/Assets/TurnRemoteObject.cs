@@ -66,7 +66,8 @@ public class TurnRemoteObject : MonoBehaviour {
                     {
                         Player.GetComponent<PlayerControllerRunNoFreeCamera>().NonInteracting();
                     }
-
+                    currentRotationSpeedX = 0;
+                    currentRotationSpeedY = 0;
                 }
                 else
                 {
@@ -169,6 +170,8 @@ public class TurnRemoteObject : MonoBehaviour {
         {
             InteractText.enabled = false;
             interactable = false;
+            currentRotationSpeedX = 0;
+            currentRotationSpeedY = 0;
         }
     }
 }
