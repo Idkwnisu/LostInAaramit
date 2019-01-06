@@ -270,11 +270,7 @@
       <HintPath>/Applications/Unity/Hub/Editor/2018.2.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-<<<<<<< HEAD
-      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
-=======
       <HintPath>/Applications/Unity/Hub/Editor/2018.2.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
->>>>>>> 90195724213ec65616af9d17d2e07fbf82c68d5e
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
       <HintPath>/Applications/Unity/Hub/Editor/2018.2.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>

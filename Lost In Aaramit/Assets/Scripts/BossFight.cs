@@ -24,6 +24,9 @@ public class BossFight : MonoBehaviour
 
     public GameObject Player;
 
+    public Camera CameraBoss;
+    public Camera Camera;
+
     public Material right;
     public Material wrong;
     public Material default_mat;
@@ -37,6 +40,9 @@ public class BossFight : MonoBehaviour
 
     void Start()
     {
+
+        Camera.enabled = true;
+        CameraBoss.enabled = false;
 
         stepText.enabled = false;
 
@@ -91,7 +97,7 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level2));
-                        startBossMove(4f);
+                        startBossMove(3f);
                     }
                 }
                 else
@@ -110,12 +116,11 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level3));
-                        startBossMove(6f);
+                        startBossMove(5f);
                     }
                 }
                 else
                 {
-                    stopBossMove();
                     StartCoroutine(LightNote(note, wrong));
                     note.GetComponent<Rigidbody>().isKinematic = false;
                 }
@@ -129,8 +134,11 @@ public class BossFight : MonoBehaviour
                     {
                         cLev++;
                         cNote = 0;
+                        /*
                         stepText.enabled = true;
                         stepText.text = "Boss sconfitto, premere ESC";
+                        */
+                        stopBossMove();
                         bossDialogue4.GetComponent<NPC>().triggerDialogue();
                     }
                 }
@@ -147,9 +155,11 @@ public class BossFight : MonoBehaviour
     {
        
         yield return new WaitForSeconds(1f);
+        /*
         stepText.enabled = true;
         int levStep = cLev + 1;
         stepText.text = "Step " + levStep;
+        */
         /* Dialogue*/
       
         switch (cLev){
@@ -164,7 +174,10 @@ public class BossFight : MonoBehaviour
                 break;
 
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
+        Player.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
+        Camera.enabled = !Camera.enabled;
+        CameraBoss.enabled = !CameraBoss.enabled;
         stepText.enabled = false;
         for (int i = 0; i < lev.Length; i++)
         {
@@ -172,6 +185,10 @@ public class BossFight : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             lev[i].transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
         }
+        yield return new WaitForSeconds(0.0f);
+        Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+        Camera.enabled = !Camera.enabled;
+        CameraBoss.enabled = !CameraBoss.enabled;
     }
 
     IEnumerator LightNote(GameObject note, Material mat)
