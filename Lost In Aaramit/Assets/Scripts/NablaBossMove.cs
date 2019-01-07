@@ -12,7 +12,7 @@ public class NablaBossMove : MonoBehaviour {
     public GameObject Allen;
     public GameObject BossFight;
     public GameObject DieCube;
-    public Transform[] StartingNab;
+    public GameObject StartingNab;
 
     public float speed;
 
@@ -77,8 +77,7 @@ public class NablaBossMove : MonoBehaviour {
     {
         DieCube.GetComponent<BoxCollider>().enabled = true;
         enabled = false;
-        StartingNab[0].GetComponent<MeshRenderer>().enabled = false;
-        StartingNab[1].GetComponent<MeshRenderer>().enabled = false;
+		StartingNab.GetComponent<MeshRenderer>().enabled = false;
         Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
         BossFight.GetComponent<BossFight>().StartFight();
     }
