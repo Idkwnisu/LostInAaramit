@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\FallingNabla.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\ForestSpawner.cs" />
+    <Compile Include="Assets\Scripts\GoToBoss.cs" />
     <Compile Include="Assets\Scripts\GravityFall.cs" />
     <Compile Include="Assets\Scripts\LightRayCaster.cs" />
     <Compile Include="Assets\Scripts\LightTouch.cs" />
