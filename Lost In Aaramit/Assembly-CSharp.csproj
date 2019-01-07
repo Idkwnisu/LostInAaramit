@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\PickupThings.cs" />
     <Compile Include="Assets\Scripts\PlacebleItem.cs" />
     <Compile Include="Assets\Scripts\PlayerDie.cs" />
+    <Compile Include="Assets\Scripts\PlayerPosition.cs" />
     <Compile Include="Assets\Scripts\PlayWhistle.cs" />
     <Compile Include="Assets\Scripts\PupinsMovement.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
     <Compile Include="Assets\Scripts\SongPlayer.cs" />
     <Compile Include="Assets\Scripts\TriggerNote.cs" />
+    <Compile Include="Assets\Scripts\WhistleActivator.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />
     <Compile Include="Assets\Scripts\WinterFrostPickable.cs" />
     <Compile Include="Assets\Scripts\WoodenText.cs" />

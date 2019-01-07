@@ -1,7 +1,16 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WhistleActivator.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BossFight.cs" Line="82" Column="50" />
+      <File FileName="Assets/Scripts/GoToBoss.cs" Line="14" Column="18" />
+      <File FileName="Assets/Scripts/PlayerPosition.cs" Line="19" Column="55" />
+      <File FileName="Assets/Scripts/SceneSelection.cs" Line="12" Column="33" />
+      <File FileName="Assets/Scripts/PlayWhistle.cs" Line="26" Column="20" />
+      <File FileName="Assets/Scripts/WhistleActivator.cs" Line="8" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -7,6 +7,11 @@ public class SceneSelection : MonoBehaviour {
 
     private Scene sceneToDestroy;
 
+    private void Start()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     void Awake()
     {
         DontDestroyOnLoad(this);

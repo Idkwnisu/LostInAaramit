@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossFight : MonoBehaviour
 {
@@ -35,12 +36,14 @@ public class BossFight : MonoBehaviour
     private int[] cLevel;
     private int nLevels;
 
+    private float bossVelocity = 0;
     private int cNote = 0;
     private int cLev = 0;
+    private bool ended;
 
     void Start()
     {
-
+        ended = false;
         Camera.enabled = true;
         CameraBoss.enabled = false;
 
@@ -76,6 +79,11 @@ public class BossFight : MonoBehaviour
         Vector3 playerPos = Player.transform.position;
         boss.transform.LookAt(transform.position);
         */
+        if(ended && Input.GetKeyDown(KeyCode.V)){
+            string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(sceneName);
+        }
     }
 
     public void StartFight()
@@ -97,7 +105,7 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level2));
-                        startBossMove(3f);
+                        bossVelocity = 3f;
                     }
                 }
                 else
@@ -116,7 +124,7 @@ public class BossFight : MonoBehaviour
                         cLev++;
                         cNote = 0;
                         StartCoroutine(startNewLevel(level3));
-                        startBossMove(5f);
+                        bossVelocity = 5f;
                     }
                 }
                 else
@@ -139,6 +147,7 @@ public class BossFight : MonoBehaviour
                         stepText.text = "Boss sconfitto, premere ESC";
                         */
                         stopBossMove();
+                        endBoss();
                         bossDialogue4.GetComponent<NPC>().triggerDialogue();
                     }
                 }
@@ -176,6 +185,7 @@ public class BossFight : MonoBehaviour
         }
         yield return new WaitForSeconds(4f);
         Player.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
+        stopBossMove();
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;
         stepText.enabled = false;
@@ -187,6 +197,7 @@ public class BossFight : MonoBehaviour
         }
         yield return new WaitForSeconds(0.0f);
         Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+        startBossMove(5f);
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;
     }
@@ -206,5 +217,12 @@ public class BossFight : MonoBehaviour
     private void stopBossMove()
     {
         cloudBoss.GetComponent<BossMovement>().setNotActive();
+    }
+
+    private void endBoss()
+    {
+        ended = true;
+        stepText.enabled = true;
+        stepText.text = "Press V to return to the Village";
     }
 }
