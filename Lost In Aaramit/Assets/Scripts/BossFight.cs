@@ -162,7 +162,7 @@ public class BossFight : MonoBehaviour
 
     IEnumerator startNewLevel(GameObject[] lev)
     {
-       
+        stopBossMove();
         yield return new WaitForSeconds(1f);
         /*
         stepText.enabled = true;
@@ -183,9 +183,8 @@ public class BossFight : MonoBehaviour
                 break;
 
         }
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5.5f);
         Player.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
-        stopBossMove();
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;
         stepText.enabled = false;
