@@ -21,11 +21,11 @@ public class NPC : MonoBehaviour {
 
     void Start () {
         dialogueSystem = FindObjectOfType<DialogueSystem>();
-        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
+        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.8f);
     }
     
     void Update () {
-        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
+        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.8f);
     }
 
     public void OnTriggerEnter(Collider other)
