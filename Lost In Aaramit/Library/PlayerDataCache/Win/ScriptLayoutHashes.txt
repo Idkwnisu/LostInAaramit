@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-/Users/alessandrocarughi/Desktop/Lost in Aaramit/Lost In Aaramit.exe
+/Users/alessandrocarughi/Desktop/Lost In Aaramit/Lost In Aaramit.exe
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/BossScene.unity
@@ -27,6 +27,7 @@ c30d4e6d872d90837e9d17406c810120 Assembly-CSharp.dll:.FoxFollow
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 b164ee561ca1e48ac55d1e6d3ccedc34 Assembly-CSharp.dll:.NPC
 da5007088c3d615bf3cf648576f2b521 Assembly-CSharp.dll:.LookCamera
+9f2fbe0ba8428c65cc98983d076b7d75 Assembly-CSharp.dll:.WhistleActivator
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -127,6 +128,7 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 529a95e9e8e7686c4816e08fbb37183f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+3432e0d983626b17fc7e6708cdf3dc0d Assembly-CSharp.dll:.PlayerPosition
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
@@ -234,5 +236,3 @@ b6665669d30a46e2f8e302625c346771 Assembly-CSharp.dll:.WoodenText
 00c3f574c0d3381576e9b8e770d25c9c Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.GameManager
 739ce823cd6885101e021327b710a7b1 Assembly-CSharp.dll:.MasterRotator
 4754c5ee1cf4085c7147a71f2296d0c0 Assembly-CSharp.dll:.SeasonsClock
-3432e0d983626b17fc7e6708cdf3dc0d Assembly-CSharp.dll:.PlayerPosition
-9f2fbe0ba8428c65cc98983d076b7d75 Assembly-CSharp.dll:.WhistleActivator

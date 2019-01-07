@@ -197,7 +197,7 @@ public class BossFight : MonoBehaviour
         }
         yield return new WaitForSeconds(0.0f);
         Player.GetComponent<PlayerControllerRun>().ControlEnabling();
-        startBossMove(5f);
+        startBossMove(bossVelocity);
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;
     }
