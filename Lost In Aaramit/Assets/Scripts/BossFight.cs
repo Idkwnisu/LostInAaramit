@@ -181,9 +181,9 @@ public class BossFight : MonoBehaviour
         stepText.enabled = false;
         for (int i = 0; i < lev.Length; i++)
         {
-            lev[i].transform.GetChild(0).GetComponent<Renderer>().material = right;
+            lev[i].transform.GetComponent<Renderer>().material = right;
             yield return new WaitForSeconds(1.5f);
-            lev[i].transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
+            lev[i].transform.GetComponent<Renderer>().material = default_mat;
         }
         yield return new WaitForSeconds(0.0f);
         Player.GetComponent<PlayerControllerRun>().ControlEnabling();
@@ -193,9 +193,9 @@ public class BossFight : MonoBehaviour
 
     IEnumerator LightNote(GameObject note, Material mat)
     {
-        note.transform.GetChild(0).GetComponent<Renderer>().material = mat;
+        note.transform.GetComponent<Renderer>().material = mat;
         yield return new WaitForSeconds(2f);
-        note.transform.GetChild(0).GetComponent<Renderer>().material = default_mat;
+        note.transform.GetComponent<Renderer>().material = default_mat;
     }
 
 
