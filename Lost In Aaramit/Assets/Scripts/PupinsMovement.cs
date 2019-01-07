@@ -12,15 +12,25 @@ public class PupinsMovement : MonoBehaviour {
 
     private int c = 0;
 
+    private Quaternion initialRotation;
+    private Animator animator;
+
     private void Start()
     {
         enabled = true;
+        initialRotation = transform.rotation;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Pupino.transform.position != target[c].position)
         {
+            if(animator.GetBool("Walking") == false)
+            {
+                animator.SetBool("Walking", true);
+            }
+            transform.LookAt(target[c].position);
             Vector3 pos = Vector3.MoveTowards(Pupino.transform.position, target[c].position, speed * Time.deltaTime);
             Pupino.GetComponent<Rigidbody>().MovePosition(pos);
         }
@@ -45,5 +55,7 @@ public class PupinsMovement : MonoBehaviour {
     public void setNotActive()
     {
         enabled = false;
+        transform.rotation = initialRotation;
+        animator.SetBool("Walking", false);
     }
 }
