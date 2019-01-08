@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-/Users/alessandrocarughi/Desktop/Lost In Aaramit/Lost In Aaramit.exe
+/Users/alessandrocarughi/Desktop/LostIA/Lost In Aaramit.exe
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
 Assets/Scenes/BossScene.unity
