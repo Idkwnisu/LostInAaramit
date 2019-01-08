@@ -39,11 +39,14 @@ public class MusicController : MonoBehaviour
 
     public int segment;
 
-    private bool _win;
+    public bool _win=false;
     private bool initDone;
 
     public Material lumen;
     public Material normal;
+
+    public NPC crazyPup;
+    public NPC HelpfulPup;
 
     public void SelectSegment()
     {
@@ -54,40 +57,40 @@ public class MusicController : MonoBehaviour
                 Song.clip = Seg2;
                 Song.pitch = Seg2_pitch;
                 segment = 2;
-                controller2.GetComponent<Renderer>().material = lumen;
-                controller1.GetComponent<Renderer>().material = normal;
+                ChangeMaterial(controller2,lumen);
+                ChangeMaterial(controller1, normal);
                 Song.Play();
                 break;
             case 2:
                 Song.clip = Seg3;
                 Song.pitch = Seg3_pitch;
                 segment = 3;
-                controller3.GetComponent<Renderer>().material = lumen;
-                controller2.GetComponent<Renderer>().material = normal;
+                ChangeMaterial(controller3, lumen);
+                ChangeMaterial(controller2, normal);
                 Song.Play();
                 break;
             case 3:
                 Song.clip = Seg4;
                 Song.pitch = Seg4_pitch;
                 segment = 4;
-                controller4.GetComponent<Renderer>().material = lumen;
-                controller3.GetComponent<Renderer>().material = normal;
+                ChangeMaterial(controller4, lumen);
+                ChangeMaterial(controller3, normal);
                 Song.Play();
                 break;
             case 4:
                 Song.clip = Seg5;
                 Song.pitch = Seg5_pitch;
                 segment = 5;
-                controller5.GetComponent<Renderer>().material = lumen;
-                controller4.GetComponent<Renderer>().material = normal;
+                ChangeMaterial(controller5, lumen);
+                ChangeMaterial(controller4, normal);
                 Song.Play();
                 break;
             case 5:
                 Song.clip = Seg1;
                 Song.pitch = Seg1_pitch;
                 segment = 1;
-                controller1.GetComponent<Renderer>().material = lumen;
-                controller5.GetComponent<Renderer>().material = normal;
+                ChangeMaterial(controller1, lumen);
+                ChangeMaterial(controller5, normal);
                 Song.Play();
                 break;
             default: break;
@@ -102,7 +105,8 @@ public class MusicController : MonoBehaviour
             Song.clip = Seg1;
             Song.pitch = Seg1_pitch;
             segment = 1;
-            controller1.GetComponent<Renderer>().material = lumen;
+            //controller1.GetComponent<Renderer>().material = normal;
+            ChangeMaterial(controller1, lumen);
             returnToFullTrack = true;
             Song.Play();
         }
@@ -111,6 +115,7 @@ public class MusicController : MonoBehaviour
         pitchProgress = 0f;
         reorderingProgress = 0f;
         initDone = false;
+        HelpfulPup.GetComponent<Animator>().SetBool("Stopped", true);
     }
 
     public void Update()
@@ -164,6 +169,9 @@ public class MusicController : MonoBehaviour
             winSoundEffect.Play();
             segment = 5;
             _win = true;
+            crazyPup.sentences.SetValue("You did it!",0);
+            crazyPup.sentences.SetValue("Now you can take the Feather of Virtue.", 1);
+            crazyPup.sentences.SetValue("Good luck!", 2);
         }
     }
 
@@ -180,12 +188,18 @@ public class MusicController : MonoBehaviour
             cube.displaySegment.square5.image.color = Color.black;
         }
         if (on == true){
+            ChangeMaterial(controller1, normal);
+            ChangeMaterial(controller2, normal);
+            ChangeMaterial(controller3, normal);
+            ChangeMaterial(controller4, normal);
+            ChangeMaterial(controller5, normal);
+            ChangeMaterial(cube, lumen);/*
             controller1.GetComponent<Renderer>().material = normal;
             controller2.GetComponent<Renderer>().material = normal;
             controller3.GetComponent<Renderer>().material = normal;
             controller4.GetComponent<Renderer>().material = normal;
             controller5.GetComponent<Renderer>().material = normal;
-            cube.GetComponent<Renderer>().material = lumen;
+            cube.GetComponent<Renderer>().material = lumen;*/
 
             returnToFullTrack = false;
             if (!cube.simplePlayer)
@@ -204,13 +218,30 @@ public class MusicController : MonoBehaviour
         }
         else
         {
-            cube.GetComponent<Renderer>().material = normal;
-            controller1.GetComponent<Renderer>().material = lumen;
+            ChangeMaterial(cube, normal);
+            ChangeMaterial(controller1, normal);
+            //cube.GetComponent<Renderer>().material = normal;
+            //controller1.GetComponent<Renderer>().material = lumen;
 
             segment = 5;
             Song.Stop();
             SelectSegment();
             returnToFullTrack = true;
+        }
+    }
+
+    private void ChangeMaterial(SongPlayer controller, Material newMat)
+    {
+        Renderer[] children;
+        children = controller.GetComponentsInChildren<Renderer>();
+        foreach (Renderer rend in children)
+        {
+            var mats = new Material[rend.materials.Length];
+            for (var j = 0; j < rend.materials.Length; j++)
+            {
+                mats[j] = newMat;
+            }
+            rend.materials = mats;
         }
     }
 }
