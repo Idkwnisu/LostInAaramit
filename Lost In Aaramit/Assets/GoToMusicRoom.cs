@@ -12,13 +12,13 @@ public class GoToMusicRoom : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (!PlayerPrefs.GetString("yetEnter").Equals("1"))
+            if (!PlayerPrefs.GetString("yetPuzzle").Equals("1"))
             {
                 PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
                 PlayerPrefs.SetString("Saved", "1");
-                PlayerPrefs.SetString("yetEnter", "1");
+                PlayerPrefs.SetString("yetPuzzle", "1");
                 Allen.GetComponent<PlayerPosition>().position_save();
-                SceneManager.LoadScene("NOMESCENAPUZZLE", LoadSceneMode.Single);
+                SceneManager.LoadScene("MusicPuzzleNewVersion", LoadSceneMode.Single);
             }
         }
     }

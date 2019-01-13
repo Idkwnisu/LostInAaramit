@@ -49,6 +49,8 @@ public class GetFeather : MonoBehaviour {
 
     private void LoadMainScene()
     {
-        SceneManager.LoadScene("BossScene", LoadSceneMode.Single);
+            string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(sceneName);
     }
 }
