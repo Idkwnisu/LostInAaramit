@@ -1,16 +1,11 @@
 OSXStandalone
 PlayerPath?
-/Users/alessandrocarughi/Desktop/LostInAaramit.app
+/Users/marco/Desktop/Lost In Aaramit.app
 SceneListBegin?
 Assets/Scenes/SceneSelectionMenu.unity
-Assets/Scenes/MusicPuzzleComplete.unity
-Assets/Scenes/MazeTest.unity
-Assets/Scenes/GravityFall.unity
 Assets/Scenes/BossScene.unity
-Assets/Scenes/FloatingNablaPlat1.unity
-Assets/Scenes/FloatingNablaPlat2.unity
-Assets/Scenes/MusicPuzzlePitch.unity
-Assets/Scenes/MusicPuzzleReordering.unity
+Assets/Scenes/FN_1.unity
+Assets/Scenes/MusicPuzzleNewVersion.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 f19fb3c1a3106e5cff30157bddc257ae Assembly-CSharp.dll:.AdvancedPicking
@@ -33,6 +28,7 @@ c30d4e6d872d90837e9d17406c810120 Assembly-CSharp.dll:.FoxFollow
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 b164ee561ca1e48ac55d1e6d3ccedc34 Assembly-CSharp.dll:.NPC
 da5007088c3d615bf3cf648576f2b521 Assembly-CSharp.dll:.LookCamera
+9f2fbe0ba8428c65cc98983d076b7d75 Assembly-CSharp.dll:.WhistleActivator
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
 53cefe5d98cadefbab750835e70b89c0 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 486cd95c82d8305219c352c06b776e1f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -66,7 +62,7 @@ a44114bd4fa541174f78b4bb92bacb48 UnityEngine.UI.dll:UnityEngine.EventSystems.Sta
 e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 2d58ca16854b99daea8c45e9c0f367b7 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-733f9c80410b83cf2778895c7b2fe96b Assembly-CSharp.dll:.MovementBetweenPoints
+6fc59c45dfc7b9010bdde8fa42678cd5 Assembly-CSharp.dll:.MovementBetweenPoints
 f0f6d232abea95935d3b7c9bb393c82a Assembly-CSharp.dll:.LightRayCaster
 50b0b141074b216c8b53b1bd467f73c9 Unity.TextMeshPro.dll:TMPro.TMP_InputField
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.TriggerNote
@@ -133,6 +129,7 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 529a95e9e8e7686c4816e08fbb37183f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+3432e0d983626b17fc7e6708cdf3dc0d Assembly-CSharp.dll:.PlayerPosition
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
@@ -145,14 +142,16 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
-a882c34e5b1723cd192d84e8d7153d93 Assembly-CSharp.dll:.NablaBossMove
+f3a6882a8c5372cf4791a48fe6191c0a Assembly-CSharp.dll:.NablaBossMove
 bcfa4b61ec6638c70cb01cc187945ae7 Assembly-CSharp.dll:.PlayerFollow
 6dccd3761b962d83a1c0304cf81564ac Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.AsteroidController
+fc23f540c2d52395aa06c0bb2fe9ea00 Assembly-CSharp.dll:.randomPlacer
 330651ef20f110f8f21767cf4fab9755 Assembly-CSharp.dll:.TurnRemoteObject
 259fc8791e5291d7c154081ffc6b6da2 Assembly-CSharp.dll:.PlacebleItem
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 c253c90b6e43ce0b5b8ec91e3de00ba1 Assembly-CSharp.dll:.ControlManager
 068b88d6d8f958937fd7a98bada71737 Assembly-CSharp.dll:.DialogueSystem
+3432e0d983626b17fc7e6708cdf3dc0d Assembly-CSharp.dll:.GoToBoss
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.LightTouch
 3c744a4517dbfc5362844cb1cbd876d0 Assembly-CSharp.dll:.MazeGenerator
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.AnotherRay
@@ -166,6 +165,7 @@ b63c2dd46058c8fc34b10ac78d179c92 Assembly-CSharp.dll:.BossFight
 6165384ca19265d811fba11aba2c5802 Assembly-CSharp.dll:.CamControl
 eaf0bcdb10d442a4029d615f41d09957 Unity.TextMeshPro.dll:TMPro.TextContainer
 967bf8792526893b6685f5bf9d5d7a43 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.PlayerController
+3432e0d983626b17fc7e6708cdf3dc0d Assembly-CSharp.dll:.GoToMusicRoom
 69340584ac101b4d579f2f765bb342d3 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.HealthPickupController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsHelper
 201273fb4f889724fb090164b7d6c657 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -206,6 +206,7 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 3758d115a13dd5d8fa47d50ed218d2da Assembly-CSharp.dll:.SkyboxChanger
 bf81df2fdd1d44597a57ca2f3953e5f9 Assembly-CSharp.dll:.ForestSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.RealtimeReflection1
+edd2805f62caac0c6ea561d4c1262cae Assembly-CSharp.dll:.GetFeather
 d0e496dfea72cce1f42ca317d5a88aaa Assembly-CSharp.dll:.WinterFrost
 582fdf188844257f0a5653b38eae7d6f Assembly-CSharp.dll:.SongPlayer
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -216,7 +217,7 @@ dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 b13412c595f032c9c3ac3efc4922ec19 Assembly-CSharp.dll:.FallingNabla
-5f1612e39d5adcf63f1f75a4506db674 Assembly-CSharp.dll:.MusicController
+412b43d612844e591597d8d662e13a83 Assembly-CSharp.dll:.MusicController
 7eb4f4826cd23c7bcd09c3b71e6fdebd Assembly-CSharp.dll:.PlayerControllerRunNoFreeCamera
 24ca86e36ed9fcf80240511fc5028b7d Assembly-CSharp.dll:.RadialForestSpawner
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PlayerDie
@@ -229,6 +230,7 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:UnityStandardAssets.ImageEffects.PostEffectsBase
+7f7c4133d2106e468ec5b937311a243d Assembly-CSharp.dll:.PupinsMovement
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 8549304b2906162d5de1a1c939be70d9 Assembly-CSharp.dll:.PickupThings
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Rotation

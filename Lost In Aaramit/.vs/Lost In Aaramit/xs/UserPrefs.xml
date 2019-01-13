@@ -1,21 +1,23 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
-  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LightRayCaster.cs">
     <Files>
       <File FileName="Assets/Scripts/BossFight.cs" Line="185" Column="10" />
       <File FileName="Assets/Scripts/GoToBoss.cs" Line="14" Column="18" />
       <File FileName="Assets/Scripts/PlayerPosition.cs" Line="19" Column="55" />
       <File FileName="Assets/Scripts/SceneSelection.cs" Line="12" Column="33" />
       <File FileName="Assets/Scripts/PlayWhistle.cs" Line="27" Column="10" />
-      <File FileName="Assets/Scripts/WhistleActivator.cs" Line="8" Column="5" />
+      <File FileName="Assets/Scripts/WhistleActivator.cs" Line="8" Column="1" />
       <File FileName="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs" Line="178" Column="1" />
+      <File FileName="Assets/Scripts/NablaBossMove.cs" Line="73" Column="11" />
+      <File FileName="Assets/Scripts/LightRayCaster.cs" Line="31" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
