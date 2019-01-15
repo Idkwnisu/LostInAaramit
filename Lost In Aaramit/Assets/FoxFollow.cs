@@ -32,17 +32,40 @@ public class FoxFollow : MonoBehaviour {
 
     private Vector3 currentOffset;
 
-	// Use this for initialization
-	void Start () {
+
+    PlayerControllerRun playerCR;
+    PlayerControllerRunNoFreeCamera playerCRFC;
+    PlayerControllerRunJoypad playerCRC;
+
+    // Use this for initialization
+    void Start () {
         _rb = GetComponent<Rigidbody>();
         lastKnownPosition = player.position;
         _animator = GetComponent<Animator>();
-	}
+
+         playerCR = player.parent.GetComponent<PlayerControllerRun>();
+         playerCRFC = player.parent.GetComponent<PlayerControllerRunNoFreeCamera>();
+         playerCRC = player.parent.GetComponent<PlayerControllerRunJoypad>();
+    }
 
     // Update is called once per frame
     void Update() {
-		
-        if (player.parent.GetComponent<PlayerControllerRun>().isControlEnabled())
+        bool controlsEnabled = false;
+        if (playerCR.enabled)
+        {
+            controlsEnabled = playerCR.isControlEnabled();
+        }
+        if(playerCRFC.enabled)
+        {
+            controlsEnabled = playerCRFC.isControlEnabled();
+
+        }
+        if (playerCRC.enabled)
+        {
+            controlsEnabled = playerCRC.isControlEnabled();
+        }
+
+        if (controlsEnabled)
         {
             if (!flying)
             {

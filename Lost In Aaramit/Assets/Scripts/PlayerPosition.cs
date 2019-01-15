@@ -10,6 +10,12 @@ public class PlayerPosition : MonoBehaviour {
     private float pZ;
     public GameObject Allen;
     // Use this for initialization
+
+    private void Awake()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     void Start()
     {
         pX = PlayerPrefs.GetFloat("p_x");
@@ -21,6 +27,7 @@ public class PlayerPosition : MonoBehaviour {
 
             this.transform.position = pos;
         }
+
     }
 
     public void position_save()
@@ -30,4 +37,6 @@ public class PlayerPosition : MonoBehaviour {
         PlayerPrefs.SetFloat("p_y", pos[1]);
         PlayerPrefs.SetFloat("p_z", pos[2]);
     }
-}
+
+   
+ }

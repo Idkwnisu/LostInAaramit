@@ -36,8 +36,27 @@ public class GravityFall : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             //player.GetComponent<PlayerControllerRun>().ControlDisabling();
-            player.GetComponent<PlayerControllerRun>().resetSpeed();
-            player.GetComponent<PlayerControllerRun>().ControlDisabling();
+
+            PlayerControllerRun playerCR = other.GetComponent<PlayerControllerRun>();
+            PlayerControllerRunNoFreeCamera playerCRFC = other.GetComponent<PlayerControllerRunNoFreeCamera>();
+            PlayerControllerRunJoypad playerCRC = other.GetComponent<PlayerControllerRunJoypad>();
+
+
+            if (playerCR.enabled)
+            {
+                playerCR.ControlDisabling();
+                playerCR.resetSpeed();
+            }
+            if (playerCRFC.enabled)
+            {
+                playerCRFC.ControlDisabling();
+                playerCRFC.resetSpeed();
+            }
+            if (playerCRC.enabled)
+            {
+                playerCRC.ControlDisabling();
+                playerCRC.resetSpeed();
+            }
         }
     }
  

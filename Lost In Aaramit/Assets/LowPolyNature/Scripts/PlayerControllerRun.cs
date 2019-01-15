@@ -25,6 +25,10 @@ public class PlayerControllerRun : MonoBehaviour
 
     private bool isRunning;
 
+    private CapsuleCollider capsule;
+
+    private bool justJumped = false;
+
     #endregion
 
     #region Public Members
@@ -58,6 +62,8 @@ public class PlayerControllerRun : MonoBehaviour
 
     public float groundDelay = 0.2f;
 
+    public float jumpDelay = 0.2f;
+
 
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
@@ -70,8 +76,14 @@ public class PlayerControllerRun : MonoBehaviour
         Cursor.visible = false;
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<Rigidbody>();
+        capsule = GetComponent<CapsuleCollider>();
     }
 
+
+    private void jump()
+    {
+        justJumped = false;
+    }
 
     private bool mIsControlEnabled = true;
 
@@ -127,11 +139,20 @@ public class PlayerControllerRun : MonoBehaviour
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        
-            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down)* RayLenght, Color.yellow, 0.0f, true);
-            if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
-            {
+
+
+
+        //if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+        Vector3 point1 = transform.position + capsule.center + Vector3.up * (capsule.height/2 - capsule.radius);
+        Vector3 point2 = point1 - Vector3.up * (capsule.height - 2*capsule.radius);
+        point1 += Vector3.up * RayLenght * 0.5f;
+        point2 += Vector3.up * RayLenght * 0.5f;
+        Debug.DrawRay(point2, transform.TransformDirection(Vector3.down) * RayLenght, Color.yellow, 10.0f, true);
+        Debug.DrawRay(point2, transform.TransformDirection(Vector3.right) * RayLenght, Color.yellow, 10.0f, true);
+        if (Physics.CapsuleCast(point1, point2, capsule.radius, transform.TransformDirection(Vector3.down), out hit, RayLenght) && !justJumped)
+        {
                 _isGrounded = true;
+                Debug.Log("Grounded");
                 _animator.SetBool("isJumping", false);
 
                 if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
@@ -221,6 +242,8 @@ public class PlayerControllerRun : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("isJumping", true);
+                    justJumped = true;
+                    Invoke("jump", jumpDelay);
                     _isGrounded = false;
                     if (move.magnitude < 0.1f)
                     {
