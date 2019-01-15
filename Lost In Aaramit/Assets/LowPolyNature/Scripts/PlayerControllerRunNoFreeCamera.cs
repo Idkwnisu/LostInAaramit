@@ -24,6 +24,10 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
     private bool interacting = false;
 
     private bool isRunning;
+
+    private CapsuleCollider capsule;
+
+    private bool justJumped = false;
     #endregion
 
     #region Public Members
@@ -51,11 +55,15 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
     public float FallingGravity = 4.0f;
 
+    public float VelocityDamping = 2.0f;
+
     [Range(0.01f,0.99f)]
     public float fallingMovement = 0.2f;
 
     public float groundDelay = 0.2f;
+    public float jumpDelay = 0.2f;
 
+    public GameObject Kitchi;
 
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
@@ -68,8 +76,13 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
         Cursor.visible = false;
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<Rigidbody>();
-    }
+        capsule = GetComponent<CapsuleCollider>();
 
+    }
+    private void jump()
+    {
+        justJumped = false;
+    }
 
     private bool mIsControlEnabled = true;
 
@@ -112,51 +125,63 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
                     Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
                     difference = new Vector3(difference.x, difference.y, difference.z);
                     transform.position += difference;
+                    if (Kitchi != null)
+                    {
+                        Kitchi.transform.position += difference;
+                    }
                     _initialPlatformPosition = realPosition(currentPlatform.transform);
                 }
             }
         }
+
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        
-            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down)* RayLenght, Color.yellow, 0.0f, true);
-            if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+
+
+
+        //if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+        Vector3 point1 = transform.position + capsule.center + Vector3.up * (capsule.height / 2 - capsule.radius);
+        Vector3 point2 = point1 - Vector3.up * (capsule.height - 2 * capsule.radius);
+        point1 += Vector3.up * RayLenght * 0.5f;
+        point2 += Vector3.up * RayLenght * 0.5f;
+        if (Physics.CapsuleCast(point1, point2, capsule.radius, transform.TransformDirection(Vector3.down), out hit, RayLenght) && !justJumped)
+        {
+            _isGrounded = true;
+            Debug.Log("Grounded");
+            _animator.SetBool("isJumping", false);
+
+            if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
             {
-                _isGrounded = true;
-                _animator.SetBool("isJumping", false);
+                currentPlatform = hit.transform.gameObject;
+                _initialPlatformPosition = realPosition(hit.transform);
+            }
 
-                if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
+
+            if (_characterController.velocity.y <= 0 && _canEnable) //is descending
+            {
+                if (!mIsControlEnabled)
                 {
-                    currentPlatform = hit.transform.gameObject;
-                    _initialPlatformPosition = realPosition(hit.transform);
+                    ControlEnabling();
+                    resetSpeed();
                 }
-
-
-                if (_characterController.velocity.y <= 0 && _canEnable) //is descending
-                {
-                    if (!mIsControlEnabled)
-                    {
-                        ControlEnabling();
-                        resetSpeed();
-                    }
-                }
+            }
+        }
+        else
+        {
+            if (groundDelay == 0.0f)
+            {
+                unGround();
             }
             else
-            {    
-                if(groundDelay == 0.0f)
-                {
-                unGround();
-                }
-                else
-                {
+            {
                 Invoke("unGround", groundDelay);
-                }
             }
-        
+        }
+
 
         if (Mathf.Abs(_characterController.velocity.y) > 1 && _isGrounded == false)
         {
-                _animator.SetBool("isJumping", true);
+            _animator.SetBool("isJumping", true);
         }
 
         if (mIsControlEnabled && !interacting)
@@ -215,6 +240,8 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("isJumping", true);
+                    justJumped = true;
+                    Invoke("jump", jumpDelay);
                     _isGrounded = false;
                     if (move.magnitude < 0.1f)
                     {
@@ -269,7 +296,10 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
             _characterController.velocity = new Vector3(horizontalSpeed.x, _characterController.velocity.y, horizontalSpeed.y);
             _characterController.AddForce(_moveDirection * Time.deltaTime);
 
-
+            if (move.magnitude < 0.01f && _isGrounded)
+            {
+                _characterController.velocity /= VelocityDamping;
+            }
         }
         else
         {
@@ -287,13 +317,13 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
                 Gravity = 1f;
             }
         _characterController.AddForce(Physics.gravity * Time.deltaTime * 100 *Gravity * (_characterController.mass * _characterController.mass));
-           
-        
-     /*   Debug.Log("W:" + _animator.GetBool("walk"));
 
-        Debug.Log("R:"+_animator.GetBool("run"));
+       
+        /*   Debug.Log("W:" + _animator.GetBool("walk"));
 
-        Debug.Log("IsRunning:" + isRunning);*/
+           Debug.Log("R:"+_animator.GetBool("run"));
+
+           Debug.Log("IsRunning:" + isRunning);*/
 
     }
 

@@ -24,6 +24,11 @@ public class PlayerControllerRunJoypad : MonoBehaviour
     private bool interacting = false;
 
     private bool isRunning;
+
+    private CapsuleCollider capsule;
+
+    private bool justJumped = false;
+
     #endregion
 
     #region Public Members
@@ -51,16 +56,21 @@ public class PlayerControllerRunJoypad : MonoBehaviour
 
     public float FallingGravity = 4.0f;
 
+    public float VelocityDamping = 2.0f;
+
     [Range(0.01f,0.99f)]
     public float fallingMovement = 0.2f;
 
     public float groundDelay = 0.2f;
+    public float jumpDelay = 0.2f;
+
 
     public float minRotation;
     public float maxRotation;
 
     public Camera camera;
 
+    public GameObject Kitchi;
 
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
@@ -73,8 +83,12 @@ public class PlayerControllerRunJoypad : MonoBehaviour
         Cursor.visible = false;
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<Rigidbody>();
+        capsule = GetComponent<CapsuleCollider>();
     }
-
+    private void jump()
+    {
+        justJumped = false;
+    }
 
     private bool mIsControlEnabled = true;
 
@@ -117,51 +131,62 @@ public class PlayerControllerRunJoypad : MonoBehaviour
                     Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
                     difference = new Vector3(difference.x, difference.y, difference.z);
                     transform.position += difference;
+                    if (Kitchi != null)
+                    {
+                        Kitchi.transform.position += difference;
+                    }
                     _initialPlatformPosition = realPosition(currentPlatform.transform);
                 }
             }
         }
+
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        
-            Debug.DrawRay(feet.position, transform.TransformDirection(Vector3.down)* RayLenght, Color.yellow, 0.0f, true);
-            if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+
+
+
+        //if (Physics.Raycast(feet.position, transform.TransformDirection(Vector3.down), out hit, RayLenght))
+        Vector3 point1 = transform.position + capsule.center + Vector3.up * (capsule.height / 2 - capsule.radius);
+        Vector3 point2 = point1 - Vector3.up * (capsule.height - 2 * capsule.radius);
+        point1 += Vector3.up * RayLenght * 0.5f;
+        point2 += Vector3.up * RayLenght * 0.5f;
+        if (Physics.CapsuleCast(point1, point2, capsule.radius, transform.TransformDirection(Vector3.down), out hit, RayLenght) && !justJumped)
+        {
+            _isGrounded = true;
+            _animator.SetBool("isJumping", false);
+
+            if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
             {
-                _isGrounded = true;
-                _animator.SetBool("isJumping", false);
+                currentPlatform = hit.transform.gameObject;
+                _initialPlatformPosition = realPosition(hit.transform);
+            }
 
-                if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
+
+            if (_characterController.velocity.y <= 0 && _canEnable) //is descending
+            {
+                if (!mIsControlEnabled)
                 {
-                    currentPlatform = hit.transform.gameObject;
-                    _initialPlatformPosition = realPosition(hit.transform);
+                    ControlEnabling();
+                    resetSpeed();
                 }
-
-
-                if (_characterController.velocity.y <= 0 && _canEnable) //is descending
-                {
-                    if (!mIsControlEnabled)
-                    {
-                        ControlEnabling();
-                        resetSpeed();
-                    }
-                }
+            }
+        }
+        else
+        {
+            if (groundDelay == 0.0f)
+            {
+                unGround();
             }
             else
-            {    
-                if(groundDelay == 0.0f)
-                {
-                unGround();
-                }
-                else
-                {
+            {
                 Invoke("unGround", groundDelay);
-                }
             }
-        
+        }
+
 
         if (Mathf.Abs(_characterController.velocity.y) > 1 && _isGrounded == false)
         {
-                _animator.SetBool("isJumping", true);
+            _animator.SetBool("isJumping", true);
         }
 
         if (mIsControlEnabled && !interacting)
@@ -177,13 +202,13 @@ public class PlayerControllerRunJoypad : MonoBehaviour
             }
             float v = Input.GetAxis("Vertical");
             float cameraY = Input.GetAxis("JoypadStickY");
-            Debug.Log(cameraY);
             camera.transform.Rotate(Vector3.right, cameraY);
             if(camera.transform.rotation.x < minRotation || camera.transform.rotation.x > maxRotation)
             {
-                camera.transform.Rotate(transform.right, (-1) * cameraY);
+                camera.transform.Rotate(transform.right, (-1) * cameraY,Space.World);
             }
-         
+
+            Debug.Log(v);
 
             // Calculate the forward vector
             Vector3 camForward_Dir = transform.forward;
@@ -194,7 +219,7 @@ public class PlayerControllerRunJoypad : MonoBehaviour
             if (move.magnitude > 1f) move.Normalize();
 
             // Calculate the rotation for the player
-            move = transform.InverseTransformDirection(move);
+            //move = transform.InverseTransformDirection(move);
             if(move.magnitude > 0.01)
             {
                 if (Input.GetButton("Run"))
@@ -223,7 +248,7 @@ public class PlayerControllerRunJoypad : MonoBehaviour
 
             if (_isGrounded)
             {
-                _moveDirection = transform.forward * move.magnitude;
+                _moveDirection = transform.forward * move.magnitude * Mathf.Sign(v);
 
                 if (isRunning)
                     _moveDirection *= RunningForce;
@@ -233,6 +258,8 @@ public class PlayerControllerRunJoypad : MonoBehaviour
                 if (Input.GetButtonDown("Jump"))
                 {
                     _animator.SetBool("isJumping", true);
+                    justJumped = true;
+                    Invoke("jump", jumpDelay);
                     _isGrounded = false;
                     if (move.magnitude < 0.1f)
                     {
@@ -265,7 +292,7 @@ public class PlayerControllerRunJoypad : MonoBehaviour
             }
             else
             {
-                _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
+                _moveDirection = transform.forward * move.magnitude * Mathf.Sign(v) * WalkingForce * fallingMovement;
             }
             Vector2 horizontalSpeed = new Vector2(_characterController.velocity.x, _characterController.velocity.z);
             if (isRunning == false)
@@ -287,7 +314,10 @@ public class PlayerControllerRunJoypad : MonoBehaviour
             _characterController.velocity = new Vector3(horizontalSpeed.x, _characterController.velocity.y, horizontalSpeed.y);
             _characterController.AddForce(_moveDirection * Time.deltaTime);
 
-
+            if (move.magnitude < 0.01f && _isGrounded)
+            {
+                _characterController.velocity /= VelocityDamping;
+            }
         }
         else
         {
