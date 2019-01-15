@@ -84,13 +84,13 @@ public class PlayerFollow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.CompareTag("Player"))
+        if(!other.CompareTag("Player") && !other.CompareTag("Kitchi"))
              _isColliding = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.CompareTag("Kitchi"))
             _isColliding = false;
     }
 

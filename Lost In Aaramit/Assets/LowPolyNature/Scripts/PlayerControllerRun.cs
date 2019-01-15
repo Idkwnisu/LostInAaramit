@@ -64,6 +64,8 @@ public class PlayerControllerRun : MonoBehaviour
 
     public float jumpDelay = 0.2f;
 
+    public GameObject Kitchi;
+
 
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
@@ -132,6 +134,10 @@ public class PlayerControllerRun : MonoBehaviour
                     Vector3 difference = (realPosition(currentPlatform.transform) - _initialPlatformPosition);
                     difference = new Vector3(difference.x, difference.y, difference.z);
                     transform.position += difference;
+                    if(Kitchi != null)
+                    {
+                        Kitchi.transform.position += difference;
+                    }
                     _initialPlatformPosition = realPosition(currentPlatform.transform);
                 }
             }
@@ -147,8 +153,6 @@ public class PlayerControllerRun : MonoBehaviour
         Vector3 point2 = point1 - Vector3.up * (capsule.height - 2*capsule.radius);
         point1 += Vector3.up * RayLenght * 0.5f;
         point2 += Vector3.up * RayLenght * 0.5f;
-        Debug.DrawRay(point2, transform.TransformDirection(Vector3.down) * RayLenght, Color.yellow, 10.0f, true);
-        Debug.DrawRay(point2, transform.TransformDirection(Vector3.right) * RayLenght, Color.yellow, 10.0f, true);
         if (Physics.CapsuleCast(point1, point2, capsule.radius, transform.TransformDirection(Vector3.down), out hit, RayLenght) && !justJumped)
         {
                 _isGrounded = true;
