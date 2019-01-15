@@ -129,7 +129,7 @@ public class SongPlayer: MonoBehaviour
                         Song.Play();
                     }
                 }
-                if (Input.GetButtonDown("Vertical") == true && simplePlayer == false && musicController.scene != 2)
+                if (Input.GetButtonDown("Vertical") == true && simplePlayer == false)
                 {
                     float h = Input.GetAxis("Vertical");
                     if (h > 0 && Song.pitch < 4.0f)
@@ -169,7 +169,7 @@ public class SongPlayer: MonoBehaviour
                     CheckPitch();
                     //Debug.Log("" + (float)Song.pitch);
                 }
-                if (Input.GetButtonDown("Horizontal") == true && simplePlayer == false && musicController.scene != 1)
+                if (Input.GetButtonDown("Horizontal") == true && simplePlayer == false)
                 {
                     float h = Input.GetAxis("Horizontal");
                     //Debug.Log("" + (float)Song.pitch);
@@ -177,21 +177,18 @@ public class SongPlayer: MonoBehaviour
                     {
                         if (Input.GetButtonDown("Horizontal") == true)
                         {
-                            SwapSegments(rightController, clip, pitch, indicator.GetComponent<SkinnedMeshRenderer>().material, indicator.GetComponent<Light>().color, pitchIndicator.transform.localScale, correctPitch);
+                            SwapSegments(rightController, clip, pitch, indicator.GetComponentInChildren<SkinnedMeshRenderer>().material, indicator.GetComponentInChildren<Light>().color, pitchIndicator.transform.localScale, correctPitch);
                         }
                     }
                     if (h < 0)
                     {
                         if (Input.GetButtonDown("Horizontal") == true)
                         {
-                            SwapSegments(leftController, clip, pitch, indicator.GetComponent<SkinnedMeshRenderer>().material, indicator.GetComponent<Light>().color, pitchIndicator.transform.localScale, correctPitch);
+                            SwapSegments(leftController, clip, pitch, indicator.GetComponentInChildren<SkinnedMeshRenderer>().material, indicator.GetComponentInChildren<Light>().color, pitchIndicator.transform.localScale, correctPitch);
                         }
                     }
-                    h = 0;
-                    if (musicController.scene != 2)
-                    {
-                        CheckPitch();
-                    }
+                    h = 0; 
+                    CheckPitch();
                     CheckReordering();
                 }
             }
@@ -223,12 +220,21 @@ public class SongPlayer: MonoBehaviour
             musicController.pitchProgress += 1.0f;
             musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
             correctPitch = true;
+            if (targetClipName == clip.name)
+            {
+                indicator.GetComponent<Animator>().enabled = true;
+            }
         }
         if ((pitch > 1.01 || pitch < 0.99) && correctPitch == true)
         {
             musicController.pitchProgress -= 1.0f;
             musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
             correctPitch = false;
+        }
+
+        if (targetClipName != clip.name)
+        {
+            indicator.GetComponent<Animator>().enabled = false;
         }
     }
 
@@ -257,13 +263,13 @@ public class SongPlayer: MonoBehaviour
         Song.pitch = pitch;
         Song.clip = clip;
         Song.Play();
-        indicator.GetComponent<SkinnedMeshRenderer>().material = controller.indicator.GetComponent<SkinnedMeshRenderer>().material;
-        pitchIndicator.GetComponent<MeshRenderer>().material = controller.indicator.GetComponent<SkinnedMeshRenderer>().material;
-        controller.indicator.GetComponent<SkinnedMeshRenderer>().material = tempMaterial;
+        indicator.GetComponentInChildren<SkinnedMeshRenderer>().material = controller.indicator.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        pitchIndicator.GetComponent<MeshRenderer>().material = controller.indicator.GetComponentInChildren<SkinnedMeshRenderer>().material;
+        controller.indicator.GetComponentInChildren<SkinnedMeshRenderer>().material = tempMaterial;
         controller.pitchIndicator.GetComponent<MeshRenderer>().material = tempMaterial;
-        indicator.GetComponent<Light>().color = controller.indicator.GetComponent<Light>().color;
-        pitchIndicator.GetComponent<Light>().color = controller.indicator.GetComponent<Light>().color;
-        controller.indicator.GetComponent<Light>().color = tempColor;
+        indicator.GetComponentInChildren<Light>().color = controller.indicator.GetComponentInChildren<Light>().color;
+        pitchIndicator.GetComponent<Light>().color = controller.indicator.GetComponentInChildren<Light>().color;
+        controller.indicator.GetComponentInChildren<Light>().color = tempColor;
         controller.pitchIndicator.GetComponent<Light>().color = tempColor;
         pitchIndicator.transform.localScale = controller.pitchIndicator.transform.localScale;
         controller.pitchIndicator.transform.localScale = tempScale;
@@ -273,9 +279,6 @@ public class SongPlayer: MonoBehaviour
         correctReordering = controller.correctReordering;
         controller.correctReordering = tempBool;
         controller.CheckReordering();
-        if (musicController.scene != 2)
-        {
-            controller.CheckPitch();
-        }
+        controller.CheckPitch();
     }
 }

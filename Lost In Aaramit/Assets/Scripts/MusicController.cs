@@ -34,9 +34,6 @@ public class MusicController : MonoBehaviour
     public float pitchProgress;
     public float reorderingProgress;
 
-    public int scene;
-    //0 = complete; 1 = pitch; 2 = reoredering
-
     public int segment;
 
     public bool _win=false;
@@ -105,7 +102,6 @@ public class MusicController : MonoBehaviour
             Song.clip = Seg1;
             Song.pitch = Seg1_pitch;
             segment = 1;
-            //controller1.GetComponent<Renderer>().material = normal;
             ChangeMaterial(controller1, lumen);
             returnToFullTrack = true;
             Song.Play();
@@ -122,30 +118,16 @@ public class MusicController : MonoBehaviour
     {
         if (!initDone)
         {
-            if (scene == 0 || scene == 1)
-            {
-                controller1.CheckPitch();
-                controller2.CheckPitch();
-                controller3.CheckPitch();
-                controller4.CheckPitch();
-                controller5.CheckPitch();
-            }
-            if (scene == 0 || scene == 2)
-            {
-                controller1.CheckReordering();
-                controller2.CheckReordering();
-                controller3.CheckReordering();
-                controller4.CheckReordering();
-                controller5.CheckReordering();
-            }
-            if (scene == 1)
-            {
-                reorderingProgress = 5.0f;
-            }
-            if (scene == 2)
-            {
-                pitchProgress = 5.0f;
-            }
+            controller1.CheckPitch();
+            controller2.CheckPitch();
+            controller3.CheckPitch();
+            controller4.CheckPitch();
+            controller5.CheckPitch();
+            controller1.CheckReordering();
+            controller2.CheckReordering();
+            controller3.CheckReordering();
+            controller4.CheckReordering();
+            controller5.CheckReordering();
             initDone = true;
         }
 
@@ -193,13 +175,7 @@ public class MusicController : MonoBehaviour
             ChangeMaterial(controller3, normal);
             ChangeMaterial(controller4, normal);
             ChangeMaterial(controller5, normal);
-            ChangeMaterial(cube, lumen);/*
-            controller1.GetComponent<Renderer>().material = normal;
-            controller2.GetComponent<Renderer>().material = normal;
-            controller3.GetComponent<Renderer>().material = normal;
-            controller4.GetComponent<Renderer>().material = normal;
-            controller5.GetComponent<Renderer>().material = normal;
-            cube.GetComponent<Renderer>().material = lumen;*/
+            ChangeMaterial(cube, lumen);
 
             returnToFullTrack = false;
             if (!cube.simplePlayer)
@@ -220,8 +196,6 @@ public class MusicController : MonoBehaviour
         {
             ChangeMaterial(cube, normal);
             ChangeMaterial(controller1, normal);
-            //cube.GetComponent<Renderer>().material = normal;
-            //controller1.GetComponent<Renderer>().material = lumen;
 
             segment = 5;
             Song.Stop();
