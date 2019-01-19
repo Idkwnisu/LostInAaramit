@@ -208,8 +208,6 @@ public class PlayerControllerRunJoypad : MonoBehaviour
                 camera.transform.Rotate(transform.right, (-1) * cameraY,Space.World);
             }
 
-            Debug.Log(v);
-
             // Calculate the forward vector
             Vector3 camForward_Dir = transform.forward;
 

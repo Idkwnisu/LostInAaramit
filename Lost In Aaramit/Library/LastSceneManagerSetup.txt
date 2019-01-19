@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/MusicPuzzleNewVersion.unity
-=======
-- path: Assets/Scenes/Game.unity
->>>>>>> 02dc023190a68e675cdc99dcd14fc1e3ae437e4c
+- path: Assets/Scenes/FN_1.unity
   isLoaded: 1
   isActive: 1

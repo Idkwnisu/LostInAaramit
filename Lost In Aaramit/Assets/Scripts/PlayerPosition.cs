@@ -11,9 +11,13 @@ public class PlayerPosition : MonoBehaviour {
     public GameObject Allen;
     // Use this for initialization
 
-    private void Awake()
+    private void Update()
     {
-        PlayerPrefs.DeleteAll();
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            Debug.Log("Prefs cleared");
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     void Start()
@@ -27,7 +31,6 @@ public class PlayerPosition : MonoBehaviour {
 
             this.transform.position = pos;
         }
-
     }
 
     public void position_save()

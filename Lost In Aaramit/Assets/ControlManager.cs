@@ -14,6 +14,8 @@ public class ControlManager : MonoBehaviour {
 
     enum ControlType{FreeCamera, StaticCamera, Joypad};
 
+    public int currentControls = 0;
+
     void Awake()
     {
         //Check if instance already exists
@@ -34,12 +36,25 @@ public class ControlManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentCamera = FreeCamera.GetComponent<Camera>();
-
+        if (!PlayerPrefs.HasKey("Controls"))
+        {
+            PlayerPrefs.SetInt("Controls", currentControls);
+        }
+        else
+        {
+            ChangeControlType(PlayerPrefs.GetInt("Controls"));
+        }
     }
 
     // Update is called once per frame
     void Update () {
-		
+	    if(Input.GetKeyDown(KeyCode.C))
+        {
+            currentControls = (currentControls + 1) % 3;
+            ChangeControlType(currentControls);
+            Debug.Log("Controls changed");
+            Debug.Log("Current controls: " + currentControls);
+        }
 	}
 
     public Camera getCurrentCamera()
@@ -49,6 +64,7 @@ public class ControlManager : MonoBehaviour {
 
     public void ChangeControlType(int type)
     {
+        currentControls = type;
         switch(type)
         {
             case 0:
@@ -58,6 +74,9 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = true;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = true;
                 StaticCamera.GetComponent<Camera>().enabled = false;
+                StaticCamera.GetComponent<AudioListener>().enabled = false;
+                FreeCamera.GetComponent<AudioListener>().enabled = true;
+
                 currentCamera = FreeCamera.GetComponent<Camera>();
                 break;
             case 1:
@@ -67,6 +86,9 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = false;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = false;
                 StaticCamera.GetComponent<Camera>().enabled = true;
+                StaticCamera.GetComponent<AudioListener>().enabled = true;
+                FreeCamera.GetComponent<AudioListener>().enabled = false;
+
                 currentCamera = StaticCamera.GetComponent<Camera>();
                 break;
             case 2:
@@ -76,11 +98,15 @@ public class ControlManager : MonoBehaviour {
                 FreeCamera.GetComponent<Camera>().enabled = false;
                 FreeCamera.GetComponent<PlayerFollow>().cameraActive = false;
                 StaticCamera.GetComponent<Camera>().enabled = true;
+                StaticCamera.GetComponent<AudioListener>().enabled = true;
+                FreeCamera.GetComponent<AudioListener>().enabled = false;
                 currentCamera = StaticCamera.GetComponent<Camera>();
 
                 break;
         }
+        PlayerPrefs.SetInt("Controls", currentControls);
     }
 
-    
+
+
 }

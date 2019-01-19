@@ -116,7 +116,6 @@ public class FoxFollow : MonoBehaviour {
                     Debug.DrawRay(start, direction.normalized * hit.distance, Color.cyan);
                     if (hit.transform.gameObject.CompareTag("Player"))
                     {
-                        Debug.Log("Update");
                         lastKnownPosition = player.position;
                     }
 
