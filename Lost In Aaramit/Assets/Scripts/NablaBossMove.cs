@@ -69,18 +69,8 @@ public class NablaBossMove : MonoBehaviour {
     }
 
     public void setActive(){
-<<<<<<< HEAD
-        Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();/*
-<<<<<<< HEAD
-        //Allen.GetComponent<Rigidbody>().isKinematic = true;
-=======
-       // Allen.GetComponent<Rigidbody>().isKinematic = true;
->>>>>>> e5d32c47a85a0de06c8febf186ce3bb48b2ecd6f*/
-=======
         Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
-        //Allen.GetComponent<Rigidbody>().isKinematic = true;
-
->>>>>>> 02dc023190a68e675cdc99dcd14fc1e3ae437e4c
+        Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
         enabled = true;
     }
 

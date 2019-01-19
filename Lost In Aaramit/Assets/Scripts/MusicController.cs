@@ -118,16 +118,11 @@ public class MusicController : MonoBehaviour
     {
         if (!initDone)
         {
-            controller1.CheckPitch();
-            controller2.CheckPitch();
-            controller3.CheckPitch();
-            controller4.CheckPitch();
-            controller5.CheckPitch();
-            controller1.CheckReordering();
-            controller2.CheckReordering();
-            controller3.CheckReordering();
-            controller4.CheckReordering();
-            controller5.CheckReordering();
+            controller1.CheckCorrectness(2);
+            controller2.CheckCorrectness(2);
+            controller3.CheckCorrectness(2);
+            controller4.CheckCorrectness(2);
+            controller5.CheckCorrectness(2);
             initDone = true;
         }
 

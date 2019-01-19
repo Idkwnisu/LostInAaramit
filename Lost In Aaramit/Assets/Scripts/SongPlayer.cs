@@ -8,7 +8,6 @@ public class SongPlayer: MonoBehaviour
 {
     public Text InteractText;
     public GameObject controllerLayout;
-    public Camera mainCamera;
     public Camera objectCamera;
     public GameObject Player;
     public AudioClip clip;
@@ -31,6 +30,7 @@ public class SongPlayer: MonoBehaviour
     private string targetClipName;
     private int segment;
     public DisplaySegment displaySegment;
+    private Camera ciao;
 
     // Use this for initialization
     void Start()
@@ -96,22 +96,40 @@ public class SongPlayer: MonoBehaviour
                 if (interacting)
                 {
                     interacting = false;
-                    mainCamera.enabled = true;
+                    ControlManager.instance.getCurrentCamera().enabled = true;
                     objectCamera.enabled = false;
                     InteractText.enabled = true;
                     controllerLayout.SetActive(false);
-                    Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+                    //Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+                    if (Player.GetComponent<PlayerControllerRun>() != null)
+                    {
+                        Player.GetComponent<PlayerControllerRun>().NonInteracting();
+                    }
+                    else
+                    {
+                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().NonInteracting();
+                    }
 
                     musicController.PlayerIsInteracting(this, false);
                 }
                 else
                 {
                     interacting = true;
-                    mainCamera.enabled = false;
+                    ControlManager.instance.getCurrentCamera().enabled = false;
                     objectCamera.enabled = true;
                     InteractText.enabled = false;
                     controllerLayout.SetActive(true);
-                    Player.GetComponent<PlayerControllerRun>().ControlDisabling();
+                    //Player.GetComponent<PlayerControllerRun>().ControlDisabling();
+                    if (Player.GetComponent<PlayerControllerRun>() != null)
+                    {
+                        Player.GetComponent<PlayerControllerRun>().resetSpeed();
+                        Player.GetComponent<PlayerControllerRun>().Interacting();
+                    }
+                    else
+                    {
+                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().resetSpeed();
+                        Player.GetComponent<PlayerControllerRunNoFreeCamera>().Interacting();
+                    }
 
                     musicController.PlayerIsInteracting(this, true);
                 }
@@ -166,7 +184,7 @@ public class SongPlayer: MonoBehaviour
                     h = 0;
                     Song.pitch = Mathf.Round(Song.pitch * 100f) / 100f;
                     pitch = Song.pitch;
-                    CheckPitch();
+                    CheckCorrectness(0);
                     //Debug.Log("" + (float)Song.pitch);
                 }
                 if (Input.GetButtonDown("Horizontal") == true && simplePlayer == false)
@@ -187,9 +205,8 @@ public class SongPlayer: MonoBehaviour
                             SwapSegments(leftController, clip, pitch, indicator.GetComponentInChildren<SkinnedMeshRenderer>().material, indicator.GetComponentInChildren<Light>().color, pitchIndicator.transform.localScale, correctPitch);
                         }
                     }
-                    h = 0; 
-                    CheckPitch();
-                    CheckReordering();
+                    h = 0;
+                    CheckCorrectness(2);
                 }
             }
         }
@@ -213,44 +230,43 @@ public class SongPlayer: MonoBehaviour
         }
     }
 
-    public void CheckPitch()
+    public void CheckCorrectness(int correctnessType)
     {
-        if (pitch < 1.01 && pitch > 0.99 && correctPitch == false)
+        //correctnessType: 0=justPitch; 1=justReordering; 2=both
+        if (pitch < 1.01 && pitch > 0.99 && correctPitch == false && correctnessType != 1)
         {
             musicController.pitchProgress += 1.0f;
             musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
             correctPitch = true;
-            if (targetClipName == clip.name)
-            {
-                indicator.GetComponent<Animator>().enabled = true;
-            }
         }
-        if ((pitch > 1.01 || pitch < 0.99) && correctPitch == true)
+        if ((pitch > 1.01 || pitch < 0.99) && correctPitch == true && correctnessType != 1)
         {
             musicController.pitchProgress -= 1.0f;
             musicController.pitchProgressBar.UpdateBar(musicController.pitchProgress, 5.0f);
             correctPitch = false;
         }
 
-        if (targetClipName != clip.name)
-        {
-            indicator.GetComponent<Animator>().enabled = false;
-        }
-    }
-
-    public void CheckReordering() {
-        if (targetClipName == clip.name && correctReordering == false)
+        if (targetClipName == clip.name && correctReordering == false && correctnessType != 0)
         {
             musicController.reorderingProgress += 1.0f;
             musicController.reorderingProgressBar.UpdateBar(musicController.reorderingProgress, 5.0f);
             correctReordering = true;
         }
 
-        if (targetClipName != clip.name && correctReordering == true)
+        if (targetClipName != clip.name && correctReordering == true && correctnessType != 0)
         {
             musicController.reorderingProgress -= 1.0f;
             musicController.reorderingProgressBar.UpdateBar(musicController.reorderingProgress, 5.0f);
             correctReordering = false;
+        }
+
+        if (correctPitch && correctReordering)
+        {
+            indicator.GetComponent<Animator>().enabled = true;
+        }
+        else
+        {
+            indicator.GetComponent<Animator>().enabled = false;
         }
     }
 
@@ -278,7 +294,6 @@ public class SongPlayer: MonoBehaviour
         tempBool = correctReordering;
         correctReordering = controller.correctReordering;
         controller.correctReordering = tempBool;
-        controller.CheckReordering();
-        controller.CheckPitch();
+        controller.CheckCorrectness(2);
     }
 }
