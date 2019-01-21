@@ -19,8 +19,9 @@ public class AudioManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySingle(AudioClip clip)
+    public void PlaySingle(AudioClip clip, float efxVolume)
     {
+        efxSource.volume = efxVolume;
         efxSource.clip = clip;
         efxSource.Play();
     }

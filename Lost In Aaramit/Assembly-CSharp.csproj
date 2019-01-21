@@ -92,6 +92,8 @@
     <Compile Include="Assets\Scripts\BossMovement.cs" />
     <Compile Include="Assets\Scripts\ChangeCheckPoint.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\CollectiblesManager.cs" />
+    <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DroppableItem.cs" />
     <Compile Include="Assets\Scripts\FallingNabla.cs" />
