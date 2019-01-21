@@ -9,6 +9,7 @@ public class PlayerDie : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            PlayerPrefs.SetString("BossStarted", "1");
             SceneManager.LoadScene("BossScene", LoadSceneMode.Single);
         }
     }

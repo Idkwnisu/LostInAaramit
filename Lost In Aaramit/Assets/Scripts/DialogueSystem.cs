@@ -35,12 +35,12 @@ public class DialogueSystem : MonoBehaviour
         pressChatText.enabled = false;
         audioSource = GetComponent<AudioSource>();
         dialogueText.text = "";
-        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
+        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.7f);
     }
 
     void Update()
     {
-        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.5f);
+        ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.7f);
     }
 
     public void EnterRangeOfNPC()
@@ -58,7 +58,7 @@ public class DialogueSystem : MonoBehaviour
     {
         outOfRange = false;
         dialogueBoxGUI.gameObject.SetActive(true);
-        nameText.text = Names;
+        //nameText.text = Names;
         if ((Input.GetKeyDown(KeyCode.F) && !trig) || trig)
         {
             if (!dialogueActive)
@@ -113,7 +113,21 @@ public class DialogueSystem : MonoBehaviour
             int stringLength = stringToDisplay.Length;
             int currentCharacterIndex = 0;
 
-            dialogueText.text = "";
+            char endName = ' ';
+
+            nameText.text = "";
+
+            while (endName != '@')
+            {
+                if (stringToDisplay[currentCharacterIndex] != '@'){
+                    nameText.text += stringToDisplay[currentCharacterIndex];
+                }
+                currentCharacterIndex++;
+                endName = stringToDisplay[currentCharacterIndex];
+            }
+
+            currentCharacterIndex++;
+            currentCharacterIndex++;
 
             while (currentCharacterIndex < stringLength)
             {
@@ -166,6 +180,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void DropDialogue()
     {
+        Debug.Log("Stop");
         pressChatText.enabled = false;
         dialogueBoxGUI.gameObject.SetActive(false);
     }

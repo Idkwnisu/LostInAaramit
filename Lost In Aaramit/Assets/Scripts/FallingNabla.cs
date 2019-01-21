@@ -7,19 +7,27 @@ public class FallingNabla : MonoBehaviour {
     public bool isFalling = false;
 
     private GameObject nab;
+    public int fallDelay;
+    public int reSpawn;
+    public bool automaticFall;
     private Vector3 nabPos;
     private Quaternion nabRot;
     private GameObject newNab;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && automaticFall)
         {
-            nab = this.gameObject;
-            nabPos = this.gameObject.transform.position;
-            nabRot = this.gameObject.transform.rotation;
-            StartCoroutine(FallNabla(this.gameObject));
+            Fall();
         }
+    }
+
+    public void Fall()
+    {
+        nab = this.gameObject;
+        nabPos = this.gameObject.transform.position;
+        nabRot = this.gameObject.transform.rotation;
+        StartCoroutine(FallNabla(this.gameObject));
     }
 
     IEnumerator FallNabla(GameObject nabla)

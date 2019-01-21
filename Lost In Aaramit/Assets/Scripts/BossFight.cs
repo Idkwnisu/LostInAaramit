@@ -21,8 +21,11 @@ public class BossFight : MonoBehaviour
     public GameObject note4;
     public GameObject note5;
     public GameObject note6;
-    public GameObject centralPlat;
 
+    public GameObject centralPlat;
+    public GameObject nablaBoss;
+
+    public GameObject Allen;
     public GameObject Player;
 
     public Camera CameraBoss;
@@ -40,6 +43,10 @@ public class BossFight : MonoBehaviour
     private int cNote = 0;
     private int cLev = 0;
     private bool ended;
+
+    public Transform checkPlayer;
+    public Transform checkNablaPlayer;
+    public Transform checkNablaBoss;
 
     void Start()
     {
@@ -71,6 +78,19 @@ public class BossFight : MonoBehaviour
         level3[1] = note6;
         level3[2] = note4;
         level3[3] = note3;
+
+        if (PlayerPrefs.GetString("BossStarted").Equals("1"))
+        {
+            Player.transform.position = checkPlayer.transform.position;
+            centralPlat.transform.position = checkNablaPlayer.transform.position;
+            nablaBoss.transform.position = checkNablaBoss.transform.position;
+            Vector3 posB = checkNablaBoss.position + new Vector3(0, 1f, 0);
+            boss.transform.position = posB;
+            centralPlat.GetComponent<NablaBossMove>().yetEnter = true;
+            centralPlat.GetComponent<NablaBossMove>().setNotActive();
+        } else {
+            centralPlat.GetComponent<NablaBossMove>().yetEnter = false;
+        }
     }
 
     private void Update()
@@ -184,7 +204,7 @@ public class BossFight : MonoBehaviour
 
         }
         yield return new WaitForSeconds(5.5f);
-        Player.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
+        Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;
         stepText.enabled = false;
@@ -195,7 +215,7 @@ public class BossFight : MonoBehaviour
             lev[i].transform.GetComponent<Renderer>().material = default_mat;
         }
         yield return new WaitForSeconds(0.0f);
-        Player.GetComponent<PlayerControllerRun>().ControlEnabling();
+        Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
         startBossMove(bossVelocity);
         Camera.enabled = !Camera.enabled;
         CameraBoss.enabled = !CameraBoss.enabled;

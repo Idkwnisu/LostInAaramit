@@ -16,12 +16,11 @@ public class NablaBossMove : MonoBehaviour {
 
     public float speed;
 
-    private bool yetEnter;
+    public bool yetEnter;
     private int c = 0;
     private int cb = 0;
 
     private void Start() {
-        yetEnter = false;
         enabled = false;
         DieCube.GetComponent<BoxCollider>().enabled = false;
     }

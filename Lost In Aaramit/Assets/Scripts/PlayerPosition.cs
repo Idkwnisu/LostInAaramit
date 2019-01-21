@@ -28,7 +28,6 @@ public class PlayerPosition : MonoBehaviour {
         Vector3 pos = new Vector3(pX, pY, pZ); 
         if (PlayerPrefs.GetString("Saved").Equals("1"))
         {
-
             this.transform.position = pos;
         }
     }
