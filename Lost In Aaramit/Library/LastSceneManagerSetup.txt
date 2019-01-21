@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MusicPuzzleNewVersion.unity
+- path: Assets/Scenes/FN_1.unity
   isLoaded: 1
   isActive: 1
