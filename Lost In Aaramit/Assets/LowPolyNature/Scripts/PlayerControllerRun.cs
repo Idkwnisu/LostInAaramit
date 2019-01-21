@@ -156,7 +156,6 @@ public class PlayerControllerRun : MonoBehaviour
         if (Physics.CapsuleCast(point1, point2, capsule.radius, transform.TransformDirection(Vector3.down), out hit, RayLenght) && !justJumped)
         {
                 _isGrounded = true;
-                Debug.Log("Grounded");
                 _animator.SetBool("isJumping", false);
 
                 if (!GameObject.Equals(currentPlatform, hit.transform.gameObject))
