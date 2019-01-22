@@ -13,7 +13,8 @@ public class PlayerPosition : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F12))
+
+        if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Prefs cleared");
             PlayerPrefs.DeleteAll();
@@ -28,12 +29,14 @@ public class PlayerPosition : MonoBehaviour {
         Vector3 pos = new Vector3(pX, pY, pZ); 
         if (PlayerPrefs.GetString("Saved").Equals("1"))
         {
+            Debug.Log("Cambia Posizione");
             this.transform.position = pos;
         }
     }
 
     public void position_save()
     {
+        Debug.Log("Salva Posizione");
         Vector3 pos = Allen.transform.position;
         PlayerPrefs.SetFloat("p_x", pos[0]);
         PlayerPrefs.SetFloat("p_y", pos[1]);
