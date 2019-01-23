@@ -72,6 +72,10 @@ public class PlayerControllerRunJoypad : MonoBehaviour
 
     public GameObject Kitchi;
 
+    public float efxVolume;
+
+    public AudioClip Jump;
+
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
 
@@ -259,7 +263,9 @@ public class PlayerControllerRunJoypad : MonoBehaviour
                     _animator.SetBool("isJumping", true);
                     justJumped = true;
                     Invoke("jump", jumpDelay);
+                    AudioManager.instance.PlaySingle(Jump, efxVolume);
                     _isGrounded = false;
+                    currentPlatform = null;
                     if (move.magnitude < 0.1f)
                     {
                         _characterController.AddForce(Vector3.up * IdleJumpSpeed);

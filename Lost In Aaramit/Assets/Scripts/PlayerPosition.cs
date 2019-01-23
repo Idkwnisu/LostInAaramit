@@ -13,7 +13,6 @@ public class PlayerPosition : MonoBehaviour {
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Prefs cleared");
@@ -26,7 +25,7 @@ public class PlayerPosition : MonoBehaviour {
         pX = PlayerPrefs.GetFloat("p_x");
         pY = PlayerPrefs.GetFloat("p_y");
         pZ = PlayerPrefs.GetFloat("p_z");
-        Vector3 pos = new Vector3(pX, pY, pZ); 
+        Vector3 pos = new Vector3(pX, pY, pZ);
         if (PlayerPrefs.GetString("Saved").Equals("1"))
         {
             Debug.Log("Cambia Posizione");

@@ -53,7 +53,6 @@
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.ScreenCaptureModule.dll
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SharedInternalsModule.dll
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTracking.dll
-/Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.dll
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpriteMaskModule.dll
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpriteShapeModule.dll
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.StandardEvents.dll
@@ -173,8 +172,6 @@
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.ScreenCaptureModule.xml
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SharedInternalsModule.dll.mdb
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SharedInternalsModule.xml
-/Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.dll.mdb
-/Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.xml
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpriteMaskModule.dll.mdb
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpriteMaskModule.xml
 /Users/alessandrocarughi/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpriteShapeModule.dll.mdb

@@ -8,6 +8,8 @@ public class GoToMusicRoom : MonoBehaviour {
 
 	public GameObject Allen;
 
+    public GameObject AM;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +20,7 @@ public class GoToMusicRoom : MonoBehaviour {
                 PlayerPrefs.SetString("Saved", "1");
                 PlayerPrefs.SetString("yetPuzzle", "1");
                 Allen.GetComponent<PlayerPosition>().position_save();
+                Destroy(AM);
                 SceneManager.LoadScene("MusicPuzzleNewVersion", LoadSceneMode.Single);
             }
         }

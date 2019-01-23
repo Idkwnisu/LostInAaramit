@@ -18,7 +18,13 @@ public class GetFeather : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (interactable)
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Invoke("LoadMainScene", 2);
+        }
+
+        if (interactable)
         {
             if (Input.GetButtonDown("Interact"))
             {

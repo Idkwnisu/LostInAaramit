@@ -7,17 +7,20 @@ public class GoToBoss : MonoBehaviour {
 
     public GameObject Allen;
 
+    public GameObject AM;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (!PlayerPrefs.GetString("yetEnter").Equals("1")) 
             {
-            PlayerPrefs.SetString ("lastLoadedScene", SceneManager.GetActiveScene ().name);
-            PlayerPrefs.SetString("Saved", "1");
-            PlayerPrefs.SetString("yetEnter", "1");
-            Allen.GetComponent<PlayerPosition>().position_save();
-            SceneManager.LoadScene("BossScene", LoadSceneMode.Single);
+                PlayerPrefs.SetString ("lastLoadedScene", SceneManager.GetActiveScene ().name);
+                PlayerPrefs.SetString("Saved", "1");
+                PlayerPrefs.SetString("yetEnter", "1");
+                Allen.GetComponent<PlayerPosition>().position_save();
+                Destroy(AM);
+                SceneManager.LoadScene("BossScene", LoadSceneMode.Single);
             }
         }
     }

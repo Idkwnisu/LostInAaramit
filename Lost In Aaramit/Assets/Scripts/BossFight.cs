@@ -44,6 +44,10 @@ public class BossFight : MonoBehaviour
     private int cLev = 0;
     private bool ended;
 
+    public float efxVolume;
+
+    public GameObject AM;
+
     public Transform checkPlayer;
     public Transform checkNablaPlayer;
     public Transform checkNablaBoss;
@@ -95,11 +99,9 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
-        /*
-        Vector3 playerPos = Player.transform.position;
-        boss.transform.LookAt(transform.position);
-        */
-        if(ended && Input.GetKeyDown(KeyCode.V)){
+        //ended && Input.GetKeyDown(KeyCode.V)
+        if (Input.GetKeyDown(KeyCode.V)){
+            Destroy(AM);
             string sceneName = PlayerPrefs.GetString("lastLoadedScene");
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(sceneName);
@@ -211,6 +213,8 @@ public class BossFight : MonoBehaviour
         for (int i = 0; i < lev.Length; i++)
         {
             lev[i].transform.GetComponent<Renderer>().material = right;
+            AudioClip noteClip = lev[i].GetComponent<TriggerNote>().GetAudioClip();
+            AudioManager.instance.PlaySingle(noteClip, efxVolume);
             yield return new WaitForSeconds(1.5f);
             lev[i].transform.GetComponent<Renderer>().material = default_mat;
         }
@@ -224,6 +228,8 @@ public class BossFight : MonoBehaviour
     IEnumerator LightNote(GameObject note, Material mat)
     {
         note.transform.GetComponent<Renderer>().material = mat;
+        AudioClip noteClip = note.GetComponent<TriggerNote>().GetAudioClip();
+        AudioManager.instance.PlaySingle(noteClip, efxVolume);
         yield return new WaitForSeconds(2f);
         note.transform.GetComponent<Renderer>().material = default_mat;
     }

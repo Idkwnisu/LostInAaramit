@@ -8,15 +8,14 @@ public class DialogueSystem : MonoBehaviour
 
     public Text nameText;
     public Text dialogueText;
+    public Text pressContinue;
     public Text pressChatText;
    
     public Transform dialogueBoxGUI;
     public Transform ChatBackGround;
 
-    public float letterDelay = 0.1f;
-    public float letterMultiplier = 0.5f;
-
-    public string Names;
+    public float letterDelay = 0.5f;
+    public float letterMultiplier = 0.0f;
 
     public string[] dialogueLines;
 
@@ -25,6 +24,10 @@ public class DialogueSystem : MonoBehaviour
     public bool dialogueEnded = false;
     public bool outOfRange = true;
 
+    public GameObject Allen;
+
+    private bool sentenceEnd = false;
+
     public AudioClip audioClip;
     AudioSource audioSource;
 
@@ -32,6 +35,7 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
+        pressContinue.enabled = false;
         pressChatText.enabled = false;
         audioSource = GetComponent<AudioSource>();
         dialogueText.text = "";
@@ -58,7 +62,6 @@ public class DialogueSystem : MonoBehaviour
     {
         outOfRange = false;
         dialogueBoxGUI.gameObject.SetActive(true);
-        //nameText.text = Names;
         if ((Input.GetKeyDown(KeyCode.F) && !trig) || trig)
         {
             if (!dialogueActive)
@@ -67,17 +70,19 @@ public class DialogueSystem : MonoBehaviour
                 StartCoroutine(StartDialogue());
             }
         }
-        StartDialogue();
     }
 
     private IEnumerator StartDialogue()
     {
+        pressChatText.enabled = false;
+        Allen.GetComponent<PlayerControllerRun>().ControlDisablingPermanent();
+
         if (outOfRange == false)
         {
             int dialogueLength = dialogueLines.Length;
             int currentDialogueIndex = 0;
 
-            while (currentDialogueIndex < dialogueLength || !letterIsMultiplied)
+            while (currentDialogueIndex < dialogueLength)
             {
                 if (!letterIsMultiplied)
                 {
@@ -87,6 +92,7 @@ public class DialogueSystem : MonoBehaviour
                     if (currentDialogueIndex >= dialogueLength)
                     {
                         dialogueEnded = true;
+                        Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
                     }
                 }
                 yield return 0;
@@ -94,7 +100,7 @@ public class DialogueSystem : MonoBehaviour
 
             while (true)
             {
-                if (Input.GetButtonDown("Dialogue") || automaticContinue && dialogueEnded == false)
+                if ((Input.GetButtonDown("Dialogue") || automaticContinue ) && dialogueEnded == false)
                 {
                     break;
                 }
@@ -119,6 +125,7 @@ public class DialogueSystem : MonoBehaviour
 
             while (endName != '@')
             {
+                pressContinue.enabled = false;
                 if (stringToDisplay[currentCharacterIndex] != '@'){
                     nameText.text += stringToDisplay[currentCharacterIndex];
                 }
@@ -131,6 +138,7 @@ public class DialogueSystem : MonoBehaviour
 
             while (currentCharacterIndex < stringLength)
             {
+                pressContinue.enabled = false;
                 dialogueText.text += stringToDisplay[currentCharacterIndex];
                 currentCharacterIndex++;
 
@@ -159,6 +167,9 @@ public class DialogueSystem : MonoBehaviour
                     break;
                 }
             }
+
+            pressContinue.enabled = true;
+
             while (true)
             {
                 if (Input.GetButtonDown("Dialogue") || automaticContinue)
@@ -167,6 +178,7 @@ public class DialogueSystem : MonoBehaviour
                 }
                 yield return 0;
             }
+
             dialogueEnded = false;
             letterIsMultiplied = false;
             dialogueText.text = "";
@@ -187,6 +199,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void OutOfRange()
     {
+
         outOfRange = true;
         if (outOfRange == true)
         {
@@ -196,5 +209,9 @@ public class DialogueSystem : MonoBehaviour
             pressChatText.enabled = false;
             dialogueBoxGUI.gameObject.SetActive(false);
         }
+    }
+
+    public void setTextNotEnabled(){
+        pressChatText.enabled = false;
     }
 }

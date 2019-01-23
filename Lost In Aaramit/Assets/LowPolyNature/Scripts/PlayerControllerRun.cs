@@ -70,7 +70,6 @@ public class PlayerControllerRun : MonoBehaviour
 
     public AudioClip Jump;
 
-
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
 
@@ -253,6 +252,7 @@ public class PlayerControllerRun : MonoBehaviour
                     Invoke("jump", jumpDelay);
                     AudioManager.instance.PlaySingle(Jump, efxVolume);
                     _isGrounded = false;
+                    currentPlatform = null;
                     if (move.magnitude < 0.1f)
                     {
                         _characterController.AddForce(Vector3.up * IdleJumpSpeed);
@@ -312,6 +312,12 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 _characterController.velocity /= VelocityDamping;
             }
+            float dot = Mathf.Abs(Vector3.Dot(_characterController.velocity, transform.right));
+
+            if (dot > 0.5f && _isGrounded)
+            {
+                _characterController.velocity = Vector3.Lerp(_characterController.velocity, transform.forward * _characterController.velocity.magnitude,0.5f);
+            }
             
         }
         else
@@ -338,6 +344,7 @@ public class PlayerControllerRun : MonoBehaviour
 
         Debug.Log("IsRunning:" + isRunning);*/
 
+       
     }
 
     public void unGround()
