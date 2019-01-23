@@ -10,6 +10,7 @@ public class BossFight : MonoBehaviour
     public GameObject cloudBoss;
     public GameObject boss;
     /* Dialogue */
+    public GameObject bossDialogue0;
     public GameObject bossDialogue1;
     public GameObject bossDialogue2;
     public GameObject bossDialogue3;
@@ -99,6 +100,12 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Prefs cleared");
+            PlayerPrefs.DeleteAll();
+        }
+
         //ended && Input.GetKeyDown(KeyCode.V)
         if (Input.GetKeyDown(KeyCode.V)){
             Destroy(AM);

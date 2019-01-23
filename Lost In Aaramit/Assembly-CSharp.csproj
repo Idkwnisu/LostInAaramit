@@ -61,10 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraMovement.cs" />
     <Compile Include="Assets\ColorSkies\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\ColorSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\ControlManager.cs" />
     <Compile Include="Assets\DisplaySegment.cs" />
+    <Compile Include="Assets\FadeToEnd.cs" />
     <Compile Include="Assets\FoxFollow.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\MovementBetweenPoints.cs" />
     <Compile Include="Assets\randomPlacer.cs" />
+    <Compile Include="Assets\ReablePlayer.cs" />
     <Compile Include="Assets\RotateThis.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Assets\Scripts\SeasonalChange.cs" />
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
     <Compile Include="Assets\Scripts\SongPlayer.cs" />
+    <Compile Include="Assets\Scripts\TriggerDialogue.cs" />
     <Compile Include="Assets\Scripts\TriggerNote.cs" />
     <Compile Include="Assets\Scripts\WhistleActivator.cs" />
     <Compile Include="Assets\Scripts\WinterFrost.cs" />

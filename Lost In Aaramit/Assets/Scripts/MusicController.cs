@@ -6,13 +6,15 @@ using UnityEngine.Playables;
 public class MusicController : MonoBehaviour
 {
     public AudioSource Song;
-    public AudioSource winSoundEffect;
+    public AudioSource soundEffect;
 
     public AudioClip Seg1;
     public AudioClip Seg2;
     public AudioClip Seg3;
     public AudioClip Seg4;
     public AudioClip Seg5;
+    public AudioClip winSoundEffect;
+    public AudioClip successSoundEffect;
 
     public float Seg1_pitch = 1.0f;
     public float Seg2_pitch = 1.0f;
@@ -143,7 +145,8 @@ public class MusicController : MonoBehaviour
         if ((int)pitchProgress == 5 && (int)reorderingProgress == 5 && _win == false)
         {
             //Debug.Log("WIN");
-            winSoundEffect.Play();
+            soundEffect.clip = winSoundEffect;
+            soundEffect.Play();
             segment = 5;
             _win = true;
             crazyPup.sentences.SetValue("You did it!",0);
@@ -212,5 +215,11 @@ public class MusicController : MonoBehaviour
             }
             rend.materials = mats;
         }
+    }
+
+    public void playNoteSoundEffect()
+    {
+        soundEffect.clip = successSoundEffect;
+        soundEffect.Play();
     }
 }

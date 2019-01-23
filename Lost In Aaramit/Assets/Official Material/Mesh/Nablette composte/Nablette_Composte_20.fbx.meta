@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 0f33e226384b845dd8ca52fe9266b61c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube.013
+    100002: Cube.014
+    100004: Cube.015
+    100006: Erba.003
+    100008: Erba.054
+    100010: Erba.5350
+    100012: Leaves.000
+    100014: Leaves.001
+    100016: Leaves.002
+    100018: Leaves.003
+    100020: Leaves.004
+    100022: Leaves.005
+    100024: Nabletta.035
+    100026: //RootNode
+    400000: Cube.013
+    400002: Cube.014
+    400004: Cube.015
+    400006: Erba.003
+    400008: Erba.054
+    400010: Erba.5350
+    400012: Leaves.000
+    400014: Leaves.001
+    400016: Leaves.002
+    400018: Leaves.003
+    400020: Leaves.004
+    400022: Leaves.005
+    400024: Nabletta.035
+    400026: //RootNode
+    2100000: Material.007
+    2100002: Material.025
+    2100004: Material.023
+    2100006: Material.024
+    2100008: Material
+    2100010: Material.001
+    2300000: Cube.013
+    2300002: Cube.014
+    2300004: Cube.015
+    2300006: Erba.003
+    2300008: Erba.054
+    2300010: Erba.5350
+    2300012: Leaves.000
+    2300014: Leaves.001
+    2300016: Leaves.002
+    2300018: Leaves.003
+    2300020: Leaves.004
+    2300022: Leaves.005
+    2300024: Nabletta.035
+    3300000: Cube.013
+    3300002: Cube.014
+    3300004: Cube.015
+    3300006: Erba.003
+    3300008: Erba.054
+    3300010: Erba.5350
+    3300012: Leaves.000
+    3300014: Leaves.001
+    3300016: Leaves.002
+    3300018: Leaves.003
+    3300020: Leaves.004
+    3300022: Leaves.005
+    3300024: Nabletta.035
+    4300000: Erba.003
+    4300002: Cube.015
+    4300004: Cube.014
+    4300006: Cube.013
+    4300008: Leaves.005
+    4300010: Leaves.004
+    4300012: Erba.5350
+    4300014: Erba.054
+    4300016: Leaves.003
+    4300018: Leaves.002
+    4300020: Leaves.001
+    4300022: Nabletta.035
+    4300024: Leaves.000
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

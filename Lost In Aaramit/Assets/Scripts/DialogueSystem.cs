@@ -92,7 +92,6 @@ public class DialogueSystem : MonoBehaviour
                     if (currentDialogueIndex >= dialogueLength)
                     {
                         dialogueEnded = true;
-                        Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
                     }
                 }
                 yield return 0;
@@ -108,6 +107,7 @@ public class DialogueSystem : MonoBehaviour
             }
             dialogueEnded = false;
             dialogueActive = false;
+            Allen.GetComponent<PlayerControllerRun>().ControlEnabling();
             DropDialogue();
         }
     }

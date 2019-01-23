@@ -11,6 +11,8 @@ public class GetFeather : MonoBehaviour {
     public bool interactable = false;
     public GameObject feather;
 
+    public GameObject AM;
+
     // Use this for initialization
     void Start () {
         InteractText.enabled = false;
@@ -21,7 +23,8 @@ public class GetFeather : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            Invoke("LoadMainScene", 2);
+            Invoke("LoadMainScene", 2); 
+            Destroy(AM);
         }
 
         if (interactable)
@@ -30,6 +33,7 @@ public class GetFeather : MonoBehaviour {
             {
                 Debug.Log("SONO QUI");
                 feather.GetComponent<Renderer>().enabled = false;
+                Destroy(AM);
                 Invoke("LoadMainScene", 2);
             }
         }

@@ -28,14 +28,12 @@ public class SongPlayer: MonoBehaviour
     public bool correctPitch;
     public bool correctReordering;
     private string targetClipName;
-    private int segment;
     public DisplaySegment displaySegment;
     private Camera ciao;
 
     // Use this for initialization
     void Start()
     {
-        segment = 1;
         InteractText.enabled = false;
         objectCamera.enabled = false;
         controllerLayout.SetActive(false);
@@ -263,6 +261,7 @@ public class SongPlayer: MonoBehaviour
         if (correctPitch && correctReordering)
         {
             indicator.GetComponent<Animator>().enabled = true;
+            musicController.playNoteSoundEffect();
         }
         else
         {

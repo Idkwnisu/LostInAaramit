@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 0db374c45bca840cebdabf7ab1dfbfe6
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Erba.002
+    100002: Leaves.010
+    100004: Leaves.011
+    100006: Leaves.012
+    100008: Leaves.013
+    100010: Leaves.014
+    100012: Leaves.037
+    100014: Nabletta.021
+    100016: Nabletta.024
+    100018: Nabletta.036
+    100020: //RootNode
+    100022: Plane.007
+    100024: Plane.011
+    100026: Plane.2738
+    400000: Erba.002
+    400002: Leaves.010
+    400004: Leaves.011
+    400006: Leaves.012
+    400008: Leaves.013
+    400010: Leaves.014
+    400012: Leaves.037
+    400014: Nabletta.021
+    400016: Nabletta.024
+    400018: Nabletta.036
+    400020: //RootNode
+    400022: Plane.007
+    400024: Plane.011
+    400026: Plane.2738
+    2100000: Material.006
+    2100002: Material.012
+    2100004: Material.002
+    2100006: Material.007
+    2100008: Material.004
+    2100010: Material.013
+    2100012: Material.001
+    2300000: Erba.002
+    2300002: Leaves.010
+    2300004: Leaves.011
+    2300006: Leaves.012
+    2300008: Leaves.013
+    2300010: Leaves.014
+    2300012: Leaves.037
+    2300014: Nabletta.021
+    2300016: Nabletta.024
+    2300018: Nabletta.036
+    2300020: Plane.007
+    2300022: Plane.011
+    2300024: Plane.2738
+    3300000: Erba.002
+    3300002: Leaves.010
+    3300004: Leaves.011
+    3300006: Leaves.012
+    3300008: Leaves.013
+    3300010: Leaves.014
+    3300012: Leaves.037
+    3300014: Nabletta.021
+    3300016: Nabletta.024
+    3300018: Nabletta.036
+    3300020: Plane.007
+    3300022: Plane.011
+    3300024: Plane.2738
+    4300000: Plane.011
+    4300002: Leaves.010
+    4300004: Leaves.037
+    4300006: Nabletta.036
+    4300008: Erba.002
+    4300010: Plane.007
+    4300012: Plane.2738
+    4300014: Leaves.014
+    4300016: Leaves.013
+    4300018: Leaves.012
+    4300020: Nabletta.024
+    4300022: Nabletta.021
+    4300024: Leaves.011
+    7400000: Leaves.037|Leaves.037Action
+    7400002: Leaves.037|Non usare
+    7400004: Leaves.037|Trembling_1
+    7400006: Leaves.037|Trembling_1.001
+    7400008: Leaves.037|Trembling_1.002
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
