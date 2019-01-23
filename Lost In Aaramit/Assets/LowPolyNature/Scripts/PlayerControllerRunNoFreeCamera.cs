@@ -65,10 +65,6 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
 
     public GameObject Kitchi;
 
-    public float efxVolume;
-
-    public AudioClip Jump;
-
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
 
@@ -93,6 +89,12 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
     public void ControlEnabling()
     {
         mIsControlEnabled = true;
+    }
+
+    public void ControlDisablingPermanent()
+    {
+        mIsControlEnabled = false;
+        _canEnable = false;
     }
 
     public void ControlDisabling()
@@ -245,7 +247,6 @@ public class PlayerControllerRunNoFreeCamera : MonoBehaviour
                     _animator.SetBool("isJumping", true);
                     justJumped = true;
                     Invoke("jump", jumpDelay);
-                    AudioManager.instance.PlaySingle(Jump, efxVolume);
                     _isGrounded = false;
                     currentPlatform = null;
                     if (move.magnitude < 0.1f)

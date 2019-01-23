@@ -70,6 +70,7 @@ public class PlayerControllerRun : MonoBehaviour
 
     public AudioClip Jump;
 
+
     private GameObject currentPlatform;
     private Vector3 _initialPlatformPosition;
 
@@ -286,7 +287,6 @@ public class PlayerControllerRun : MonoBehaviour
             {
                 _moveDirection = transform.forward * move.magnitude * WalkingForce * fallingMovement;
             }
-
             Vector2 horizontalSpeed = new Vector2(_characterController.velocity.x, _characterController.velocity.z);
             if (isRunning == false)
             {

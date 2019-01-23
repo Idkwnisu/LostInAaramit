@@ -6,7 +6,8 @@ public class PlayWhistle : MonoBehaviour {
 
     public AudioClip[] SoundToPlay;
     public float Volume;
-    public int timer;
+    public int minTimer;
+    public int maxTimer;
     private bool enable;
     AudioSource audio;
 
@@ -36,6 +37,7 @@ public class PlayWhistle : MonoBehaviour {
         while (true)
         {
             int rand = Random.Range(0, SoundToPlay.Length);
+            float timer = Random.Range(minTimer, maxTimer);
             yield return new WaitForSeconds(timer);
 
             audio.PlayOneShot(SoundToPlay[rand], Volume);

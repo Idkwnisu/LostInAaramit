@@ -300,10 +300,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraMovement.cs" />
     <Compile Include="Assets\ColorSkies\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\ColorSkies\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\ControlManager.cs" />
     <Compile Include="Assets\DisplaySegment.cs" />
+    <Compile Include="Assets\FadeToEnd.cs" />
     <Compile Include="Assets\FoxFollow.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Free Low Poly Toon Nature\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
@@ -322,14 +324,18 @@
     <Compile Include="Assets\MasterRotator.cs" />
     <Compile Include="Assets\MovementBetweenPoints.cs" />
     <Compile Include="Assets\randomPlacer.cs" />
+    <Compile Include="Assets\ReablePlayer.cs" />
     <Compile Include="Assets\RotateThis.cs" />
     <Compile Include="Assets\Scripts\AdvancedPicking.cs" />
     <Compile Include="Assets\Scripts\AdvancePlace.cs" />
     <Compile Include="Assets\Scripts\AnotherRay.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\BossFight.cs" />
     <Compile Include="Assets\Scripts\BossMovement.cs" />
     <Compile Include="Assets\Scripts\ChangeCheckPoint.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\CollectiblesManager.cs" />
+    <Compile Include="Assets\Scripts\CollectItem.cs" />
     <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DroppableItem.cs" />
     <Compile Include="Assets\Scripts\FallingNabla.cs" />
@@ -353,6 +359,7 @@
     <Compile Include="Assets\Scripts\PlayerPosition.cs" />
     <Compile Include="Assets\Scripts\PlayWhistle.cs" />
     <Compile Include="Assets\Scripts\PupinsMovement.cs" />
+    <Compile Include="Assets\Scripts\PupinsWalking.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SceneSelection.cs" />
