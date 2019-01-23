@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\PlayerPosition.cs" />
     <Compile Include="Assets\Scripts\PlayWhistle.cs" />
     <Compile Include="Assets\Scripts\PupinsMovement.cs" />
+    <Compile Include="Assets\Scripts\PupinsWalking.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SceneSelection.cs" />
