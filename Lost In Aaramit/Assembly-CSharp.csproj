@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\ForestSpawner.cs" />
     <Compile Include="Assets\Scripts\GoToBoss.cs" />
     <Compile Include="Assets\Scripts\GravityFall.cs" />
+    <Compile Include="Assets\Scripts\Guards.cs" />
     <Compile Include="Assets\Scripts\LightRayCaster.cs" />
     <Compile Include="Assets\Scripts\LightTouch.cs" />
     <Compile Include="Assets\Scripts\MaterialSeasonalChange.cs" />

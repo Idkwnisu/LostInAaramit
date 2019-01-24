@@ -14,8 +14,8 @@ public class DialogueSystem : MonoBehaviour
     public Transform dialogueBoxGUI;
     public Transform ChatBackGround;
 
-    public float letterDelay = 0.5f;
-    public float letterMultiplier = 0.0f;
+    public float letterDelay;
+    public float letterMultiplier;
 
     public string[] dialogueLines;
 
@@ -150,7 +150,7 @@ public class DialogueSystem : MonoBehaviour
                     {
                         automaticContinue = false;
 
-                        yield return new WaitForSeconds(letterDelay * letterMultiplier);
+                        yield return new WaitForSeconds(letterDelay);
 
                         if (audioClip) audioSource.PlayOneShot(audioClip, 0.5F);
                     }

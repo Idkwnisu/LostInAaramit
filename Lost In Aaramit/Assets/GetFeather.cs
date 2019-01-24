@@ -23,6 +23,7 @@ public class GetFeather : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.V))
         {
+            PlayerPrefs.SetInt("Plume", 1);
             Invoke("LoadMainScene", 2); 
             Destroy(AM);
         }
@@ -32,6 +33,7 @@ public class GetFeather : MonoBehaviour {
             if (Input.GetButtonDown("Interact"))
             {
                 Debug.Log("SONO QUI");
+                PlayerPrefs.SetInt("Plume", 1);
                 feather.GetComponent<Renderer>().enabled = false;
                 Destroy(AM);
                 Invoke("LoadMainScene", 2);

@@ -17,7 +17,7 @@ public class PupinsMovement : MonoBehaviour {
 
     private void Start()
     {
-        enabled = true;
+        enabled = false;
         initialRotation = transform.rotation;
         animator = GetComponent<Animator>();
     }
