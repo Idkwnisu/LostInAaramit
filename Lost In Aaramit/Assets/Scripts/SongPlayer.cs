@@ -158,9 +158,9 @@ public class SongPlayer: MonoBehaviour
                                 Song.pitch = 1.0f;
                                 pitch = Song.pitch;
                             }
-                            if (pitchIndicator.transform.localScale.y < 5.0F)
+                            if (pitchIndicator.transform.localScale.y < 4.0F)
                             {
-                                pitchIndicator.transform.localScale += new Vector3(0.0F, 0.1F, 0.0F);
+                                pitchIndicator.transform.localScale += new Vector3(0.0F, 0.003F, 0.0F);
                             }
                         }
                     }
@@ -173,9 +173,9 @@ public class SongPlayer: MonoBehaviour
                             {
                                 Song.pitch = 1.0f;
                             }
-                            if (pitchIndicator.transform.localScale.y > 0.2F)
+                            if (pitchIndicator.transform.localScale.y > 0.001F)
                             {
-                                pitchIndicator.transform.localScale -= new Vector3(0.0F, 0.1F, 0.0F);
+                                pitchIndicator.transform.localScale -= new Vector3(0.0F, 0.003F, 0.0F);
                             }
                         }
                     }
