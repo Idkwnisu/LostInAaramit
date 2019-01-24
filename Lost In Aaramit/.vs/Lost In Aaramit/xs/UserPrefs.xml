@@ -1,18 +1,16 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
   <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GoToMusicRoom.cs">
     <Files>
       <File FileName="Assets/Scripts/AudioManager.cs" Line="20" Column="6" />
       <File FileName="Assets/Scripts/NPC.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/Guards.cs" Line="29" Column="73" />
+      <File FileName="Assets/Scripts/Guards.cs" Line="25" Column="63" />
       <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="22" Column="18" />
       <File FileName="Assets/Scripts/DialogueSystem.cs" Line="151" Column="51" />
-      <File FileName="Assets/Scripts/PupinsMovement.cs" Line="15" Column="36" />
+      <File FileName="Assets/Scripts/BossFight.cs" Line="112" Column="47" />
       <File FileName="Assets/GetFeather.cs" Line="35" Column="17" />
-      <File FileName="Assets/Scripts/PlayerPosition.cs" Line="40" Column="9" />
-      <File FileName="Assets/randomPlacer.cs" Line="23" Column="1" />
-      <File FileName="Assets/LowPolyNature/Scripts/PlayerControllerRun.cs" Line="206" Column="1" />
+      <File FileName="Assets/GoToMusicRoom.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

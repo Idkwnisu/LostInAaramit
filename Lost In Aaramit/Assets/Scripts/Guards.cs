@@ -18,21 +18,27 @@ public class Guards : MonoBehaviour {
 
     public bool havePlume;
 
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (talkable)
+            if (PlayerPrefs.GetInt("bossDown") == 1)
             {
+                Debug.Log("Cristo");
+                Guard1.GetComponent<PupinsMovement>().setActive();
+                Guard2.GetComponent<PupinsMovement>().setActive();
+            } else {
                 if (PlayerPrefs.GetInt("Plume") == 1)
                 {
                     dialoguePlume.GetComponent<NPC>().triggerDialogue();
                     Guard1.GetComponent<PupinsMovement>().setActive();
                     Guard2.GetComponent<PupinsMovement>().setActive();
-                } else {
+                }
+                else
+                {
                     dialogueNoPlume.GetComponent<NPC>().triggerDialogue();
                 }
-
             }
         }
     }

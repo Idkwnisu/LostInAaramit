@@ -100,15 +100,10 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Prefs cleared");
-            PlayerPrefs.DeleteAll();
-        }
-
         //ended && Input.GetKeyDown(KeyCode.V)
         if (Input.GetKeyDown(KeyCode.V)){
             Destroy(AM);
+            PlayerPrefs.SetInt("bossDown", 1);
             string sceneName = PlayerPrefs.GetString("lastLoadedScene");
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(sceneName);
