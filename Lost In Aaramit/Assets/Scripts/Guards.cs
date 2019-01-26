@@ -25,7 +25,6 @@ public class Guards : MonoBehaviour {
         {
             if (PlayerPrefs.GetInt("bossDown") == 1)
             {
-                Debug.Log("Cristo");
                 Guard1.GetComponent<PupinsMovement>().setActive();
                 Guard2.GetComponent<PupinsMovement>().setActive();
             } else {

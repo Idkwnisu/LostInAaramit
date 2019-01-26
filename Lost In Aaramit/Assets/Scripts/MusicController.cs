@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -46,6 +47,8 @@ public class MusicController : MonoBehaviour
 
     public NPC crazyPup;
     public NPC HelpfulPup;
+
+    public GameObject magicEffect;
 
     public void SelectSegment()
     {
@@ -149,9 +152,19 @@ public class MusicController : MonoBehaviour
             soundEffect.Play();
             segment = 5;
             _win = true;
-            crazyPup.sentences.SetValue("You did it!",0);
-            crazyPup.sentences.SetValue("Now you can take the Feather of Virtue.", 1);
-            crazyPup.sentences.SetValue("Good luck!", 2);
+            magicEffect.SetActive(false);
+            crazyPup.GetComponent<NPC>().triggerDialogue();
+            /*String[] temp = new String[9];
+            crazyPup.sentences = temp;
+            crazyPup.sentences.SetValue("Mad Pupin@\rThe noise… has stopped! Thanks to you! ~", 0);
+            crazyPup.sentences.SetValue("Kitchi@\rKyaas… It wasn’t much!", 1);
+            crazyPup.sentences.SetValue("Mad Pupin@\rI was sooo worried! The rhythm sounded… corrupted. The disaster happened a few days ago, when that strange instrument fell on our village. The Leader told us that was a gift from the sky… tsk! I couldn’t believe it! It was just a big, huge calamity… I can firmly tell you that it was the cause of all this mess!", 2);
+            crazyPup.sentences.SetValue("Kitchi@\rKyaaas, that’s why we want to take it away from here.", 3);
+            crazyPup.sentences.SetValue("Allen@\r…", 4);
+            crazyPup.sentences.SetValue("Mad Pupin@\rWill you? Really? Oooh, this is great! ~", 5);
+            crazyPup.sentences.SetValue("Kitchi@\rBUT! We have to talk to your Leader, so…", 6);
+            crazyPup.sentences.SetValue("Mad Pupin@\rThis is not a problem. You can take the Feather of Virtue and reach the Leader.", 7);
+            crazyPup.sentences.SetValue("Kitchi@\rThaaat’s it, my friend! C’mon Allen, let’s get the Feather and go on!", 8);*/
         }
     }
 

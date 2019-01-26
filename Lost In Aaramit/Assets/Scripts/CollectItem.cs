@@ -6,6 +6,10 @@ public class CollectItem : MonoBehaviour
 {
     public float speed = 100;
 
+    public AudioClip clip;
+
+    public float efxVolume;
+
     // Use this for initialization
     void Start()
     {
@@ -23,6 +27,7 @@ public class CollectItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CollectiblesManager.instance.addPoint();
+            AudioManager.instance.PlaySingle(clip, efxVolume);
             Destroy(gameObject);
         }
     }

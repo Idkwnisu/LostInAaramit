@@ -21,7 +21,7 @@ public class GetFeather : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.SetInt("Plume", 1);
             Invoke("LoadMainScene", 2); 

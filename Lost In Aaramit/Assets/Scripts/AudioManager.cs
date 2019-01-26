@@ -16,7 +16,12 @@ public class AudioManager : MonoBehaviour {
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+    }
+
+    public void changeMusicSound(AudioClip track){
+        musicSource.clip = track;
+        musicSource.Play();
     }
 
     public void PlaySingle(AudioClip clip, float efxVolume)

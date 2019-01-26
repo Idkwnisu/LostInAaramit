@@ -96,7 +96,7 @@ public class PlayerFollow : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(_cameraProximity > minDistance)
+        if(_cameraProximity > minDistance && _isColliding)
             _cameraProximity = Mathf.Lerp(_cameraProximity, _cameraProximity - approachingSpeed, SmoothFactor);
     }
 }

@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneSelection : MonoBehaviour {
 
     private Scene sceneToDestroy;
+    public Image canvasImage;
+    public Sprite menuImage;
+    public Sprite creditsImage;
+
+    public GameObject newGame;
+    public GameObject credits;
+    public GameObject exit;
+    public GameObject back;
 
     private void Start()
     {
         PlayerPrefs.DeleteAll();
+        back.active = false;
     }
 
     void Awake()
@@ -19,7 +29,30 @@ public class SceneSelection : MonoBehaviour {
 
     public void SelectScene(string scene)
     {
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        if (scene == "Exit")
+        {
+            Application.Quit();
+        }
+        else if (scene == "Credits") 
+        {
+            credits.active = false;
+            newGame.active = false;
+            exit.active = false;
+            back.active = true;
+            canvasImage.transform.GetComponent<Image>().sprite = creditsImage;
+        }
+        else if (scene == "Back")
+        {
+            credits.active = true;
+            newGame.active = true;
+            exit.active = true;
+            back.active = false;
+            canvasImage.transform.GetComponent<Image>().sprite = menuImage;
+        }
+        else
+        {
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
     }
 
     void Update()
