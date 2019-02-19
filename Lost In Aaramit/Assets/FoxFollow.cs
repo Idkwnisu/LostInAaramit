@@ -72,7 +72,6 @@ public class FoxFollow : MonoBehaviour {
             {
                 controlsEnabled = playerCRC.isControlEnabled();
             }
-
             if (controlsEnabled)
             {
                 if (!flying)
