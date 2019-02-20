@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class DisplaySegment : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class DisplaySegment : MonoBehaviour
     public Material normal;
 
     public MusicController musicController;
-    private AudioSource Song;
+    private AudioManager Song;
     public bool display;
 
     public AudioClip Seg1;
@@ -23,54 +24,69 @@ public class DisplaySegment : MonoBehaviour
     public AudioClip Seg4;
     public AudioClip Seg5;
 
+    private bool pause = false;
+    public bool playerIsInteracting = false;
+
 
     // Use this for initialization
     void Start()
     {
         segment = 2;
         display = false;
-        Song = musicController.Song;
+        Song = musicController.audioManager;
     }
     	
 	// Update is called once per frame
 	void Update () 
     {
-        if (Song.isPlaying == false && display == true)
+        if (Song.musicSource.isPlaying == false && display == true && !pause)
+        {
+            pause = true;
+            StartCoroutine(PauseSong());
+        }
+    }
+
+    IEnumerator PauseSong()
+    {
+        yield return new WaitForSeconds((float)0.5);
+        if (playerIsInteracting)
         {
             switch (segment)
             {
                 case 1:
-                    square5.image.color = Color.black;
-                    square1.image.color = Color.white;
+                    square5.image.color = normal.color;
+                    square1.image.color = lumen.color;
                     segment = 2;
-                    Song.clip = Seg1;
+                    Song.changeMusicSound(Seg1);
                     break;
                 case 2:
-                    square1.image.color = Color.black;
-                    square2.image.color = Color.white;
+                    square1.image.color = normal.color;
+                    square2.image.color = lumen.color;
                     segment = 3;
-                    Song.clip = Seg2;
+                    Song.changeMusicSound(Seg2);
                     break;
                 case 3:
-                    square2.image.color = Color.black;
-                    square3.image.color = Color.white;
+                    square2.image.color = normal.color;
+                    square3.image.color = lumen.color;
                     segment = 4;
-                    Song.clip = Seg3;
+                    Song.changeMusicSound(Seg3);
                     break;
                 case 4:
-                    square3.image.color = Color.black;
-                    square4.image.color = Color.white;
+                    square3.image.color = normal.color;
+                    square4.image.color = lumen.color;
                     segment = 5;
-                    Song.clip = Seg4;
+                    Song.changeMusicSound(Seg4);
                     break;
                 case 5:
-                    square4.image.color = Color.black;
-                    square5.image.color = Color.white;
+                    square4.image.color = normal.color;
+                    square5.image.color = lumen.color;
                     segment = 1;
-                    Song.clip = Seg5;
+                    Song.changeMusicSound(Seg5);
+                    break;
+                default:
                     break;
             }
-            Song.Play();
         }
+        pause = false;
     }
 }

@@ -494,6 +494,6 @@
 /Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/obj/Debug/Assembly-CSharp.dll
 /Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/obj/Debug/Assembly-CSharp.pdb
-/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEditor.UI.dll
-/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEditor.UI.dll.mdb
-/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEditor.UI.xml
+/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.dll
+/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.dll.mdb
+/Users/marco/Documents/GitHub/LostInAaramit/Lost In Aaramit/Temp/bin/Debug/UnityEngine.SpatialTrackingModule.xml

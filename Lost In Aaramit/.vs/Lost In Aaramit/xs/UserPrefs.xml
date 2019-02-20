@@ -1,23 +1,19 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
-  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MusicController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TalkingFox.cs">
     <Files>
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="19" Column="11" />
-      <File FileName="Assets/Scripts/NPC.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/Guards.cs" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="22" Column="18" />
-      <File FileName="Assets/Scripts/DialogueSystem.cs" Line="151" Column="51" />
-      <File FileName="Assets/Scripts/MusicVillage.cs" Line="20" Column="47" />
-      <File FileName="Assets/GetFeather.cs" Line="49" Column="33" />
-      <File FileName="Assets/Scripts/BossFight.cs" Line="102" Column="6" />
-      <File FileName="Assets/Scripts/MusicController.cs" Line="153" Column="25" />
+      <File FileName="Assets/Scripts/MusicController.cs" Line="89" Column="1" />
+      <File FileName="Assets/Scripts/SongPlayer.cs" Line="29" Column="35" />
+      <File FileName="Assets/DisplaySegment.cs" Line="28" Column="11" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="24" Column="28" />
+      <File FileName="Assets/TalkingFox.cs" Line="68" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
