@@ -12,13 +12,14 @@ public class SceneSelection : MonoBehaviour {
     public Sprite creditsImage;
 
     public GameObject newGame;
+    public GameObject loadGame;
     public GameObject credits;
     public GameObject exit;
     public GameObject back;
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         back.active = false;
     }
 
@@ -37,6 +38,7 @@ public class SceneSelection : MonoBehaviour {
         {
             credits.active = false;
             newGame.active = false;
+            loadGame.active = false;
             exit.active = false;
             back.active = true;
             canvasImage.transform.GetComponent<Image>().sprite = creditsImage;
@@ -45,12 +47,20 @@ public class SceneSelection : MonoBehaviour {
         {
             credits.active = true;
             newGame.active = true;
+            loadGame.active = true;
             exit.active = true;
             back.active = false;
             canvasImage.transform.GetComponent<Image>().sprite = menuImage;
         }
+        else if (scene == "Load Game")
+        {
+            //Cursor.visible = false;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
         else
         {
+            PlayerPrefs.DeleteAll();
+            //Cursor.visible = false;
             SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
     }
@@ -70,6 +80,11 @@ public class SceneSelection : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "SceneSelectionMenu")
         {
             Cursor.visible = true;
+        }
+
+        else
+        {
+            Cursor.visible = false;
         }
     }
 }
