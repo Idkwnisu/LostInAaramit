@@ -26,7 +26,7 @@ public class ModelDisabler : MonoBehaviour {
                 toDisable[i].SetActive(true);
             }
         }
-        Invoke("Check", 2.0f);
+        Invoke("Check", 0.5f);
     }
 
 	// Update is called once per frame
