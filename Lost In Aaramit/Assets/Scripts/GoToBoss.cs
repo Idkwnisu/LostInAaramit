@@ -16,7 +16,6 @@ public class GoToBoss : MonoBehaviour {
             if (!PlayerPrefs.GetString("yetEnter").Equals("1")) 
             {
                 PlayerPrefs.SetString ("lastLoadedScene", SceneManager.GetActiveScene ().name);
-                PlayerPrefs.SetString("Saved", "1");
                 PlayerPrefs.SetString("yetEnter", "1");
                 Allen.GetComponent<PlayerPosition>().position_save();
                 Destroy(AM);

@@ -36,6 +36,7 @@ public class PlayerPosition : MonoBehaviour {
     public void position_save()
     {
         Debug.Log("Salva Posizione");
+        PlayerPrefs.SetString("Saved", "1");
         Vector3 pos = Allen.transform.position;
         PlayerPrefs.SetFloat("p_x", pos[0]);
         PlayerPrefs.SetFloat("p_y", pos[1]);

@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class StopAtNabla : MonoBehaviour
 {
+    public GameObject dialogue;
 
-    void Update()
+    public bool onlyOnce;
+
+    private bool talkable = true;
+
+    public void OnTriggerEnter(Collider other)
     {
-        if (PlayerPrefs.GetInt("bossDown") == 1)
+        if (other.CompareTag("Player"))
         {
-
+            if (PlayerPrefs.GetInt("bossDown") == 1)
+            {
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            } 
+            else
+            {            
+                if (talkable)
+                {
+                    dialogue.GetComponent<NPC>().triggerDialogue();
+                    if (onlyOnce)
+                    {
+                        talkable = false;
+                    }
+                }
+            }
         }
     }
 }
