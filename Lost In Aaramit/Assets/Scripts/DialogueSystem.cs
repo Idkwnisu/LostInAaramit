@@ -31,6 +31,8 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip audioClip;
     AudioSource audioSource;
 
+    public Image dialogueImage;
+
     private bool automaticContinue = false;
 
     void Start()
@@ -133,6 +135,8 @@ public class DialogueSystem : MonoBehaviour
                 endName = stringToDisplay[currentCharacterIndex];
             }
 
+            Sprite imgDlg = Resources.Load<Sprite>("ImageDialogue/" + nameText.text);
+            dialogueImage.sprite = imgDlg;
             currentCharacterIndex++;
             currentCharacterIndex++;
 
