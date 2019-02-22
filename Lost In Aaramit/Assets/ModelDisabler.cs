@@ -15,7 +15,6 @@ public class ModelDisabler : MonoBehaviour {
     {
         for (int i = 0; i < toDisable.Length; i++)
         {
-			Debug.Log(player.transform.position);
             //Debug.Log(Vector3.Distance(player.transform.position, toDisable[i].transform.position));
             if (Vector3.Distance(player.transform.position, toDisable[i].transform.position) > distance)
             {

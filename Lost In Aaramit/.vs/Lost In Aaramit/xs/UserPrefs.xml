@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{842010DC-9ED4-BBFD-FCB8-A0B7903D6B65}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TalkingFox.cs">
+  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StopAtNabla.cs">
     <Files>
-      <File FileName="Assets/Scripts/MusicController.cs" Line="89" Column="1" />
-      <File FileName="Assets/Scripts/SongPlayer.cs" Line="29" Column="35" />
-      <File FileName="Assets/DisplaySegment.cs" Line="28" Column="11" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="24" Column="28" />
-      <File FileName="Assets/TalkingFox.cs" Line="68" Column="1" />
+      <File FileName="Assets/Scripts/NPC.cs" Line="35" Column="17" />
+      <File FileName="Assets/Scripts/Guards.cs" Line="26" Column="13" />
+      <File FileName="Assets/Scripts/DialogueSystem.cs" Line="56" Column="16" />
+      <File FileName="Assets/Scripts/RemoveFeather.cs" Line="13" Column="10" />
+      <File FileName="Assets/Scripts/StopAtNabla.cs" Line="14" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Lost_220In_220Aaramit PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
