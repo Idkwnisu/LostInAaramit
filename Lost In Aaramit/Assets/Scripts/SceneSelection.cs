@@ -54,13 +54,11 @@ public class SceneSelection : MonoBehaviour {
         }
         else if (scene == "Load Game")
         {
-            //Cursor.visible = false;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
         else
         {
             PlayerPrefs.DeleteAll();
-            //Cursor.visible = false;
             SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
     }

@@ -128,11 +128,13 @@
     <Compile Include="Assets\Scripts\PupinsWalking.cs" />
     <Compile Include="Assets\Scripts\PuzzleFinish.cs" />
     <Compile Include="Assets\Scripts\RadialForestSpawner.cs" />
+    <Compile Include="Assets\Scripts\RemoveFeather.cs" />
     <Compile Include="Assets\Scripts\Rotation.cs" />
     <Compile Include="Assets\Scripts\SceneSelection.cs" />
     <Compile Include="Assets\Scripts\SeasonalChange.cs" />
     <Compile Include="Assets\Scripts\SeasonsClock.cs" />
     <Compile Include="Assets\Scripts\SongPlayer.cs" />
+    <Compile Include="Assets\Scripts\StopAtNabla.cs" />
     <Compile Include="Assets\Scripts\TriggerDialogue.cs" />
     <Compile Include="Assets\Scripts\TriggerNote.cs" />
     <Compile Include="Assets\Scripts\WhistleActivator.cs" />
