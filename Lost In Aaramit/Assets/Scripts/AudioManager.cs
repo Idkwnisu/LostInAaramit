@@ -9,14 +9,15 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager instance = null;
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
+    public float efxVolumeMultiplier = 1.0f;
 
     void Awake()
     {
         if (instance == null)
             instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
-        //DontDestroyOnLoad(gameObject);
+        /*else if (instance != this)
+            Destroy(gameObject);*/
+        DontDestroyOnLoad(gameObject);
     }
 
     public void changeMusicSound(AudioClip track){
@@ -26,6 +27,14 @@ public class AudioManager : MonoBehaviour {
 
     public void PlaySingle(AudioClip clip, float efxVolume)
     {
+        if (efxVolumeMultiplier >= 1.01f)
+        {
+            efxVolume += (1 - efxVolume) * (efxVolumeMultiplier - 1);
+        }
+        else if (efxVolumeMultiplier <= 0.99f)
+        {
+            efxVolume -= efxVolume * (1 - efxVolumeMultiplier);
+        }
         efxSource.volume = efxVolume;
         efxSource.clip = clip;
         efxSource.Play();
@@ -39,5 +48,10 @@ public class AudioManager : MonoBehaviour {
         efxSource.clip = clips[randomIndex];
 
         efxSource.Play();
+    }
+
+    public void DestroyAudioManager()
+    {
+        Destroy(gameObject);
     }
 }

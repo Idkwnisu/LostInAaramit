@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\MusicVillage.cs" />
     <Compile Include="Assets\Scripts\NablaBossMove.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PickableItem.cs" />
     <Compile Include="Assets\Scripts\PickupThings.cs" />
     <Compile Include="Assets\Scripts\PlacebleItem.cs" />

@@ -33,7 +33,8 @@ public class DisplaySegment : MonoBehaviour
     {
         segment = 2;
         display = false;
-        Song = musicController.audioManager;
+        Song = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        //Song = musicController.audioManager;
     }
     	
 	// Update is called once per frame

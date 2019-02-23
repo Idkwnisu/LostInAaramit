@@ -36,7 +36,8 @@ public class SongPlayer: MonoBehaviour
         InteractText.enabled = false;
         objectCamera.enabled = false;
         controllerLayout.SetActive(false);
-        Song = musicController.audioManager;
+        Song = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        //Song = musicController.audioManager;
         correctPitch = false;
         correctReordering = false;
             switch (name)

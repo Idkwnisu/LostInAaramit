@@ -19,7 +19,7 @@ public class GoToMusicRoom : MonoBehaviour {
                 PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
                 PlayerPrefs.SetString("yetPuzzle", "1");
                 Allen.GetComponent<PlayerPosition>().position_save();
-                Destroy(AM);
+                //Destroy(AM);
                 SceneManager.LoadScene("MusicPuzzleNewVersion", LoadSceneMode.Single);
             }
         }

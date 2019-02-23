@@ -53,8 +53,13 @@ public class BossFight : MonoBehaviour
     public Transform checkNablaPlayer;
     public Transform checkNablaBoss;
 
+    public AudioClip bossFight;
+    public AudioClip village;
+
     void Start()
     {
+        AM = GameObject.FindGameObjectWithTag("AudioManager");
+        AM.GetComponent<AudioManager>().changeMusicSound(bossFight);
         ended = false;
         Camera.enabled = true;
         CameraBoss.enabled = false;
@@ -101,7 +106,8 @@ public class BossFight : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)){
-            Destroy(AM);
+            //Destroy(AM);
+            AM.GetComponent<AudioManager>().changeMusicSound(village);
             PlayerPrefs.SetInt("bossDown", 1);
             string sceneName = PlayerPrefs.GetString("lastLoadedScene");
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
@@ -110,7 +116,8 @@ public class BossFight : MonoBehaviour
 
         if (ended && Input.GetKeyDown(KeyCode.V))
         {
-            Destroy(AM);
+            //Destroy(AM);
+            AM.GetComponent<AudioManager>().changeMusicSound(village);
             PlayerPrefs.SetInt("bossDown", 1);
             string sceneName = PlayerPrefs.GetString("lastLoadedScene");
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);

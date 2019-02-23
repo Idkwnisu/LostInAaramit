@@ -17,15 +17,13 @@ public class SceneSelection : MonoBehaviour {
     public GameObject exit;
     public GameObject back;
 
+    public static SceneSelection instance = null;
+
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
         back.active = false;
-    }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
+        Cursor.visible = true;
     }
 
     public void SelectScene(string scene)
@@ -63,26 +61,4 @@ public class SceneSelection : MonoBehaviour {
         }
     }
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            //Debug.Log("" + SceneManager.sceneCount);
-            sceneToDestroy = SceneManager.GetActiveScene();
-            SceneManager.UnloadSceneAsync(sceneToDestroy.buildIndex);
-            //.Log("" + SceneManager.sceneCount);
-            SceneManager.LoadScene("SceneSelectionMenu", LoadSceneMode.Single);
-            //Debug.Log("" + SceneManager.sceneCount);
-        }
-
-        if (SceneManager.GetActiveScene().name == "SceneSelectionMenu")
-        {
-            Cursor.visible = true;
-        }
-
-        else
-        {
-            Cursor.visible = false;
-        }
-    }
 }

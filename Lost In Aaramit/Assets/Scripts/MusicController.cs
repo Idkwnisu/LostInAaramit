@@ -61,6 +61,7 @@ public class MusicController : MonoBehaviour
         reorderingProgress = 0f;
         initDone = false;
         HelpfulPup.GetComponent<Animator>().SetBool("Stopped", true);
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     public void Update()
