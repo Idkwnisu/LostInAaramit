@@ -13,11 +13,14 @@ public class PlayerPosition : MonoBehaviour {
 
     private void Update()
     {
+        //Per testing
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
             Debug.Log("Prefs cleared");
             PlayerPrefs.DeleteAll();
         }
+        */
     }
 
     void Start()

@@ -47,6 +47,8 @@ public class BossFight : MonoBehaviour
 
     public float efxVolume;
 
+    public GameObject propSys;
+
     public GameObject AM;
 
     public Transform checkPlayer;
@@ -107,21 +109,15 @@ public class BossFight : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P)){
             //Destroy(AM);
-            AM.GetComponent<AudioManager>().changeMusicSound(village);
-            PlayerPrefs.SetInt("bossDown", 1);
-            string sceneName = PlayerPrefs.GetString("lastLoadedScene");
-            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(sceneName);
+            propSys.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(goToVillage());
         }
 
-        if (ended && Input.GetKeyDown(KeyCode.V))
+        if (ended && Input.GetKeyDown(KeyCode.E))
         {
             //Destroy(AM);
-            AM.GetComponent<AudioManager>().changeMusicSound(village);
-            PlayerPrefs.SetInt("bossDown", 1);
-            string sceneName = PlayerPrefs.GetString("lastLoadedScene");
-            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(sceneName);
+            propSys.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(goToVillage());
         }
     }
 
@@ -265,6 +261,22 @@ public class BossFight : MonoBehaviour
     {
         ended = true;
         stepText.enabled = true;
-        stepText.text = "Press V to return to the Village";
+        StartCoroutine(displayFinal());
+    }
+
+    IEnumerator goToVillage()
+    {
+        yield return new WaitForSeconds(2f);
+        AM.GetComponent<AudioManager>().changeMusicSound(village);
+        PlayerPrefs.SetInt("bossDown", 1);
+        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    IEnumerator displayFinal()
+    {
+        yield return new WaitForSeconds(4f);
+        stepText.text = "Press E to get the Propulsion System and come back to the Village";
     }
 }
