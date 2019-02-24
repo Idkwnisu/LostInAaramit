@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour {
         /*else if (instance != this)
             Destroy(gameObject);*/
         DontDestroyOnLoad(gameObject);
+        if (GameObject.FindGameObjectsWithTag("AudioManager").Length > 1)
+            Destroy(gameObject);
     }
 
     public void changeMusicSound(AudioClip track){

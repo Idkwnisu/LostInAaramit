@@ -27,6 +27,8 @@ public class PauseMenu : MonoBehaviour {
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        if(GameObject.FindGameObjectsWithTag("PauseMenu").Length > 1)
+            Destroy(gameObject);
     }
 
     private void Start()
@@ -128,7 +130,6 @@ public class PauseMenu : MonoBehaviour {
             mainButtons.active = true;
             audioButtons.active = false;
             Cursor.visible = true;
-            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = false;
             audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
             player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -144,15 +145,17 @@ public class PauseMenu : MonoBehaviour {
                     player.GetComponent<PlayerControllerRunNoFreeCamera>().Interacting();
                 }
             }
+            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = false;
         }
 
         else if (Input.GetButtonDown("Cancel") && canvas.active == true)
         {
             canvas.active = false;
             Cursor.visible = false;
-            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = true;
-            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (canvas.active == false)
+        {
             if (player != null)
             {
                 if (player.GetComponent<PlayerControllerRun>() != null)
@@ -164,6 +167,7 @@ public class PauseMenu : MonoBehaviour {
                     player.GetComponent<PlayerControllerRunNoFreeCamera>().NonInteracting();
                 }
             }
+            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = true;
         }
     }
 }
