@@ -145,7 +145,8 @@ public class PauseMenu : MonoBehaviour {
                     player.GetComponent<PlayerControllerRunNoFreeCamera>().Interacting();
                 }
             }
-            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = false;
+            if (SceneManager.GetActiveScene().name != "MusicPuzzleNewVersion")
+                ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = false;
         }
 
         else if (Input.GetButtonDown("Cancel") && canvas.active == true)
@@ -166,8 +167,9 @@ public class PauseMenu : MonoBehaviour {
                 {
                     player.GetComponent<PlayerControllerRunNoFreeCamera>().NonInteracting();
                 }
+            if (SceneManager.GetActiveScene().name != "MusicPuzzleNewVersion")
+                ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = true;
             }
-            ControlManager.instance.getCurrentCamera().GetComponent<PlayerFollow>().cameraActive = true;
         }
     }
 }

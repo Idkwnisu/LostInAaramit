@@ -62,6 +62,7 @@ public class MusicController : MonoBehaviour
         initDone = false;
         HelpfulPup.GetComponent<Animator>().SetBool("Stopped", true);
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        audioManager.musicSource.loop = false;
     }
 
     public void Update()
@@ -93,6 +94,7 @@ public class MusicController : MonoBehaviour
             {
                 pause = true;
             }
+            Debug.Log("ENTRATO");
             StartCoroutine(PauseSong());
         }
         if ((int)pitchProgress == 5 && (int)reorderingProgress == 5 && _win == false)

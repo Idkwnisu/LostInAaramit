@@ -13,6 +13,8 @@ public class GetFeather : MonoBehaviour {
 
     public GameObject AM;
 
+    public AudioClip village;
+
     // Use this for initialization
     void Start () {
         InteractText.enabled = false;
@@ -65,6 +67,8 @@ public class GetFeather : MonoBehaviour {
     {
             string sceneName = PlayerPrefs.GetString("lastLoadedScene");
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+            musicController.audioManager.changeMusicSound(village);
+            musicController.audioManager.musicSource.loop = true;
             SceneManager.LoadScene(sceneName);
     }
 }

@@ -261,7 +261,6 @@ public class BossFight : MonoBehaviour
     private void endBoss()
     {
         ended = true;
-        stepText.enabled = true;
         StartCoroutine(displayFinal());
     }
 
@@ -280,5 +279,6 @@ public class BossFight : MonoBehaviour
         magicEffect.SetActive(false);
         yield return new WaitForSeconds(4f);
         stepText.text = "Press E to get the Propulsion System and come back to the Village";
+        stepText.enabled = true;
     }
 }
