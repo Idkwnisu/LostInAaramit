@@ -21,12 +21,14 @@ public class GetFeather : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        /*
         if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.SetInt("Plume", 1);
             Invoke("LoadMainScene", 2); 
             Destroy(AM);
         }
+        */
 
         if (interactable)
         {
@@ -35,7 +37,7 @@ public class GetFeather : MonoBehaviour {
                 Debug.Log("SONO QUI");
                 PlayerPrefs.SetInt("Plume", 1);
                 feather.GetComponent<Renderer>().enabled = false;
-                Destroy(AM);
+                //Destroy(AM);
                 Invoke("LoadMainScene", 2);
             }
         }

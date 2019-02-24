@@ -50,6 +50,7 @@ public class BossFight : MonoBehaviour
     public GameObject propSys;
 
     public GameObject AM;
+    public GameObject magicEffect;
 
     public Transform checkPlayer;
     public Transform checkNablaPlayer;
@@ -107,11 +108,11 @@ public class BossFight : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)){
+        /*if (Input.GetKeyDown(KeyCode.P)){
             //Destroy(AM);
             propSys.gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(goToVillage());
-        }
+        }*/
 
         if (ended && Input.GetKeyDown(KeyCode.E))
         {
@@ -276,6 +277,7 @@ public class BossFight : MonoBehaviour
 
     IEnumerator displayFinal()
     {
+        magicEffect.SetActive(false);
         yield return new WaitForSeconds(4f);
         stepText.text = "Press E to get the Propulsion System and come back to the Village";
     }
