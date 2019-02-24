@@ -22,7 +22,6 @@ public class CameraChanger : MonoBehaviour {
             mainCamera.enabled = false;
             newCamera.enabled = true;
             ControlManager.instance.currentCamera = newCamera;
-           
         }
     }
 
