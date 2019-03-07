@@ -13,7 +13,10 @@ public class CollectItem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+       if (PlayerPrefs.GetInt("" + gameObject.GetInstanceID()) == 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class CollectItem : MonoBehaviour
         {
             CollectiblesManager.instance.addPoint();
             AudioManager.instance.PlaySingle(clip, efxVolume);
+            PlayerPrefs.SetInt("" + gameObject.GetInstanceID(), 1);
             Destroy(gameObject);
         }
     }
