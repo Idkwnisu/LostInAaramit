@@ -12,11 +12,13 @@ public class TriggerDialogue : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerPrefs.GetString(dialogue.name + "dialogue").Equals("1"))
         {
             if (talkable)
             {
                 dialogue.GetComponent<NPC>().triggerDialogue();
+
+                PlayerPrefs.SetString(dialogue.name + "dialogue", "1");
                 if(onlyOnce){
                     talkable = false;
                 }

@@ -10,15 +10,16 @@ public class GoToMusicRoom : MonoBehaviour {
 
     public GameObject AM;
 
+    public Transform backPoint;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (!PlayerPrefs.GetString("yetPuzzle").Equals("1"))
+            if (!(PlayerPrefs.GetInt("Plume") == 1))
             {
                 PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
-                PlayerPrefs.SetString("yetPuzzle", "1");
-                Allen.GetComponent<PlayerPosition>().position_save();
+                Allen.GetComponent<PlayerPosition>().position_save(backPoint.transform);
                 //Destroy(AM);
                 SceneManager.LoadScene("MusicPuzzleNewVersion", LoadSceneMode.Single);
             }
