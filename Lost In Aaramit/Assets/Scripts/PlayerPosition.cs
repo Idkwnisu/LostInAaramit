@@ -14,9 +14,11 @@ public class PlayerPosition : MonoBehaviour {
 
     private void Update()
     {
-
-          //  Debug.Log("Prefs cleared");
-          //  PlayerPrefs.DeleteAll();
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Debug.Log("Prefs cleared");
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     void Start()

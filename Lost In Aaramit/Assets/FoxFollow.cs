@@ -189,13 +189,13 @@ public class FoxFollow : MonoBehaviour {
 
                         if (offsetToApply == Vector3.zero)
                         {
-                            //Debug.Log("STUCK");
+                            Debug.Log("STUCK");
                             if (!flying)
                             {
-
                                 switchMovement();
                             }
                             _rb.AddForce(Vector3.up * stuckRecoveringSpeed * Time.deltaTime);
+                            _rb.AddForce((-1) * transform.forward * stuckRecoveringSpeed / 5 * Time.deltaTime);
                         }
 
                     }
