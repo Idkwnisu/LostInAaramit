@@ -7,8 +7,8 @@ public class FallingNabla : MonoBehaviour {
     public bool isFalling = false;
 
     private GameObject nab;
-    public int fallDelay;
-    public int reSpawn;
+    public float fallDelay;
+    public float reSpawn;
     public bool automaticFall;
     private Vector3 nabPos;
     private Quaternion nabRot;
@@ -32,10 +32,12 @@ public class FallingNabla : MonoBehaviour {
 
     IEnumerator FallNabla(GameObject nabla)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(fallDelay);
         nabla.GetComponent<Rigidbody>().isKinematic = false;
         isFalling = true;
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(reSpawn);
+		
+		Debug.Log("Respawn");
         nab.GetComponent<Rigidbody>().isKinematic = true;
         newNab = Instantiate(nab, nabPos, nabRot) as GameObject;
         Destroy(this.gameObject);
