@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 64
+  controlID: 91
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 65
+  controlID: 92
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -153,11 +153,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1094
-    height: 421
+    height: 460
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 66
+  controlID: 93
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,9 +175,9 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 322
-    height: 421
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+    height: 460
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -200,7 +200,7 @@ MonoBehaviour:
     x: 322
     y: 0
     width: 772
-    height: 421
+    height: 460
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 14}
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 421
+    y: 460
     width: 1094
-    height: 310
+    height: 271
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 16}
@@ -308,7 +308,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -363,13 +363,13 @@ MonoBehaviour:
     x: 0
     y: 92.8
     width: 320
-    height: 400
+    height: 439
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 1898}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 8aaefbff6cb6feff6eb6feff80b6feff0ce8feff0ee8feff14e8fefff024fffff224ffffe4fbffff00000000d0850000108a0000c4a1000052a40000dca400002ea6000062a70000fca90000a2b00000b8bb0000
+    m_ExpandedIDs: fc02fffffe02ffff7835ffff7a35ffffea3cffffec3cfffff83cffff003dffff3aeeffffe4fbffff00000000b0980000cc9800005ca300003ea8000068b30000dcb3000094b5000072b60000f8b60000c0b90000e2c100003ec6000002cb0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -388,7 +388,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - MusicPuzzleNewVersion
+  - Game
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
     x: 324.80002
     y: 92.8
     width: 768
-    height: 400
+    height: 439
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 5930.809045586909
@@ -424,9 +424,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 40.15122, y: -28.6849, z: -2.2787662}
+    m_Target: {x: -656.4475, y: 34.93068, z: 85.033165}
     speed: 2
-    m_Value: {x: 40.15122, y: -28.6849, z: -2.2787662}
+    m_Value: {x: -656.4475, y: 34.93068, z: 85.033165}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -454,13 +454,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.26790488, y: -0.6310996, z: 0.246887, w: -0.68482643}
+    m_Target: {x: 0.40638515, y: -0.3000864, z: 0.1432964, w: 0.85103786}
     speed: 2
-    m_Value: {x: -0.26790488, y: -0.6310996, z: 0.246887, w: -0.68482643}
+    m_Value: {x: 0.40638515, y: -0.3000864, z: 0.1432964, w: 0.85103786}
   m_Size:
-    m_Target: 34.81183
+    m_Target: 107.41141
     speed: 2
-    m_Value: 34.81183
+    m_Value: 107.41141
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -518,12 +518,12 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 513.60004
+    y: 552.8
     width: 1092
-    height: 289
+    height: 250
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: beginn
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -532,21 +532,22 @@ MonoBehaviour:
     m_ReferencingInstanceIDs: 
     m_ScenePaths: []
     m_ShowAllHits: 0
-    m_SearchArea: 1
-    m_Folders: []
+    m_SearchArea: 0
+    m_Folders:
+    - Assets/Official Material/Mesh
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Official Material/Mesh
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\stefa\Aaramit\LostInAaramit\Lost In Aaramit
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d42b0000ee2b0000f042000010430000524e000096670000c46700002c6800001e6f000046080100480801004a08010000ca9a3b
+    scrollPos: {x: 0, y: 144}
+    m_SelectedIDs: c05d0000
+    m_LastClickedID: 24000
+    m_ExpandedIDs: 00000000d42b0000ee2b0000f042000010430000524e000096670000c46700002c6800001e6f00000e850000108500001285000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -574,7 +575,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d42b0000ee2b0000f042000010430000524e000096670000c46700002c6800001e6f000046080100480801004a080100
+    m_ExpandedIDs: 00000000d42b0000ee2b0000f042000010430000524e000096670000c46700002c6800001e6f00000e8500001085000012850000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
