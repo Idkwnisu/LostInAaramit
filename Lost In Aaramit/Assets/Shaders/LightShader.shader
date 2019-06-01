@@ -1,10 +1,10 @@
 ﻿Shader "Custom/LightShader" {
 	Properties{
 		_Color("Color", Color) = (1,1,1,1)
-		_EmissionColor("Emission Color", Color) = (1,1,1,1)
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Transparency("Transparency", Range(0.0,1)) = 0.8
 		_LightVariance("Light Variance", Range(0.0,1)) = 0.4
+		_Cube ("Cubemap", CUBE) = "" {}
 
 	}
 		SubShader{
@@ -24,6 +24,7 @@
 		struct Input {
 			float2 uv_MainTex;
 			float4 screenPos;
+			float3 worldRefl;
 
 			fixed x;
 			fixed z;
@@ -33,7 +34,7 @@
 		float _LightVariance;
 		half _Glossiness;
 		fixed4 _Color;
-		fixed4 _EmissionColor;
+		samplerCUBE _Cube;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -53,7 +54,7 @@
 			fixed4 c = _Color;
 			
 			o.Albedo = c.rgb;
-			o.Emission = _EmissionColor;
+			o.Emission = texCUBE (_Cube, IN.worldRefl).rgb;
 			fixed ray = sqrt(IN.x*IN.x + IN.z*IN.z);
 			o.Alpha = _Transparency + _LightVariance * abs(sin(_Time[0]*50));
 		}
