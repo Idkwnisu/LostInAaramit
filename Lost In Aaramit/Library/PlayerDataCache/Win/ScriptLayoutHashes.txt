@@ -1,11 +1,7 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/stefa/Documents/CurrentAaramit/Lost In Aaramit.exe
+C:/Users/stefa/Documents/Planetarium/Lost In Aaramit.exe
 SceneListBegin?
-Assets/Scenes/SceneSelectionMenu.unity
-Assets/Scenes/BossScene.unity
-Assets/Scenes/Game.unity
-Assets/Scenes/MusicPuzzleNewVersion.unity
 Assets/Scenes/Planetarium.unity
 SceneListEnd?
 cf889fc9967542ff02be1bb64abc0b05 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
@@ -168,6 +164,7 @@ bcfa4b61ec6638c70cb01cc187945ae7 Assembly-CSharp.dll:.PlayerFollow
 fc23f540c2d52395aa06c0bb2fe9ea00 Assembly-CSharp.dll:.randomPlacer
 7cdcbeb117e5aeccbee1042f4420f2e6 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ChromaticAberration
 330651ef20f110f8f21767cf4fab9755 Assembly-CSharp.dll:.TurnRemoteObject
+f259e4515f8f722ca2bf38af446b9cb7 Assembly-CSharp.dll:.Floating
 259fc8791e5291d7c154081ffc6b6da2 Assembly-CSharp.dll:.PlacebleItem
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 ea585b5a75613df38b5751ce396c85d9 Assembly-CSharp.dll:.ExitPuzzle

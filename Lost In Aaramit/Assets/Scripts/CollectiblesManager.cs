@@ -18,6 +18,8 @@ public class CollectiblesManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
 
+
+        spendPoints(-10);
         DontDestroyOnLoad(this);
     }
 
