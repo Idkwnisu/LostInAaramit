@@ -43,6 +43,13 @@ public class NPCPay : MonoBehaviour {
     void Start () {
         dialogueSystem = FindObjectOfType<DialogueSystem>();
         ChatBackGround.GetComponent<CanvasRenderer>().SetAlpha(0.8f);
+        if(PlayerPrefs.GetFloat("PlanetariumDone") == 1)
+        {
+            block.SetActive(false);
+            done = true;
+            transform.position = target.transform.position;
+            walked = true;
+        }
     }
     
     void Update () {
@@ -115,6 +122,7 @@ public class NPCPay : MonoBehaviour {
                     CollectiblesManager.instance.spendPoints(payment);
                     block.SetActive(false);
                     done = true;
+                    PlayerPrefs.SetFloat("PlanetariumDone",1);
                 }
                 else
                 {
