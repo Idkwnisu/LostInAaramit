@@ -153,6 +153,7 @@
      <Compile Include="Assets\theNotes\Script\GUIConrtol_note.cs" />
      <Compile Include="Assets\theNotes\Script\NoteAnimatorControl.cs" />
      <Compile Include="Assets\TurnRemoteObject.cs" />
+     <Compile Include="Assets\UpdateAndShowCollectible.cs" />
      <None Include="Assets\Day-Night Skyboxes\readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

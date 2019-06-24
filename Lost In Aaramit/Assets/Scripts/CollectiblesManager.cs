@@ -6,7 +6,11 @@ public class CollectiblesManager : MonoBehaviour {
 
     public static CollectiblesManager instance = null;
 
+    public UpdateAndShowCollectible updater;
+
     private int collectibles = 0;
+
+    public bool toUpdate = false;
 
     void Awake()
     {
@@ -27,6 +31,7 @@ public class CollectiblesManager : MonoBehaviour {
     {
         collectibles += 1;
         Debug.Log("Now you have " + collectibles + " points");
+        toUpdate = true;
     }
 
     public int howManyPoints()
@@ -36,9 +41,11 @@ public class CollectiblesManager : MonoBehaviour {
 
     public bool spendPoints(int points)
     {
+        
         if (collectibles >= points)
         {
             collectibles -= points;
+            toUpdate = true;
             return true;
         }
         return false;
