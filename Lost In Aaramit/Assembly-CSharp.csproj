@@ -148,6 +148,7 @@
      <Compile Include="Assets\Simple Health Bar\Scripts\SimpleHealthBar.cs" />
      <Compile Include="Assets\SimpleRotator.cs" />
      <Compile Include="Assets\TalkingFox.cs" />
+     <Compile Include="Assets\Teleporter.cs" />
      <Compile Include="Assets\theNotes\Script\CamControl.cs" />
      <Compile Include="Assets\theNotes\Script\GUIConrtol_note.cs" />
      <Compile Include="Assets\theNotes\Script\NoteAnimatorControl.cs" />
